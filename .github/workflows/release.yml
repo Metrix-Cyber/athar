@@ -36,17 +36,6 @@ jobs:
         # ECC catalogue and exits 2 on an unknown code.
         run: go run ./cmd/scanner -list
 
-      - name: Record build environment
-        # Verification requires matching the build environment, so publish it
-        # rather than expecting anyone to guess.
-        run: |
-          {
-            echo "Go:      $(go version)"
-            echo "Runner:  ${{ runner.os }} / $(uname -srm)"
-            echo "Commit:  ${GITHUB_SHA}"
-            echo "Tag:     ${GITHUB_REF_NAME}"
-          } | tee dist-buildinfo.txt
-
       - name: Build release artifacts
         env:
           # -trimpath and a cleared build id remove absolute paths and the
@@ -58,6 +47,16 @@ jobs:
         run: |
           VERSION="${GITHUB_REF_NAME}"
           mkdir -p dist
+
+          # Reproduction requires matching the build environment, so publish it
+          # rather than expecting anyone to guess.
+          {
+            echo "Go:      $(go version)"
+            echo "Runner:  ${{ runner.os }} / $(uname -srm)"
+            echo "Commit:  ${GITHUB_SHA}"
+            echo "Tag:     ${VERSION}"
+          } > dist/BUILDINFO.txt
+          cat dist/BUILDINFO.txt
 
           build() {
             local goos=$1 goarch=$2 ext=$3
@@ -75,9 +74,7 @@ jobs:
           build linux   amd64 ""
           build linux   arm64 ""
 
-          mv ../dist-buildinfo.txt BUILDINFO.txt 2>/dev/null || mv dist-buildinfo.txt BUILDINFO.txt 2>/dev/null || true
           cd dist
-          [ -f ../BUILDINFO.txt ] && cp ../BUILDINFO.txt . || true
           sha256sum * > SHA256SUMS
           echo "--- artifacts ---"
           cat SHA256SUMS
