@@ -81,7 +81,8 @@ GOOS=windows GOARCH=amd64 go build -o athar.exe         ./cmd/scanner
 
 ```sh
 ./athar -list                     # list compiled-in checks and their control mappings
-./athar -out scan.json            # run a scan
+./athar -version                  # print version
+./athar -out scan.json -fail-on high   # exit 1 if any high or critical finding
 ./report -in scan.json -out report.html -org "Client Name"
 ```
 

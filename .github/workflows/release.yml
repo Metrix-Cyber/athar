@@ -1,0 +1,97 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.26'
+
+      # Releases are gated on the full suite: a tagged binary that fails its
+      # own tests should never reach a download page.
+      - name: Test
+        run: |
+          go vet ./...
+          go test -race ./...
+
+      - name: Verify control catalogue
+        # Startup validates every check's control codes against the embedded
+        # ECC catalogue and exits 2 on an unknown code.
+        run: go run ./cmd/scanner -list
+
+      - name: Build release artifacts
+        env:
+          # Trimpath and a fixed build id keep output reproducible, so anyone
+          # can rebuild from the tag and compare hashes. That is the property
+          # signing attests to, and it must hold before signing is meaningful.
+          CGO_ENABLED: '0'
+        run: |
+          VERSION="${GITHUB_REF_NAME}"
+          mkdir -p dist
+
+          build() {
+            local goos=$1 goarch=$2 ext=$3
+            GOOS=$goos GOARCH=$goarch go build \
+              -trimpath \
+              -ldflags "-s -w -X main.version=${VERSION} -buildid=" \
+              -o "dist/athar-${goos}-${goarch}${ext}" ./cmd/scanner
+            GOOS=$goos GOARCH=$goarch go build \
+              -trimpath \
+              -ldflags "-s -w -buildid=" \
+              -o "dist/athar-report-${goos}-${goarch}${ext}" ./cmd/report
+          }
+
+          build windows amd64 .exe
+          build linux   amd64 ""
+          build linux   arm64 ""
+
+          cd dist
+          sha256sum * > SHA256SUMS
+          echo "--- artifacts ---"
+          cat SHA256SUMS
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
+          generate_release_notes: true
+          body: |
+            ## Verifying this download
+
+            Athar is not yet code signed, so Windows SmartScreen will warn on
+            first run and AppLocker or WDAC will block it unless allowlisted.
+            Until signing is in place, verify the binary by hash:
+
+            ```sh
+            sha256sum -c SHA256SUMS          # Linux
+            Get-FileHash athar-windows-amd64.exe -Algorithm SHA256   # Windows
+            ```
+
+            Builds are reproducible: `-trimpath` and a cleared build id mean a
+            rebuild from this tag on the same Go version produces identical
+            binaries. You are not required to trust these artifacts — rebuild
+            them and compare.
+
+            ## What this release does
+
+            Read-only, offline compliance scanning against NCA ECC-2:2024. It
+            makes no network calls, executes no shell, handles no credentials,
+            and writes nothing to the scanned host except the report you ask
+            for.
+
+            See [SECURITY.md](SECURITY.md) for the security scope and
+            [CONTRIBUTING.md](CONTRIBUTING.md) for the accuracy standard checks
+            are held to.

@@ -13,6 +13,7 @@ import (
 	"os"
 	"os/signal"
 	"runtime"
+	"strings"
 	"time"
 
 	"github.com/Metrix-Cyber/athar/internal/check"
@@ -32,8 +33,15 @@ func main() {
 		outPath = flag.String("out", "", "write JSON report to this file (default: stdout)")
 		list    = flag.Bool("list", false, "list registered checks and exit")
 		timeout = flag.Duration("timeout", 5*time.Minute, "overall scan timeout")
+		showVer = flag.Bool("version", false, "print version and exit")
+		failOn  = flag.String("fail-on", "", "exit non-zero if a finding of this severity or higher is present: critical, high, medium, low")
 	)
 	flag.Parse()
+
+	if *showVer {
+		fmt.Printf("athar %s\n", version)
+		return
+	}
 
 	// Fail fast on a bad control mapping. A finding citing a control code that
 	// does not exist — or that says something other than what was verified —
@@ -86,6 +94,42 @@ func main() {
 		fmt.Fprintln(os.Stderr,
 			"Note: not running elevated — some checks could not be fully determined.")
 	}
+
+	// A scan that completed successfully exits 0 by default, even with
+	// failing findings: the scan itself worked. --fail-on lets a pipeline gate
+	// on results instead, which is opt-in so that adding it later cannot
+	// silently break an existing automation.
+	if code := failExitCode(*failOn, s); code != 0 {
+		fmt.Fprintf(os.Stderr,
+			"Exiting %d: findings at or above severity %q are present.\n", code, *failOn)
+		os.Exit(code)
+	}
+}
+
+// severityRank orders severities from most to least serious.
+var severityRank = map[string]int{"critical": 0, "high": 1, "medium": 2, "low": 3}
+
+// failExitCode returns 1 when the report contains a finding at or above the
+// requested severity, and 0 otherwise. An unrecognised threshold is ignored
+// rather than failing the scan, so a typo in a pipeline definition does not
+// look like a compliance failure.
+func failExitCode(threshold string, s check.Summary) int {
+	if threshold == "" {
+		return 0
+	}
+	limit, ok := severityRank[strings.ToLower(threshold)]
+	if !ok {
+		fmt.Fprintf(os.Stderr,
+			"Ignoring unrecognised -fail-on value %q; expected critical, high, medium or low.\n",
+			threshold)
+		return 0
+	}
+	for name, rank := range severityRank {
+		if rank <= limit && s.BySeverity[name] > 0 {
+			return 1
+		}
+	}
+	return 0
 }
 
 func listChecks() {
