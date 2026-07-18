@@ -18,7 +18,11 @@ jobs:
 
       - uses: actions/setup-go@v5
         with:
-          go-version: '1.26'
+          # Pinned to an exact patch. A floating '1.26' silently picks up new
+          # patch releases, and a different toolchain produces a different
+          # binary — which would break byte-for-byte verification without any
+          # visible change to this repository.
+          go-version: '1.26.5'
 
       # Releases are gated on the full suite: a tagged binary that fails its
       # own tests should never reach a download page.
@@ -32,11 +36,24 @@ jobs:
         # ECC catalogue and exits 2 on an unknown code.
         run: go run ./cmd/scanner -list
 
+      - name: Record build environment
+        # Verification requires matching the build environment, so publish it
+        # rather than expecting anyone to guess.
+        run: |
+          {
+            echo "Go:      $(go version)"
+            echo "Runner:  ${{ runner.os }} / $(uname -srm)"
+            echo "Commit:  ${GITHUB_SHA}"
+            echo "Tag:     ${GITHUB_REF_NAME}"
+          } | tee dist-buildinfo.txt
+
       - name: Build release artifacts
         env:
-          # Trimpath and a fixed build id keep output reproducible, so anyone
-          # can rebuild from the tag and compare hashes. That is the property
-          # signing attests to, and it must hold before signing is meaningful.
+          # -trimpath and a cleared build id remove absolute paths and the
+          # build id from output. Together with a pinned toolchain this makes
+          # builds reproducible ON THE SAME HOST PLATFORM — cross-compiling
+          # the same target from a different OS was measured to produce a
+          # different binary, so verification must match the runner.
           CGO_ENABLED: '0'
         run: |
           VERSION="${GITHUB_REF_NAME}"
@@ -58,7 +75,9 @@ jobs:
           build linux   amd64 ""
           build linux   arm64 ""
 
+          mv ../dist-buildinfo.txt BUILDINFO.txt 2>/dev/null || mv dist-buildinfo.txt BUILDINFO.txt 2>/dev/null || true
           cd dist
+          [ -f ../BUILDINFO.txt ] && cp ../BUILDINFO.txt . || true
           sha256sum * > SHA256SUMS
           echo "--- artifacts ---"
           cat SHA256SUMS
@@ -80,10 +99,26 @@ jobs:
             Get-FileHash athar-windows-amd64.exe -Algorithm SHA256   # Windows
             ```
 
-            Builds are reproducible: `-trimpath` and a cleared build id mean a
-            rebuild from this tag on the same Go version produces identical
-            binaries. You are not required to trust these artifacts — rebuild
-            them and compare.
+            ## Reproducing these builds
+
+            You are not required to trust these artifacts. They are built in
+            public CI from this tag with `-trimpath`, a cleared build id and a
+            pinned toolchain, and can be rebuilt and compared.
+
+            Reproduction requires **matching the build environment**, which is
+            recorded in `BUILDINFO.txt`. Building the same target from a
+            different host operating system produces a different binary even
+            with identical source, toolchain version and flags — this was
+            measured, not assumed. To verify, build on the same OS as the
+            runner:
+
+            ```sh
+            git checkout <tag>
+            CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build \
+              -trimpath -ldflags "-s -w -X main.version=<tag> -buildid=" \
+              -o athar ./cmd/scanner
+            sha256sum athar
+            ```
 
             ## What this release does
 
