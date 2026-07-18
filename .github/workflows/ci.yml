@@ -1,0 +1,84 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Test and vet
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        # Both platforms run the full suite: the Linux parsers are tested on
+        # Windows too, since contributors on Windows cannot otherwise exercise
+        # that code at all.
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.26'
+          check-latest: true
+
+      - run: go vet ./...
+      - run: go test -race ./...
+
+      - name: Verify formatting
+        shell: bash
+        run: |
+          unformatted=$(gofmt -l .)
+          if [ -n "$unformatted" ]; then
+            echo "These files need gofmt:"
+            echo "$unformatted"
+            exit 1
+          fi
+
+  build:
+    name: Cross-compile
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.26'
+
+      - name: Build all targets
+        run: |
+          for target in windows/amd64 linux/amd64 linux/arm64; do
+            GOOS=${target%/*} GOARCH=${target#*/} \
+              go build -ldflags "-s -w" -o "/tmp/athar-${target////-}" ./cmd/scanner
+            echo "built $target"
+          done
+
+      - name: Smoke test the control catalogue
+        # Startup validates every check's control codes against the embedded
+        # ECC catalogue and exits 2 on an unknown code. This turns a wrong
+        # framework mapping into a failed build rather than a wrong finding in
+        # a customer's report.
+        run: |
+          go run ./cmd/scanner -list
+
+  licences:
+    name: Dependency licences
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.26'
+
+      - name: Reject copyleft dependencies
+        # The scanner is distributed as a binary to third parties, so a
+        # GPL-family dependency would impose obligations on that distribution.
+        # Enforced here rather than remembered.
+        run: |
+          go install github.com/google/go-licenses@latest
+          go-licenses check ./... \
+            --disallowed_types=forbidden,restricted,reciprocal \
+            || { echo "A dependency carries a copyleft or unknown licence."; exit 1; }

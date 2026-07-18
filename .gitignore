@@ -1,0 +1,6 @@
+bin/
+scan.json
+report.html
+*.exe
+scanner-linux
+scanner-linux-arm64

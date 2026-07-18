@@ -1,0 +1,1593 @@
+{
+  "framework": "NCA ECC-2:2024",
+  "source": "https://nca.gov.sa/en/regulatory-documents/controls-list/ecc/",
+  "domains": [
+    {
+      "code": "1",
+      "name": "Cybersecurity Governance"
+    },
+    {
+      "code": "2",
+      "name": "Cybersecurity Defense"
+    },
+    {
+      "code": "3",
+      "name": "Cybersecurity Resilience"
+    },
+    {
+      "code": "4",
+      "name": "Third-Party and Cloud Computing Cybersecurity"
+    }
+  ],
+  "subdomains": [
+    {
+      "code": "1-1",
+      "domain": "1",
+      "domain_name": "Cybersecurity Governance",
+      "title": "Cybersecurity Strategy"
+    },
+    {
+      "code": "1-2",
+      "domain": "1",
+      "domain_name": "Cybersecurity Governance",
+      "title": "Cybersecurity Management"
+    },
+    {
+      "code": "1-3",
+      "domain": "1",
+      "domain_name": "Cybersecurity Governance",
+      "title": "Cybersecurity Policies and Procedures"
+    },
+    {
+      "code": "1-4",
+      "domain": "1",
+      "domain_name": "Cybersecurity Governance",
+      "title": "Cybersecurity Roles and Responsibilities"
+    },
+    {
+      "code": "1-5",
+      "domain": "1",
+      "domain_name": "Cybersecurity Governance",
+      "title": "Cybersecurity Risk Management"
+    },
+    {
+      "code": "1-6",
+      "domain": "1",
+      "domain_name": "Cybersecurity Governance",
+      "title": "Cybersecurity in Information and Technology Project Management"
+    },
+    {
+      "code": "1-7",
+      "domain": "1",
+      "domain_name": "Cybersecurity Governance",
+      "title": "Compliance with Cybersecurity Standards, Laws and Regulations"
+    },
+    {
+      "code": "1-8",
+      "domain": "1",
+      "domain_name": "Cybersecurity Governance",
+      "title": "Periodical Cybersecurity Review and Audit"
+    },
+    {
+      "code": "1-9",
+      "domain": "1",
+      "domain_name": "Cybersecurity Governance",
+      "title": "Cybersecurity in Human Resources"
+    },
+    {
+      "code": "1-10",
+      "domain": "1",
+      "domain_name": "Cybersecurity Governance",
+      "title": "Cybersecurity Awareness and Training Program"
+    },
+    {
+      "code": "2-1",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defense",
+      "title": "Asset Management"
+    },
+    {
+      "code": "2-2",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defense",
+      "title": "Identity and Access Management"
+    },
+    {
+      "code": "2-3",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defense",
+      "title": "Information System and Processing Facilities Protection"
+    },
+    {
+      "code": "2-4",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defense",
+      "title": "Email Protection"
+    },
+    {
+      "code": "2-5",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defense",
+      "title": "Networks Security Management"
+    },
+    {
+      "code": "2-6",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defense",
+      "title": "Mobile Devices Security"
+    },
+    {
+      "code": "2-7",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defense",
+      "title": "Data and Information Protection"
+    },
+    {
+      "code": "2-8",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defense",
+      "title": "Cryptography"
+    },
+    {
+      "code": "2-9",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defense",
+      "title": "Backup and Recovery Management"
+    },
+    {
+      "code": "2-10",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defense",
+      "title": "Vulnerabilities Management"
+    },
+    {
+      "code": "2-11",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defense",
+      "title": "Penetration Testing"
+    },
+    {
+      "code": "2-12",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defense",
+      "title": "Cybersecurity Event Logs and Monitoring Management"
+    },
+    {
+      "code": "2-13",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defense",
+      "title": "Cybersecurity Incident and Threat Management"
+    },
+    {
+      "code": "2-14",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defense",
+      "title": "Physical Security"
+    },
+    {
+      "code": "2-15",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defense",
+      "title": "Web Application Security"
+    },
+    {
+      "code": "3-1",
+      "domain": "3",
+      "domain_name": "Cybersecurity Resilience",
+      "title": "Cybersecurity Resilience Aspects of Business Continuity Management"
+    },
+    {
+      "code": "4-1",
+      "domain": "4",
+      "domain_name": "Third-Party and Cloud Computing Cybersecurity",
+      "title": "Third-Party Cybersecurity"
+    },
+    {
+      "code": "4-2",
+      "domain": "4",
+      "domain_name": "Third-Party and Cloud Computing Cybersecurity",
+      "title": "Cloud Computing and Hosting Cybersecurity"
+    }
+  ],
+  "controls": [
+    {
+      "code": "1-1-1",
+      "subdomain": "1-1",
+      "parent": null,
+      "kind": "control",
+      "text": "and it shall be supported by the head of the entity or his/her delegate (Hereinafter referred to as the \"Authorized Official\"). The strategy goals shall be in line with the relevant legislative and regulatory requirements."
+    },
+    {
+      "code": "1-1-2",
+      "subdomain": "1-1",
+      "parent": null,
+      "kind": "control",
+      "text": "The entity shall execute an action plan to apply the cybersecurity strategy."
+    },
+    {
+      "code": "1-1-3",
+      "subdomain": "1-1",
+      "parent": null,
+      "kind": "control",
+      "text": "The cybersecurity strategy shall be reviewed at planned intervals (or in case of changes to the relevant legislative and regulatory requirements)."
+    },
+    {
+      "code": "1-2-1",
+      "subdomain": "1-2",
+      "parent": null,
+      "kind": "control",
+      "text": "Department (As per High Order No. 37140, dated 14/08/1438H.). It is recommended that the Cybersecurity Department reports directly to the head of the entity or his/her delegate while ensuring that this does not result in a conflict of interests."
+    },
+    {
+      "code": "1-2-2",
+      "subdomain": "1-2",
+      "parent": null,
+      "kind": "control",
+      "text": "All cybersecurity positions shall be filled out with full-time and qualified Saudi cybersecurity professionals. A cybersecurity supervisory committee shall be established pursuant to the instruction of the entity's Authorized Official to ensure compliance with, support for, and"
+    },
+    {
+      "code": "1-2-3",
+      "subdomain": "1-2",
+      "parent": null,
+      "kind": "control",
+      "text": "monitoring of the implementation of the cybersecurity programs and regulations. The committee's members, responsibilities, and governance framework shall be identified, documented, and approved. The committee shall include the head of the cybersecurity department as a member. It is recommended that the committee reports directly to the head of the entity or his/her delegate while ensuring that this does not result in a conflict of interests."
+    },
+    {
+      "code": "1-3-1",
+      "subdomain": "1-3",
+      "parent": null,
+      "kind": "control",
+      "text": "policies and procedures, including the cybersecurity controls and requirements, and have them approved by the entity's Authorized Official, and communicate them to the relevant personnel and parties inside the entity. The cybersecurity department shall ensure that the cybersecurity policies and"
+    },
+    {
+      "code": "1-3-2",
+      "subdomain": "1-3",
+      "parent": null,
+      "kind": "control",
+      "text": "procedures, including the relevant controls and requirements, are implemented at the entity. The cybersecurity policies and procedures shall be supported by technical security"
+    },
+    {
+      "code": "1-3-3",
+      "subdomain": "1-3",
+      "parent": null,
+      "kind": "control",
+      "text": "standards (e.g. technical security standards for firewall, databases, operating systems, etc.). The cybersecurity policies and procedures shall be reviewed and updated at planned"
+    },
+    {
+      "code": "1-3-4",
+      "subdomain": "1-3",
+      "parent": null,
+      "kind": "control",
+      "text": "intervals (or in case of changes to the relevant legislative and regulatory requirements and standards). Changes shall be documented and approved."
+    },
+    {
+      "code": "1-4-1",
+      "subdomain": "1-4",
+      "parent": null,
+      "kind": "control",
+      "text": "assign the persons concerned therewith. The necessary support shall be provided for the implementation thereof while ensuring that this does not result in a conflict of interests. The cybersecurity roles and responsibilities within the entity shall be reviewed and updated at planned intervals (or in case of changes to the relevant legislative and"
+    },
+    {
+      "code": "1-4-2",
+      "subdomain": "1-4",
+      "parent": null,
+      "kind": "control",
+      "text": "regulatory requirements)."
+    },
+    {
+      "code": "1-5-1",
+      "subdomain": "1-5",
+      "parent": null,
+      "kind": "control",
+      "text": "The cybersecurity department of the entity shall identify, document, and approve the cybersecurity risk management methodology and procedures within the entity, in accordance with considerations of confidentiality, and the integrity and availability of information and technology assets."
+    },
+    {
+      "code": "1-5-2",
+      "subdomain": "1-5",
+      "parent": null,
+      "kind": "control",
+      "text": "The cybersecurity department shall implement the cybersecurity risk management methodology and procedures within the entity. The cybersecurity risk assessment procedures shall be implemented at least in the following cases:"
+    },
+    {
+      "code": "1-5-3-1",
+      "subdomain": "1-5",
+      "parent": "1-5-3",
+      "kind": "subcontrol",
+      "text": "At early stage of technology projects."
+    },
+    {
+      "code": "1-5-3",
+      "subdomain": "1-5",
+      "parent": null,
+      "kind": "control",
+      "text": "",
+      "needs_review": true
+    },
+    {
+      "code": "1-5-3-2",
+      "subdomain": "1-5",
+      "parent": "1-5-3",
+      "kind": "subcontrol",
+      "text": "Before making major changes to technology infrastructure."
+    },
+    {
+      "code": "1-5-3-3",
+      "subdomain": "1-5",
+      "parent": "1-5-3",
+      "kind": "subcontrol",
+      "text": "During planning to obtain third party services."
+    },
+    {
+      "code": "1-5-3-4",
+      "subdomain": "1-5",
+      "parent": "1-5-3",
+      "kind": "subcontrol",
+      "text": "During planning and before the release of new technology services and products. The cybersecurity risk management methodology and procedures shall be reviewed and"
+    },
+    {
+      "code": "1-5-4",
+      "subdomain": "1-5",
+      "parent": null,
+      "kind": "control",
+      "text": "updated at planned intervals (or in case of changes to the relevant legislative and regulatory requirements and standards). Changes shall be documented and approved."
+    },
+    {
+      "code": "1-6-1",
+      "subdomain": "1-6",
+      "parent": null,
+      "kind": "control",
+      "text": "within the entity to ensure identifying and managing cybersecurity risks as part of the technology project lifecycle. The cybersecurity requirements shall be a key part of the requirements for technology projects."
+    },
+    {
+      "code": "1-6-2",
+      "subdomain": "1-6",
+      "parent": null,
+      "kind": "control",
+      "text": ""
+    },
+    {
+      "code": "1-6-2-1",
+      "subdomain": "1-6",
+      "parent": "1-6-2",
+      "kind": "subcontrol",
+      "text": "Vulnerability assessment and remediation."
+    },
+    {
+      "code": "1-6-2-2",
+      "subdomain": "1-6",
+      "parent": "1-6-2",
+      "kind": "subcontrol",
+      "text": "Reviewing secure configuration and hardening and updates packages before launching projects and changes. The cybersecurity requirements for software and application development projects within the entity shall include the following as a minimum:"
+    },
+    {
+      "code": "1-6-3-1",
+      "subdomain": "1-6",
+      "parent": "1-6-3",
+      "kind": "subcontrol",
+      "text": "Using the secure coding standards."
+    },
+    {
+      "code": "1-6-3-2",
+      "subdomain": "1-6",
+      "parent": "1-6-3",
+      "kind": "subcontrol",
+      "text": "Using trusted and licensed sources for software development tools and libraries."
+    },
+    {
+      "code": "1-6-3",
+      "subdomain": "1-6",
+      "parent": null,
+      "kind": "control",
+      "text": "The cybersecurity requirements for project management and information and technology asset changes within the entity shall include the following as a minimum:"
+    },
+    {
+      "code": "1-6-3-3",
+      "subdomain": "1-6",
+      "parent": "1-6-3",
+      "kind": "subcontrol",
+      "text": "Conducting compliance test for software against the cybersecurity requirements within the entity."
+    },
+    {
+      "code": "1-6-3-4",
+      "subdomain": "1-6",
+      "parent": "1-6-3",
+      "kind": "subcontrol",
+      "text": "Secure integration between applications."
+    },
+    {
+      "code": "1-6-3-5",
+      "subdomain": "1-6",
+      "parent": "1-6-3",
+      "kind": "subcontrol",
+      "text": "Reviewing secure configuration and hardening and updates packages before launching software products"
+    },
+    {
+      "code": "1-6-4",
+      "subdomain": "1-6",
+      "parent": null,
+      "kind": "control",
+      "text": "The cybersecurity requirements for project management within the entity shall be periodically reviewed."
+    },
+    {
+      "code": "1-7-1",
+      "subdomain": "1-7",
+      "parent": null,
+      "kind": "control",
+      "text": "cybersecurity requirements, the entity shall identify and comply with these requirements."
+    },
+    {
+      "code": "1-8-1",
+      "subdomain": "1-8",
+      "parent": null,
+      "kind": "control",
+      "text": "The cybersecurity department of the entity shall periodically review the implementation of cybersecurity controls by the entity. The implementation of cybersecurity controls by the entity shall be reviewed and audited by parties other than the cybersecurity department at the entity, provided that"
+    },
+    {
+      "code": "1-8-2",
+      "subdomain": "1-8",
+      "parent": null,
+      "kind": "control",
+      "text": "the audit and review are to be conducted independently while considering the principle of conflict of interest, as per the Generally Accepted Auditing Standards (GAAS) and the relevant legislative and regulatory requirements. The results of cybersecurity audits and reviews shall be documented and presented to"
+    },
+    {
+      "code": "1-8-3",
+      "subdomain": "1-8",
+      "parent": null,
+      "kind": "control",
+      "text": "the cybersecurity supervisory committee and the Authorized Official. Results shall include the audit and review scope, observations, recommendations, corrective actions, and remediation plans."
+    },
+    {
+      "code": "1-9-1",
+      "subdomain": "1-9",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for personnel of the entity shall be identified, documented, and approved prior to, during, and upon the end or termination of their employment."
+    },
+    {
+      "code": "1-9-2",
+      "subdomain": "1-9",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for personnel of the entity shall be implemented."
+    },
+    {
+      "code": "1-9-3",
+      "subdomain": "1-9",
+      "parent": null,
+      "kind": "control",
+      "text": ""
+    },
+    {
+      "code": "1-9-3-1",
+      "subdomain": "1-9",
+      "parent": "1-9-3",
+      "kind": "subcontrol",
+      "text": "Incorporating the personnel's cybersecurity responsibilities clauses and non- disclosure clauses in their employment contracts with the entity (including during and after employment end/termination with the entity)."
+    },
+    {
+      "code": "1-9-3-2",
+      "subdomain": "1-9",
+      "parent": "1-9-3",
+      "kind": "subcontrol",
+      "text": "Conducting screening or vetting for personnel in cybersecurity positions and technical positions with critical and privileged powers. Cybersecurity requirements for personnel during their employment relationship with the entity shall include the following as a minimum:"
+    },
+    {
+      "code": "1-9-4",
+      "subdomain": "1-9",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements prior to the commencement of the employment relationship between personnel and the entity shall include the following as a minimum:"
+    },
+    {
+      "code": "1-9-4-1",
+      "subdomain": "1-9",
+      "parent": "1-9-4",
+      "kind": "subcontrol",
+      "text": "Cybersecurity awareness (during on-boarding and during employment)."
+    },
+    {
+      "code": "1-9-4-2",
+      "subdomain": "1-9",
+      "parent": "1-9-4",
+      "kind": "subcontrol",
+      "text": "Implementation and compliance with cybersecurity requirements, as per the entity's cybersecurity policies, procedures, and operations."
+    },
+    {
+      "code": "1-9-5",
+      "subdomain": "1-9",
+      "parent": null,
+      "kind": "control",
+      "text": "The personnel's powers shall be reviewed and revoked immediately upon the end/termination of their employment with the entity."
+    },
+    {
+      "code": "1-9-6",
+      "subdomain": "1-9",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for personnel of the entity shall be periodically reviewed."
+    },
+    {
+      "code": "1-10-1",
+      "subdomain": "1-10",
+      "parent": null,
+      "kind": "control",
+      "text": "periodically developed and approved by the entity to strengthen the awareness about cybersecurity, cyber threats, and risks, and to build a positive cybersecurity awareness culture."
+    },
+    {
+      "code": "1-10-2",
+      "subdomain": "1-10",
+      "parent": null,
+      "kind": "control",
+      "text": "The approved cybersecurity awareness program shall be implemented within the entity. The cybersecurity awareness program shall include how to protect the entity against the most important and latest cyber risks and threats, including:"
+    },
+    {
+      "code": "1-10-3-1",
+      "subdomain": "1-10",
+      "parent": "1-10-3",
+      "kind": "subcontrol",
+      "text": "Secure handling of email services, especially phishing emails."
+    },
+    {
+      "code": "1-10-3",
+      "subdomain": "1-10",
+      "parent": null,
+      "kind": "control",
+      "text": "",
+      "needs_review": true
+    },
+    {
+      "code": "1-10-3-2",
+      "subdomain": "1-10",
+      "parent": "1-10-3",
+      "kind": "subcontrol",
+      "text": "Secure handling of mobile devices and storage media."
+    },
+    {
+      "code": "1-10-3-3",
+      "subdomain": "1-10",
+      "parent": "1-10-3",
+      "kind": "subcontrol",
+      "text": "Secure Internet browsing."
+    },
+    {
+      "code": "1-10-3-4",
+      "subdomain": "1-10",
+      "parent": "1-10-3",
+      "kind": "subcontrol",
+      "text": "Secure usage of social media. Specialized skills and necessary training shall be provided to personnel in positions that are linked directly to cybersecurity within the entity. Such skills and training shall be classified in line with their cybersecurity responsibilities, including:"
+    },
+    {
+      "code": "1-10-4",
+      "subdomain": "1-10",
+      "parent": null,
+      "kind": "control",
+      "text": "",
+      "needs_review": true
+    },
+    {
+      "code": "1-10-4-1",
+      "subdomain": "1-10",
+      "parent": "1-10-4",
+      "kind": "subcontrol",
+      "text": "Cybersecurity department personnel."
+    },
+    {
+      "code": "1-10-4-2",
+      "subdomain": "1-10",
+      "parent": "1-10-4",
+      "kind": "subcontrol",
+      "text": "Personnel working on software/application development and those working on information and technology assets of the entity."
+    },
+    {
+      "code": "1-10-4-3",
+      "subdomain": "1-10",
+      "parent": "1-10-4",
+      "kind": "subcontrol",
+      "text": "Executive and supervisory positions."
+    },
+    {
+      "code": "1-10-5",
+      "subdomain": "1-10",
+      "parent": null,
+      "kind": "control",
+      "text": "The implementation of cybersecurity awareness program within the entity shall be periodically reviewed. 22 Cybersecurity Defense"
+    },
+    {
+      "code": "2-1-1",
+      "subdomain": "2-1",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for managing information and technology assets of the entity shall be identified, documented, and approved."
+    },
+    {
+      "code": "2-1-2",
+      "subdomain": "2-1",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for managing information and technology assets of the entity shall be implemented."
+    },
+    {
+      "code": "2-1-3",
+      "subdomain": "2-1",
+      "parent": null,
+      "kind": "control",
+      "text": "The policy of acceptable use of information and technology assets of the entity shall be identified, documented, approved, and communicated."
+    },
+    {
+      "code": "2-1-4",
+      "subdomain": "2-1",
+      "parent": null,
+      "kind": "control",
+      "text": "The policy of acceptable use of information and technology assets of the entity shall be implemented."
+    },
+    {
+      "code": "2-1-5",
+      "subdomain": "2-1",
+      "parent": null,
+      "kind": "control",
+      "text": "Information and technology assets of the entity shall be classified, labeled, and handled as per the relevant legislative and regulatory requirements."
+    },
+    {
+      "code": "2-1-6",
+      "subdomain": "2-1",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for managing information and technology assets of the entity shall be periodically reviewed."
+    },
+    {
+      "code": "2-2-1",
+      "subdomain": "2-2",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for identity and access management of the entity shall be identified, documented, and approved."
+    },
+    {
+      "code": "2-2-2",
+      "subdomain": "2-2",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for identity and access management of the entity shall be implemented. Cybersecurity requirements for identity and access management of the entity shall"
+    },
+    {
+      "code": "2-2-3",
+      "subdomain": "2-2",
+      "parent": null,
+      "kind": "control",
+      "text": "include the following as a minimum:"
+    },
+    {
+      "code": "2-2-3-1",
+      "subdomain": "2-2",
+      "parent": "2-2-3",
+      "kind": "subcontrol",
+      "text": "Single-factor authentication based on username and password."
+    },
+    {
+      "code": "2-2-3-2",
+      "subdomain": "2-2",
+      "parent": "2-2-3",
+      "kind": "subcontrol",
+      "text": "Multi-factor authentication, and defining the suitable authentication factors and their numbers as well as the suitable authentication techniques based on the result of impact assessment of authentication failure and bypass for remote access and for privileged accounts."
+    },
+    {
+      "code": "2-2-3-3",
+      "subdomain": "2-2",
+      "parent": "2-2-3",
+      "kind": "subcontrol",
+      "text": "User authorization based on identity and access control principles (Need-to- Know and Need-to-Use principle, Least Privilege principle, and Segregation of Duties principle)."
+    },
+    {
+      "code": "2-2-3-4",
+      "subdomain": "2-2",
+      "parent": "2-2-3",
+      "kind": "subcontrol",
+      "text": "Privileged access management."
+    },
+    {
+      "code": "2-2-3-5",
+      "subdomain": "2-2",
+      "parent": "2-2-3",
+      "kind": "subcontrol",
+      "text": "Periodic review of identities and access rights."
+    },
+    {
+      "code": "2-2-4",
+      "subdomain": "2-2",
+      "parent": null,
+      "kind": "control",
+      "text": "The implementation of cybersecurity requirements for identity and access management of the entity shall be periodically reviewed."
+    },
+    {
+      "code": "2-3-1",
+      "subdomain": "2-3",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for protection of information system and processing facilities of the entity shall be identified, documented, and approved."
+    },
+    {
+      "code": "2-3-2",
+      "subdomain": "2-3",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for protection of information systems and processing facilities of the entity shall be implemented. Cybersecurity requirements for protection of information systems and processing facilities of the entity shall include the following as a minimum:"
+    },
+    {
+      "code": "2-3-3-1",
+      "subdomain": "2-3",
+      "parent": "2-3-3",
+      "kind": "subcontrol",
+      "text": "Protection from viruses, suspicious programs and activities, and malware on workstations and servers, using modern and advanced protection technologies and"
+    },
+    {
+      "code": "2-3-3",
+      "subdomain": "2-3",
+      "parent": null,
+      "kind": "control",
+      "text": "mechanisms, and securely managing them."
+    },
+    {
+      "code": "2-3-3-2",
+      "subdomain": "2-3",
+      "parent": "2-3-3",
+      "kind": "subcontrol",
+      "text": "Strict restriction on the use of external storage media and their security."
+    },
+    {
+      "code": "2-3-3-3",
+      "subdomain": "2-3",
+      "parent": "2-3-3",
+      "kind": "subcontrol",
+      "text": "Patch management for systems, applications, and devices."
+    },
+    {
+      "code": "2-3-3-4",
+      "subdomain": "2-3",
+      "parent": "2-3-3",
+      "kind": "subcontrol",
+      "text": "Centralized clock synchronization with an accurate and trusted source, such as sources provided by the Saudi Standards, Metrology and Quality Organization (SASO)."
+    },
+    {
+      "code": "2-3-4",
+      "subdomain": "2-3",
+      "parent": null,
+      "kind": "control",
+      "text": "The implementation of cybersecurity requirements for protection of the information system and processing facilities of the entity shall be periodically reviewed."
+    },
+    {
+      "code": "2-4-1",
+      "subdomain": "2-4",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for protection of the email service of the entity shall be identified, documented, and approved."
+    },
+    {
+      "code": "2-4-2",
+      "subdomain": "2-4",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for protection of email service of the entity shall be implemented. Cybersecurity requirements for protection of the email service of the entity shall include the following as a minimum:"
+    },
+    {
+      "code": "2-4-3-1",
+      "subdomain": "2-4",
+      "parent": "2-4-3",
+      "kind": "subcontrol",
+      "text": "Analyzing and filtering email messages (specifically phishing emails and spam emails) using modern and advanced email protection techniques and mechanisms."
+    },
+    {
+      "code": "2-4-3-2",
+      "subdomain": "2-4",
+      "parent": "2-4-3",
+      "kind": "subcontrol",
+      "text": "Multi-factor authentication, and defining the suitable authentication factors and their numbers as well as the suitable authentication techniques based on the result of"
+    },
+    {
+      "code": "2-4-3",
+      "subdomain": "2-4",
+      "parent": null,
+      "kind": "control",
+      "text": "impact assessment of authentication failure and bypass for remote and webmail access."
+    },
+    {
+      "code": "2-4-3-3",
+      "subdomain": "2-4",
+      "parent": "2-4-3",
+      "kind": "subcontrol",
+      "text": "Email archiving and backup."
+    },
+    {
+      "code": "2-4-3-4",
+      "subdomain": "2-4",
+      "parent": "2-4-3",
+      "kind": "subcontrol",
+      "text": "Secure management and protection against Advanced Persistent Threats (APT), which normally utilize zero-day malware and viruses."
+    },
+    {
+      "code": "2-4-3-5",
+      "subdomain": "2-4",
+      "parent": "2-4-3",
+      "kind": "subcontrol",
+      "text": "Validation of the entity's email service domains by using Sender Policy Framework (SPF), Domain Keys Identified Mail (DKIM), and Domain Message Authentication Reporting and Conformance (DMARC)."
+    },
+    {
+      "code": "2-4-4",
+      "subdomain": "2-4",
+      "parent": null,
+      "kind": "control",
+      "text": "The implementation of cybersecurity requirements for email service of the entity shall be periodically reviewed."
+    },
+    {
+      "code": "2-5-1",
+      "subdomain": "2-5",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for the entity's network security management shall be identified, documented, and approved."
+    },
+    {
+      "code": "2-5-2",
+      "subdomain": "2-5",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for the entity's network security management shall be implemented."
+    },
+    {
+      "code": "2-5-3",
+      "subdomain": "2-5",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for the entity's network security management shall include the following as a minimum:"
+    },
+    {
+      "code": "2-5-3-1",
+      "subdomain": "2-5",
+      "parent": "2-5-3",
+      "kind": "subcontrol",
+      "text": "Logical or physical isolation and segmentation of network segments in a secure manner which is required to control relevant cybersecurity risks, using firewall and defense-in-depth principle."
+    },
+    {
+      "code": "2-5-3-2",
+      "subdomain": "2-5",
+      "parent": "2-5-3",
+      "kind": "subcontrol",
+      "text": "Isolation of production network from testing and development environment networks."
+    },
+    {
+      "code": "2-5-3-3",
+      "subdomain": "2-5",
+      "parent": "2-5-3",
+      "kind": "subcontrol",
+      "text": "Secure browsing and internet connectivity, including strict restrictions on suspicious websites, file storage/sharing websites, and remote access websites."
+    },
+    {
+      "code": "2-5-3-4",
+      "subdomain": "2-5",
+      "parent": "2-5-3",
+      "kind": "subcontrol",
+      "text": "Wireless network security and protection using secure authentication and encryption techniques and avoiding the connection of wireless networks to the entity's internal network, except after a comprehensive assessment of subsequent risks, with handling them in a way that protects the technology assets of the entity."
+    },
+    {
+      "code": "2-5-3-5",
+      "subdomain": "2-5",
+      "parent": "2-5-3",
+      "kind": "subcontrol",
+      "text": "Restricting and managing network services, protocols, and ports."
+    },
+    {
+      "code": "2-5-3-6",
+      "subdomain": "2-5",
+      "parent": "2-5-3",
+      "kind": "subcontrol",
+      "text": "Intrusion Prevention Systems (IPS)."
+    },
+    {
+      "code": "2-5-3-7",
+      "subdomain": "2-5",
+      "parent": "2-5-3",
+      "kind": "subcontrol",
+      "text": "Security of Domain Name Service (DNS)."
+    },
+    {
+      "code": "2-5-3-8",
+      "subdomain": "2-5",
+      "parent": "2-5-3",
+      "kind": "subcontrol",
+      "text": "Secure management and protection of Internet browsing channel against Advanced Persistent Threats (APT), which normally utilize zero-day malware and viruses. 2-5-3-9 Protecting against Distributed Denial of Service (DDoS) attacks to limit risks arising from these attacks."
+    },
+    {
+      "code": "2-5-4",
+      "subdomain": "2-5",
+      "parent": null,
+      "kind": "control",
+      "text": "The implementation of cybersecurity requirements for the entity's network security management shall be periodically reviewed."
+    },
+    {
+      "code": "2-6-1",
+      "subdomain": "2-6",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for mobile devices and BYOD security when connected to the entity's network shall be identified, documented, and approved."
+    },
+    {
+      "code": "2-6-2",
+      "subdomain": "2-6",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for mobile devices and BYOD security of the entity shall be implemented."
+    },
+    {
+      "code": "2-6-3",
+      "subdomain": "2-6",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for mobile devices and BYOD security of the entity shall include the following as a minimum:"
+    },
+    {
+      "code": "2-6-3-1",
+      "subdomain": "2-6",
+      "parent": "2-6-3",
+      "kind": "subcontrol",
+      "text": "Separation and encryption of the entity's data and information stored on mobile devices and BYODs."
+    },
+    {
+      "code": "2-6-3-2",
+      "subdomain": "2-6",
+      "parent": "2-6-3",
+      "kind": "subcontrol",
+      "text": "Controlled and restricted use based on the requirements of the interest of the entity's business."
+    },
+    {
+      "code": "2-6-3-3",
+      "subdomain": "2-6",
+      "parent": "2-6-3",
+      "kind": "subcontrol",
+      "text": "Deletion of the entity's data and information stored on mobile devices and BYOD in cases of device loss or after the ending/termination of employment with the entity."
+    },
+    {
+      "code": "2-6-3-4",
+      "subdomain": "2-6",
+      "parent": "2-6-3",
+      "kind": "subcontrol",
+      "text": "Security awareness for users."
+    },
+    {
+      "code": "2-6-4",
+      "subdomain": "2-6",
+      "parent": null,
+      "kind": "control",
+      "text": "The implementation of cybersecurity requirements for mobile devices and BYOD security of the entity shall be periodically reviewed."
+    },
+    {
+      "code": "2-7-1",
+      "subdomain": "2-7",
+      "parent": null,
+      "kind": "control",
+      "text": "entity shall be identified, documented, and approved, as per the relevant legislative and regulatory requirements."
+    },
+    {
+      "code": "2-7-2",
+      "subdomain": "2-7",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for protecting data and information of the entity shall be implemented, based on its classification level."
+    },
+    {
+      "code": "2-7-3",
+      "subdomain": "2-7",
+      "parent": null,
+      "kind": "control",
+      "text": "The implementation of cybersecurity requirements for protecting data and information of the entity shall be periodically reviewed."
+    },
+    {
+      "code": "2-8-1",
+      "subdomain": "2-8",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for cryptography within the entity shall be identified, documented, and approved."
+    },
+    {
+      "code": "2-8-2",
+      "subdomain": "2-8",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for cryptography within the entity shall be implemented. Cybersecurity requirements for cryptography shall include at least the requirements in"
+    },
+    {
+      "code": "2-8-3",
+      "subdomain": "2-8",
+      "parent": null,
+      "kind": "control",
+      "text": "the National Cryptographic Standards, published by NCA. The appropriate cryptographic standard level shall be implemented based on the nature and sensitivity of the data, systems, and networks to be protected as well as the entity's risk assessment, and as per the relevant legislative and regulatory requirements, as follows:"
+    },
+    {
+      "code": "2-8-3-1",
+      "subdomain": "2-8",
+      "parent": "2-8-3",
+      "kind": "subcontrol",
+      "text": "Approved cryptographic systems and solutions standards and their technical and regulatory restrictions. Approved cryptographic systems and solutions standards and their technical and regulatory restrictions. Version Date ECC � 2 : 2024 2024 Update type Section Previous text Updated text Rationale"
+    },
+    {
+      "code": "2-8-3-2",
+      "subdomain": "2-8",
+      "parent": "2-8-3",
+      "kind": "subcontrol",
+      "text": "Secure management of cryptographic keys during their lifecycles. Secure management of cryptographic keys during their lifecycles."
+    },
+    {
+      "code": "2-8-3-3",
+      "subdomain": "2-8",
+      "parent": "2-8-3",
+      "kind": "subcontrol",
+      "text": "Encryption of data in-transit and at-rest, as per their classification and the relevant legislative and regulatory requirements. Encryption of data in-transit and at-rest, as per their classification and the relevant legislative and regulatory requirements. Modification Sub-control Multi-factor authentication User authentication, and Clarification 2-15-3-5 for users' access. the suitable authentication Modification Objective of Sub-domain factors and their numbers as 4-1 well as the authentication Modification Control 4-1-3 techniques shall be defined based on the result of impact assessment of authentication failure and bypass for users' access. To ensure the protection of To ensure the protection of Clarification assets against the the entity's assets against cybersecurity risks related third-party cybersecurity to third-parties including risks (including outsourcing and managed Information Technology services as per (IT) outsourcing, organizational policies and cybersecurity outsourcing, procedures, and related laws and managed services), as and regulations. per the entity's regulatory policies and procedures and the relevant legislative and regulatory requirements. The cybersecurity Cybersecurity requirements Clarification requirements for contracts for contracts and and agreements with IT agreements with third Version Date ECC � 2 : 2024 2024 Update type Section Previous text Updated text Rationale Modification Control outsourcing and managed parties providing IT or 4-2-3-1 Deletion Sub-control services third-parties must cybersecurity outsourcing 4-2-3-3 include at least the or managed services shall Deletion Main domain following: include the following as a minimum: Classification of data prior Protection of entity's data Cybersecurity to hosting on cloud or by cloud and hosting service enhancement hosting services and providers in accordance returning data (in a usable with its classification level format) upon service and returning data (in a completion. usable format) upon service completion. Entity's information Controls related to hosting and storage must be data localization have inside the Kingdom of been transferred from Saudi Arabia. the document to the National Data Management Office (NDMO) at the Saudi Data and Artificial Intelligence Authority for as per the mandates, and entities must refer to the National Data Management Office regarding data localization before taking any action in this regard. Industrial Control Systems Controls in domain 5 Cybersecurity moved to the OTCC Version Date ECC � 2 : 2024 2024 Update type Section Previous text Updated text Rationale Modification Terms and (Operational Definitions Technology Modification Terms and Cybersecurity Definitions Controls) Confidential Sensitive Translation update Data/Information Data/Information Critical National Critical National Clarification Infrastructure (CNI) Infrastructure (CNI) These are the assets (i.e., Essential elements of facilities, systems, networks, infrastructure (i.e. assets, processes and key operators facilities, systems, networks, who operate and process processes, and key personnel them), whose loss or who operate and process vulnerability to security them) whose loss or breaches may result in: compromise may result in: Significant negative Significant negative impact on the impact on the availability, integration availability, integration, or delivery of basic or delivery of basic services, including services, including services that could result services whose integrity in serious loss of could, if compromised, property and/or lives result in serious loss of and/or injuries, alongside property, lives, and/or observance of significant injuries, taking into economic and/or social account significant impacts. national-level economic Significant impact on and/or social impacts. national security and/or Significant impact on national defense and/or national security, state economy or national defense, and/or national capacities. Version Date ECC � 2 : 2024 Update type Section 2024 Modification Terms and Previous text Updated text Rationale Definitions State economy or Modification Terms and Definitions national capacities. Modification Terms and Cyber Attack Cyber Attack Clarification Definitions Intentional exploitation of An intentional attempt to Modification Terms and computer systems, networks, impact cybersecurity Definitions and entities whose work negatively; whether depends on digital ICT, in succeeded or not. order to cause damage. Event Event Clarification Something that happens in An event related to the a specific place (such as cybersecurity state of a network, system, network, or a system, or a application) at a specific service, or data, or any other time. digital device. Incident Incident Clarification A compromise through An event that occurred and violation of cybersecurity negatively impacted policies, acceptable use cybersecurity, whether policies, practices or intentional or cybersecurity controls or unintentional. requirements. (Inter)National International Clarification Requirements Requirements National requirements are International requirements those developed by a are those developed by an regulatory entity or body in international entity or Saudi Arabia for regulatory organization for regulatory use (e.g., NCA's Essential use worldwide (e.g. SWIFT, Cybersecurity Controls PCI, etc.). (ECC-1:2018) Version Date ECC � 2 : 2024 Update type Section 2024 Modification Terms and Previous text Updated text Rationale Definitions International requirements are those developed by a global entity for worldwide regulatory or best practices use (e.g., SWIFT, PCI-DSS, etc.). Multi-Factor Multi-Factor Clarification Authentication (MFA) Authentication (MFA) A security system that A security system that verifies user identity, which verifies user identity, using requires the use of several several authentication separate elements of factors through user identity verification authentication techniques. mechanisms. Verification Authentication factors are: mechanisms include several Knowledge (something elements: only the user knows Knowledge (something \"such as using a only the user knows password technique\"). \"like password\"). Possession (something Possession (something only owned by the user only owned by the user \"such as using \"such as a program, techniques like a device generating program or a device random numbers or generating random SMSs\" for login records, numbers or SMSs\" for which are called: One- login records, which are Time-Password). called One-Time- Inherent characteristics Password). (characteristics of the Inherent characteristics user only, such as (characteristics of the fingerprint). user only, such as using Version Date ECC � 2 : 2024 2024 Update type Section Previous text Updated text Rationale fingerprint or face recognition techniques). Deletion Terms and Privacy For the National Data Definitions Management Office Freedom from (NDMO) at the Saudi Modification Terms and Data and Artificial Definitions unauthorized interference Intelligence Authority mandates, or disclosure of personal entities must refer to the National Data information about an Management Office regarding data individual. privacy before taking any action in this regard. Threat Threat Clarification Any circumstance or event Anything with the potential with the potential to to impact cybersecurity adversely impact negatively. organizational operations (including mission, functions, image, or reputation), organizational assets, or individuals through an information system via unauthorized access, destruction, disclosure, modification of information, and/or denial of service. Also, the potential for a threat-source to successfully exploit a Version Date ECC � 2 : 2024 2024 Update type Section Previous text Updated text Rationale particular information system vulnerability. Modification Terms and Vulnerability Vulnerability Clarification Definitions Any type of weakness in a A weakness in any computer system, software, information technology application, a set of asset (such as software and procedures, or in anything systems) or a process, that leaves cybersecurity control, or anything, that exposed to a threat. could be exploited to negatively impact cybersecurity. Addition List of the DDoS: Distributed Denial Addition of Abbreviations of Service Attack abbreviations DKIM: Domain Keys Identified Mail DMARC: Domain Message Authentication Reporting and Conformance SPF: Sender Policy Framework Deletion List of the ICS: Industrial Control Controls in domain 5 Abbreviations System moved to the OTCC SIS: Safety Instrumented (Operational System Technology Cybersecurity Controls)"
+    },
+    {
+      "code": "2-8-4",
+      "subdomain": "2-8",
+      "parent": null,
+      "kind": "control",
+      "text": "The implementation of cybersecurity requirements for cryptography within the entity shall be periodically reviewed."
+    },
+    {
+      "code": "2-9-1",
+      "subdomain": "2-9",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for backup and recovery management within the entity shall be identified, documented, and approved."
+    },
+    {
+      "code": "2-9-2",
+      "subdomain": "2-9",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for backup and recovery management within the entity shall be implemented."
+    },
+    {
+      "code": "2-9-3",
+      "subdomain": "2-9",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for backup and recovery management shall include the following as a minimum:"
+    },
+    {
+      "code": "2-9-3-1",
+      "subdomain": "2-9",
+      "parent": "2-9-3",
+      "kind": "subcontrol",
+      "text": "Scope of backups to cover critical technology and information assets."
+    },
+    {
+      "code": "2-9-3-2",
+      "subdomain": "2-9",
+      "parent": "2-9-3",
+      "kind": "subcontrol",
+      "text": "Ability to perform quick recovery of data and systems after cybersecurity incidents."
+    },
+    {
+      "code": "2-9-3-3",
+      "subdomain": "2-9",
+      "parent": "2-9-3",
+      "kind": "subcontrol",
+      "text": "Periodic testing for the effectiveness of backup recovery."
+    },
+    {
+      "code": "2-9-4",
+      "subdomain": "2-9",
+      "parent": null,
+      "kind": "control",
+      "text": "The implementation of cybersecurity requirements for backup and recovery management within the entity shall be periodically reviewed."
+    },
+    {
+      "code": "2-10-1",
+      "subdomain": "2-10",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for technical vulnerabilities management within the entity shall be identified, documented, and approved."
+    },
+    {
+      "code": "2-10-2",
+      "subdomain": "2-10",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for technical vulnerabilities management within the entity shall be implemented. Cybersecurity requirements for technical vulnerabilities management shall include the following as a minimum:"
+    },
+    {
+      "code": "2-10-3-1",
+      "subdomain": "2-10",
+      "parent": "2-10-3",
+      "kind": "subcontrol",
+      "text": "Periodic vulnerabilities assessment and detection."
+    },
+    {
+      "code": "2-10-3-2",
+      "subdomain": "2-10",
+      "parent": "2-10-3",
+      "kind": "subcontrol",
+      "text": "Vulnerabilities classification based on their severities."
+    },
+    {
+      "code": "2-10-3-3",
+      "subdomain": "2-10",
+      "parent": "2-10-3",
+      "kind": "subcontrol",
+      "text": "Vulnerabilities remediation based on their classification and the associated"
+    },
+    {
+      "code": "2-10-3",
+      "subdomain": "2-10",
+      "parent": null,
+      "kind": "control",
+      "text": "cyber risks.",
+      "needs_review": true
+    },
+    {
+      "code": "2-10-3-4",
+      "subdomain": "2-10",
+      "parent": "2-10-3",
+      "kind": "subcontrol",
+      "text": "Patch management to remediate vulnerabilities, and ensuring the integrity and effectiveness of these updates and fixes are verified using a non-production environment before being applied."
+    },
+    {
+      "code": "2-10-3-5",
+      "subdomain": "2-10",
+      "parent": "2-10-3",
+      "kind": "subcontrol",
+      "text": "Communication and subscription with trusted resources for new and up-to- date vulnerabilities."
+    },
+    {
+      "code": "2-10-4",
+      "subdomain": "2-10",
+      "parent": null,
+      "kind": "control",
+      "text": "The implementation of cybersecurity requirements for technical vulnerabilities management within the entity shall be periodically reviewed."
+    },
+    {
+      "code": "2-11-1",
+      "subdomain": "2-11",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for penetration testing within the entity shall be identified, documented, and approved."
+    },
+    {
+      "code": "2-11-2",
+      "subdomain": "2-11",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for penetration testing within the entity shall be implemented."
+    },
+    {
+      "code": "2-11-3",
+      "subdomain": "2-11",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for penetration testing shall include the following as a minimum:"
+    },
+    {
+      "code": "2-11-3-1",
+      "subdomain": "2-11",
+      "parent": "2-11-3",
+      "kind": "subcontrol",
+      "text": "Scope of penetration testing to include all externally provided services (via the Internet) and their technical components, including infrastructure, websites, web applications, smartphone and tablet applications, email, and remote access."
+    },
+    {
+      "code": "2-11-3-2",
+      "subdomain": "2-11",
+      "parent": "2-11-3",
+      "kind": "subcontrol",
+      "text": "Conducting penetration tests periodically."
+    },
+    {
+      "code": "2-11-4",
+      "subdomain": "2-11",
+      "parent": null,
+      "kind": "control",
+      "text": "The implementation of cybersecurity requirements for penetration testing shall be periodically reviewed."
+    },
+    {
+      "code": "2-12-1",
+      "subdomain": "2-12",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for cybersecurity event logs and monitoring management within the entity shall be identified, documented, and approved."
+    },
+    {
+      "code": "2-12-2",
+      "subdomain": "2-12",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for cybersecurity event logs and monitoring management within the entity shall be implemented. Cybersecurity requirements for cybersecurity event logs and monitoring management shall include the following as a minimum:"
+    },
+    {
+      "code": "2-12-3-1",
+      "subdomain": "2-12",
+      "parent": "2-12-3",
+      "kind": "subcontrol",
+      "text": "Activation of cybersecurity event logs for critical information assets within the entity."
+    },
+    {
+      "code": "2-12-3-2",
+      "subdomain": "2-12",
+      "parent": "2-12-3",
+      "kind": "subcontrol",
+      "text": "Activation of cybersecurity event logs for critical and privileged accounts"
+    },
+    {
+      "code": "2-12-3",
+      "subdomain": "2-12",
+      "parent": null,
+      "kind": "control",
+      "text": "accessing information assets as well as for remote access events within the entity."
+    },
+    {
+      "code": "2-12-3-3",
+      "subdomain": "2-12",
+      "parent": "2-12-3",
+      "kind": "subcontrol",
+      "text": "Identification of Security Information and Event Management (SIEM) techniques required for cybersecurity event logs collection."
+    },
+    {
+      "code": "2-12-3-4",
+      "subdomain": "2-12",
+      "parent": "2-12-3",
+      "kind": "subcontrol",
+      "text": "Continuous monitoring of cybersecurity event logs."
+    },
+    {
+      "code": "2-12-3-5",
+      "subdomain": "2-12",
+      "parent": "2-12-3",
+      "kind": "subcontrol",
+      "text": "Retention period of cybersecurity event logs (shall be at least 12 months)."
+    },
+    {
+      "code": "2-12-4",
+      "subdomain": "2-12",
+      "parent": null,
+      "kind": "control",
+      "text": "The implementation of cybersecurity requirements for cybersecurity event logs and monitoring management within the entity shall be periodically reviewed."
+    },
+    {
+      "code": "2-13-1",
+      "subdomain": "2-13",
+      "parent": null,
+      "kind": "control",
+      "text": "Requirements for cybersecurity incident and threat management within the entity shall be identified, documented, and approved."
+    },
+    {
+      "code": "2-13-2",
+      "subdomain": "2-13",
+      "parent": null,
+      "kind": "control",
+      "text": "Requirements for cybersecurity incident and threat management within the entity shall be implemented. Requirements for cybersecurity incident and threat management shall include the following as a minimum:"
+    },
+    {
+      "code": "2-13-3-1",
+      "subdomain": "2-13",
+      "parent": "2-13-3",
+      "kind": "subcontrol",
+      "text": "Cybersecurity incident response plans and escalation procedures."
+    },
+    {
+      "code": "2-13-3-2",
+      "subdomain": "2-13",
+      "parent": "2-13-3",
+      "kind": "subcontrol",
+      "text": "Cybersecurity incident classification."
+    },
+    {
+      "code": "2-13-3",
+      "subdomain": "2-13",
+      "parent": null,
+      "kind": "control",
+      "text": "",
+      "needs_review": true
+    },
+    {
+      "code": "2-13-3-3",
+      "subdomain": "2-13",
+      "parent": "2-13-3",
+      "kind": "subcontrol",
+      "text": "Reporting cybersecurity incidents to the NCA."
+    },
+    {
+      "code": "2-13-3-4",
+      "subdomain": "2-13",
+      "parent": "2-13-3",
+      "kind": "subcontrol",
+      "text": "Sharing cybersecurity incident notifications, threat intelligence, penetration indicators, and incident reports with the NCA."
+    },
+    {
+      "code": "2-13-3-5",
+      "subdomain": "2-13",
+      "parent": "2-13-3",
+      "kind": "subcontrol",
+      "text": "Collecting and handling threat intelligence feeds."
+    },
+    {
+      "code": "2-13-4",
+      "subdomain": "2-13",
+      "parent": null,
+      "kind": "control",
+      "text": "The implementation of cybersecurity requirements for incident and threat management within the entity shall be periodically reviewed."
+    },
+    {
+      "code": "2-14-1",
+      "subdomain": "2-14",
+      "parent": null,
+      "kind": "control",
+      "text": "entity against unauthorized physical access, loss, theft, and damage shall be identified, documented, and approved. Cybersecurity requirements for protection of information and technology assets of the"
+    },
+    {
+      "code": "2-14-2",
+      "subdomain": "2-14",
+      "parent": null,
+      "kind": "control",
+      "text": "entity against unauthorized physical access, loss, theft, and damage shall be implemented. Cybersecurity requirements for protection of information and technology assets of the entity against unauthorized physical access, loss, theft, and damage shall include the following as a minimum:"
+    },
+    {
+      "code": "2-14-3-1",
+      "subdomain": "2-14",
+      "parent": "2-14-3",
+      "kind": "subcontrol",
+      "text": "Authorized access to critical areas within the entity (e.g. the entity's data center, disaster recovery center, critical information processing facilities, security surveillance"
+    },
+    {
+      "code": "2-14-3",
+      "subdomain": "2-14",
+      "parent": null,
+      "kind": "control",
+      "text": "center, network connection rooms, technical device and equipment supply areas, etc.)."
+    },
+    {
+      "code": "2-14-3-2",
+      "subdomain": "2-14",
+      "parent": "2-14-3",
+      "kind": "subcontrol",
+      "text": "Access and monitoring logs (CCTV)."
+    },
+    {
+      "code": "2-14-3-3",
+      "subdomain": "2-14",
+      "parent": "2-14-3",
+      "kind": "subcontrol",
+      "text": "Protection of access and monitoring log information."
+    },
+    {
+      "code": "2-14-3-4",
+      "subdomain": "2-14",
+      "parent": "2-14-3",
+      "kind": "subcontrol",
+      "text": "Security of the destruction and re-use of physical assets that hold classified information (including paper documents and storage media)."
+    },
+    {
+      "code": "2-14-3-5",
+      "subdomain": "2-14",
+      "parent": "2-14-3",
+      "kind": "subcontrol",
+      "text": "Security of devices and equipment inside and outside the entity's facilities. Cybersecurity requirements for protection of information and technology assets of the"
+    },
+    {
+      "code": "2-14-4",
+      "subdomain": "2-14",
+      "parent": null,
+      "kind": "control",
+      "text": "entity against unauthorized physical access, loss, theft, and damage shall be periodically reviewed."
+    },
+    {
+      "code": "2-15-1",
+      "subdomain": "2-15",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for protection of external web applications of the entity shall be identified, documented, and approved."
+    },
+    {
+      "code": "2-15-2",
+      "subdomain": "2-15",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for protection of external web applications of the entity shall be implemented."
+    },
+    {
+      "code": "2-15-3-1",
+      "subdomain": "2-15",
+      "parent": "2-15-3",
+      "kind": "subcontrol",
+      "text": "Use of web application firewall."
+    },
+    {
+      "code": "2-15-3-2",
+      "subdomain": "2-15",
+      "parent": "2-15-3",
+      "kind": "subcontrol",
+      "text": "Adoption of the multi-tier architecture principle."
+    },
+    {
+      "code": "2-15-3",
+      "subdomain": "2-15",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for protection of external web applications of the entity shall include the following as a minimum:"
+    },
+    {
+      "code": "2-15-3-3",
+      "subdomain": "2-15",
+      "parent": "2-15-3",
+      "kind": "subcontrol",
+      "text": "Use of secure protocols (e.g. HTTPS)."
+    },
+    {
+      "code": "2-15-3-4",
+      "subdomain": "2-15",
+      "parent": "2-15-3",
+      "kind": "subcontrol",
+      "text": "Clarification of the secure usage policy for users."
+    },
+    {
+      "code": "2-15-3-5",
+      "subdomain": "2-15",
+      "parent": "2-15-3",
+      "kind": "subcontrol",
+      "text": "User authentication, and the suitable authentication factors and their numbers as well as the authentication techniques shall be defined based on the result of impact assessment of authentication failure and bypass for users' access."
+    },
+    {
+      "code": "2-15-4",
+      "subdomain": "2-15",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for protection of web applications of the entity shall be periodically reviewed. 3 Cybersecurity Resilience"
+    },
+    {
+      "code": "3-1-1",
+      "subdomain": "3-1",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for business continuity management within the entity shall be identified, documented, and approved."
+    },
+    {
+      "code": "3-1-2",
+      "subdomain": "3-1",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for business continuity management within the entity shall be implemented."
+    },
+    {
+      "code": "3-1-3-1",
+      "subdomain": "3-1",
+      "parent": "3-1-3",
+      "kind": "subcontrol",
+      "text": "Ensuring the continuity of cybersecurity systems and procedures."
+    },
+    {
+      "code": "3-1-3",
+      "subdomain": "3-1",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for business continuity management within the entity shall include the following as a minimum:"
+    },
+    {
+      "code": "3-1-3-2",
+      "subdomain": "3-1",
+      "parent": "3-1-3",
+      "kind": "subcontrol",
+      "text": "Developing plans for response to cybersecurity incidents that may affect the entity's business continuity."
+    },
+    {
+      "code": "3-1-3-3",
+      "subdomain": "3-1",
+      "parent": "3-1-3",
+      "kind": "subcontrol",
+      "text": "Developing disaster recovery plans."
+    },
+    {
+      "code": "3-1-4",
+      "subdomain": "3-1",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for business continuity management within the entity shall be periodically reviewed. 4 Third-Party and Cloud Computing Cybersecurity"
+    },
+    {
+      "code": "4-1-1",
+      "subdomain": "4-1",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for the entity's contracts and agreements with third parties shall be identified, documented, and approved. Cybersecurity requirements for contracts and agreements with third parties, e.g. Service Level Agreement (SLA), which, if impaired, may affect the entity's data or services shall include the following as a minimum:"
+    },
+    {
+      "code": "4-1-2-1",
+      "subdomain": "4-1",
+      "parent": "4-1-2",
+      "kind": "subcontrol",
+      "text": "Clauses of non-disclosure and the secure removal of the entity's data by the third party upon the end of service."
+    },
+    {
+      "code": "4-1-2",
+      "subdomain": "4-1",
+      "parent": null,
+      "kind": "control",
+      "text": "",
+      "needs_review": true
+    },
+    {
+      "code": "4-1-2-2",
+      "subdomain": "4-1",
+      "parent": "4-1-2",
+      "kind": "subcontrol",
+      "text": "Communication procedures in case of the occurrence of a cybersecurity incident."
+    },
+    {
+      "code": "4-1-2-3",
+      "subdomain": "4-1",
+      "parent": "4-1-2",
+      "kind": "subcontrol",
+      "text": "Obligating the third party to apply the entity's cybersecurity requirements and policies and the relevant legislative and regulatory requirements. Cybersecurity requirements for contracts and agreements with third parties providing IT or cybersecurity outsourcing or managed services shall include the following as a minimum:"
+    },
+    {
+      "code": "4-1-3-1",
+      "subdomain": "4-1",
+      "parent": "4-1-3",
+      "kind": "subcontrol",
+      "text": "Conducting a cybersecurity risk assessment and ensuring the"
+    },
+    {
+      "code": "4-1-3",
+      "subdomain": "4-1",
+      "parent": null,
+      "kind": "control",
+      "text": "availability of risk mitigation controls before signing contracts and agreements or upon making changes to the relevant legislative and regulatory requirements."
+    },
+    {
+      "code": "4-1-3-2",
+      "subdomain": "4-1",
+      "parent": "4-1-3",
+      "kind": "subcontrol",
+      "text": "Cybersecurity managed service centers for monitoring and operations which use remote access shall be fully located in the Kingdom of Saudi Arabia."
+    },
+    {
+      "code": "4-1-4",
+      "subdomain": "4-1",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for third parties shall be periodically reviewed."
+    },
+    {
+      "code": "4-2-1",
+      "subdomain": "4-2",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for use of cloud computing and hosting services shall be identified, documented, and approved."
+    },
+    {
+      "code": "4-2-2",
+      "subdomain": "4-2",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for the cloud computing and hosting services within the entity shall be implemented. In accordance with the relevant legislative and regulatory requirements, and in addition to the applicable controls in the Main Domains (1), (2), and (3) and Subdomain (4.1) that are necessary to protect the entity's data or services provided thereto, cybersecurity requirements for use of cloud computing and hosting services shall include the following as a minimum:"
+    },
+    {
+      "code": "4-2-3-1",
+      "subdomain": "4-2",
+      "parent": "4-2-3",
+      "kind": "subcontrol",
+      "text": "Protection of entity's data by cloud and hosting service providers in"
+    },
+    {
+      "code": "4-2-3",
+      "subdomain": "4-2",
+      "parent": null,
+      "kind": "control",
+      "text": "accordance with its classification level and returning data (in a usable format) upon service completion."
+    },
+    {
+      "code": "4-2-3-2",
+      "subdomain": "4-2",
+      "parent": "4-2-3",
+      "kind": "subcontrol",
+      "text": "Separation of the entity's environment (especially virtual servers) from environments of other entities within the cloud computing service provider."
+    },
+    {
+      "code": "4-2-4",
+      "subdomain": "4-2",
+      "parent": null,
+      "kind": "control",
+      "text": "Cybersecurity requirements for cloud computing and hosting services shall be periodically reviewed. Appendices Appendix (A): Terms and Definitions this document. Term Definition Advanced Persistent Protection against advanced threats that use invisible techniques to Threats (APT) gain unauthorized access to technology systems and networks and stay Protection as long as possible by circumventing detection and protection tools. To accomplish this, zero-day malware are usually used in these techniques. Asset Any tangible or intangible thing of value to the entity. There are many types of assets, and some of which are obvious, such as persons, machinery, facilities, patents, software, and services. The term could also include less obvious things, such as information and characteristics (such as the entity's reputation and public image, as well as skills and knowledge). Attack Any kind of malicious activity aimed at gaining unauthorized access to, collecting, disabling, preventing, destroying, or sabotaging information system resources or the information itself. Audit Independent review and examination of records and activities, in order to assess the effectiveness of cybersecurity controls and to ensure compliance with policies, operational procedures, standards, and relevant legislative and regulatory requirements. Authentication Verification of the user's identity, process, or device, which is often a prerequisite for allowing access to resources on the system. Authorization The property of identifying and verifying the rights/licenses of the user to access the information and technology assets and resources of the entity and allowing access based on the user's rights/licenses previously defined. Availability Ensuring timely access and use of information, data, systems, and applications. Backup Files, devices, data, and procedures available for use in case of failure Bring Your Own or loss, or in case of deletion or suspension of their original copies. Device (BYOD) Change This term refers to an entity's policy that allows (in whole or in part) Management its personnel to bring their personal devices (laptops, tablets, and Closed-Circuit smartphones) to their workplace within the entity and use such Television (CCTV) devices to access the entity's networks, information, applications, and systems to which access is restricted. Cloud Computing A service management system that ensures a systematic and proactive Compromise approach using effective standard methods and procedures (for example, change in the entity's infrastructure and networks, etc.). Change management helps all stakeholders, including individuals and teams alike, move from their current state to the next desired state. It also helps reduce the impact of relevant incidents on service. CCTV, also known as video surveillance, uses video cameras to transmit a signal to a specific location on a limited set of screens. This term is often used to refer to the surveillance technique employed in areas that require monitoring due to the importance of physical security. A model to enable on-demand access to a shared pool of information technology resources (e.g. networks, servers, storage, applications, and services) that can be rapidly provided and launched with minimal operational management effort and service setup intervention/interaction from the service provider. Cloud computing allows users to access technology-based services over a cloud computing network without needing to know or control the technology infrastructure that supports them. Cloud computing models are composed of five essential characteristics: on-demand self-service, broad network access, resource pooling, rapid elasticity, and measured service. There are three models of cloud computing services: Software as a Service (SaaS), Platform as a Service (PaaS), and Infrastructure as a Service (IaaS). Moreover, according to the nature of access, there are four cloud computing models: Public Cloud Computing, Community Cloud Computing, Private Cloud Computing, and Hybrid Cloud Computing. Disclosure or acquisition of information not authorized to be leaked to or obtained by third parties, or violation of the entity's cybersecurity Sensitive policy through the disclosure, alteration, sabotage, or loss of anything, Data/Information either intentionally or unintentionally. Compromise also means the disclosure, acquisition, leakage, Confidentiality alteration, or use of sensitive data without authorization (including cryptographic keys and other critical cybersecurity standards). Critical National Information (or data) that is highly sensitive and important, as Infrastructure classified by the entity, and intended for their use. One of the methods (CNI) that can be used to classify this type of information is to measure the extent of damage when it is disclosed, accessed in an unauthorized Cryptography manner, lost, or sabotaged, as this may result in material or moral Cyber-Attack damage to the entity or its clients, affecting the lives of persons Cyber Risks associated with that information, or affecting and damaging the State security, national economy, or national capacities. Sensitive information includes all information whose unauthorized disclosure, loss, or sabotage results in accountability or statutory penalties. Maintaining authorized restrictions on access to and disclosure of information, including means of privacy/personal information protection. Essential elements of infrastructure (i.e. assets, facilities, systems, networks, processes, and key personnel who operate and process them) whose loss or compromise may result in: Significant negative impact on the availability, integration, or delivery of basic services, including services whose integrity could, if compromised, result in serious loss of property, lives, and/or injuries, taking into account significant national-level economic and/or social impacts. Significant impact on national security, national defense, and/or State economy or national capacities. It is also called (cryptology). It refers to rules that include the principles, methods, and means of storing and transmitting data or information in a particular form, in order to conceal its semantic content and prevent unauthorized use or prevent undetected modification, so that only the concerned persons can read and process them. An intentional attempt to impact cybersecurity negatively, whether successful or not. Risks that harm the entity's business operations (including the entity's vision, mission, management, image, or reputation), assets, individuals, Cybersecurity other entities, or the State due to unauthorized access, use, disclosure, disruption, modification, or damage of information and/or information Cybersecurity systems. Resilience Pursuant to the provisions of the NCA's Statute issued by Royal Order Cyberspace No. 6801, dated 11/02/1439H., cybersecurity is the protection of networks, IT systems, operational technologies systems, their hardware Data and and software components, services, and the data they contain, from any Information unauthorized penetration, disruption, modification, access, use, or Classification exploitation. The concept of cybersecurity also encompasses information security, digital security, and the like. Data Archiving The overall ability of entities to withstand cyber events and, where harm is caused, recover from them. Defense-in-Depth Disaster Recovery The interconnected network of IT infrastructure, including the Internet, Domain Name communication networks, computer systems, Internet-connected System (DNS) devices, and associated processors and control devices. The term can also refer to a virtual world or domain, such as experimental phenomenon or abstract concept. Determining the sensitivity level of data and information which gives rise to security controls for each classification level. Data and information sensitivity levels are set according to predefined categories, where data and information is created, modified, improved, stored, or transmitted. The classification level is an indicator of the value or significance of data and information to the entity. The process of transferring data that is no longer actively used to a separate storage device for long-term retention. Archive data consists of older data that is still important to the entity and may be needed for future reference, as well as data that shall be retained for legal and regulatory compliance purposes. A concept of information assurance where multiple levels of security controls are used (as a defense) in the IT/OT system. Programs, activities, and plans designed to restore the entity's critical business functions and services to an acceptable state, following exposure to cyber-attacks or disruption of such functions or services. A technical system that uses a database distributed over the network and/or the Internet to allow the translation of domain names into IP addresses and vice versa, in order to identify service addresses, such as web and e-mail servers. Effectiveness A degree whereby a planned impact is achieved. Planned activities are considered effective if they are already implemented, and planned results Efficiency are considered effective if they are already achieved. The Key Performance Indicators (KPIs) can be used to measure and evaluate the Event effectiveness level. Hyper Text Relationship between the results achieved (outputs) and the resources Transfer Protocol used (inputs). The efficiency of a process or system can be enhanced by Secure (HTTPS) achieving more results using the same resources (inputs) or even less. Identification An event related to the cybersecurity state of a network, a system, a Incident service, data, or any other digital device. A protocol that uses encryption to secure the web pages and data when Integrity they are transmitted over the network. It is a secure version of the Hyper International Text Transfer Protocol (HTTP). Requirements Intrusion A means for verifying the user's identity, process, or device, which is Prevention System usually a prerequisite for granting access to system resources. (IPS) An event that occurred and negatively impacted cybersecurity, whether Key Performance intentional or unintentional. Indicator (KPI) Protection against unauthorized modification or destruction of information, including ensuring information non-repudiation and Labeling reliability. International requirements are those developed by an international entity Least Privilege or organization for regulatory use worldwide (e.g. SWIFT, PCI, etc.). Malware A system with intrusion detection capabilities, as well as capabilities to prevent and stop suspicious or potential activities and incidents. A type of performance measurement tools that evaluate the success of an activity or an entity in achieving specific objectives. Display of information (with specific and standard naming and coding) on the entity's assets (such as devices, applications, documents, etc.) to refer to some information on the classification, ownership, and type of the asset and other asset management information. A basic principle in cybersecurity that aims at granting users only access privileges they need to fulfill their official responsibilities. A program that infects systems, usually covertly, with the intent of compromising the confidentiality, integrity, accuracy, or availability of data, applications, or operating system. Multi-Factor A security system that verifies user identity, using several Authentication authentication factors through authentication technique. (MFA) Authentication factors are: Knowledge (something only the user knows \"like using password Multi-tier Architecture technique\"). Possession (something only owned by the user \"such as using technique like a program, device generating random numbers or SMSs\" for login records, which are called: One-Time-Password). Inherent characteristics (characteristics of the user only, such as using fingerprint or face recognition techniques). An architecture or structure that applies a client-server approach in which the functional process logic, data access, data storage, and user interface are developed and maintained as separate units on separate platforms. Need-to-Know and Restrictions on data, which is considered confidential, unless a person Need-to-Use has a specific need to know for official business duties. Offline/Offsite A backup of databases, and settings of systems, applications, and devices Backup when the copy is offline and cannot be updated. Typically, backup tapes are utilized for offsite backup. Online Backup A storage method whereby the backup is regularly taken on a remote server over a network (either within the entity's network or hosted by a service provider). Organization Staff Individuals who work for the entity (including official employees, temporary employees, and contractors). Outsourcing Obtaining goods or services by contracting with a supplier or a service provider. Supporting data packages used to upgrade, fix, or improve computer Patch operating system, software, or applications. This includes fixing security vulnerabilities and other bugs. Such patches are usually called fixes, bug fixes, and usability or performance improvements. Penetration Testing Testing a computer system, network, web application, or mobile application to find vulnerabilities that can be exploited by an attacker. Phishing Emails An attempt to obtain confidential information, such as usernames, passwords, or credit card details, often for malicious reasons and Physical Security intentions, by disguising as a trustworthy entity in emails. Policy Physical security describes security measures designed to prevent unauthorized access to the entity's facilities, equipment, and resources, Privileged Access and to protect individuals and property against damage or harm (such as Management espionage, theft, or terrorist attacks). Procedure Physical security involves the use of multiple tiers of interconnected Process systems, including CCTV, security guards, security limits, locks, access Recovery control systems, and many other technologies. Retention Secure Coding A document with clauses specifying a general obligation, direction, or Standards intent as formally expressed by the Authorized Official of the entity. Cybersecurity policy is a document with clauses reflecting official commitment of the senior management of the entity to implement and improve the cybersecurity program within the entity. Such policy includes the entity's objectives relating to the cybersecurity program, as well as its controls, requirements, and improvement and development mechanisms. The process of managing high-risk authorizations on the entity's systems, which often need special handling to minimize risks that may arise from the misuse thereof. A document with a detailed description of the steps necessary to perform specific operations or activities in compliance with relevant standards and policies. Procedures are defined as part of operations. A set of interrelated or interactive activities that translates inputs into outputs. Such activities are influenced by the entity's policies. A procedure or process to restore or control something that is suspended, damaged, stolen, or lost. The time period during which information, data, event logs, or backups shall be retained, regardless of the form (e.g. paper, electronic, etc.). A practice for the development of computer software and applications in a way that protects against exposure to cybersecurity vulnerabilities in software and applications. Secure Protecting, hardening, and configuring the settings of computers, Configuration and systems, applications, network devices, and security devices to resist Hardening cyber-attacks, such as disabling or changing manufacturing and default accounts, disabling unused services, and disabling unused network ports. Security Information and A system that manages and analyzes security event logs in real time, in Event Management order to monitor threats and analyze the results of interrelated rules for (SIEM) event logs and reports on logs data, and incident response. Security Testing A process intended to ensure that a modified or new system or application, has the appropriate security controls and protection, is free from any security vulnerabilities that might compromise other systems and applications or lead to misusing the system or application or information thereon, and to maintain the functionality of the system or application as intended. Security-by-Design A methodology for developing systems and software and designing networks to free them from cybersecurity vulnerabilities and weaknesses and make them impervious to cyber-attack as much as possible through several measures, such as continuous testing, authentication safeguards, and adherence to best programming and design practices. Segregation of A key cybersecurity principle that aims at minimizing errors and fraud Duties during the stages of processing specific tasks, by ensuring the presence of more than one individual to complete a task with different privileges. Sender Policy A method to verify that the email server used for sending emails belongs Framework to the sender's domain. Third-Party Any entity that serves as a party to contractual relationship to provide Threat goods or services (including suppliers and service providers). Threat Intelligence Anything with the potential to impact cybersecurity negatively. It provides and analyzes organized information on recent, current, and potential attacks that could pose a cyber threat to the entity. Vulnerability A weakness in any information technology asset (such as software and systems) or a process, control, or anything, that could be exploited to negatively impact cybersecurity. Web Application A protection system that is installed before web applications to minimize Firewall risks that may arise from attack attempts against web applications. Zero-Day Malware Previously unknown malware that has been produced or disseminated recently and is normally hard to be detected by prior knowledge of malware (Signature-based Protection). Appendix (B): List of the Abbreviations document. Abbreviation Full Term APT Advanced Persistent Threat BCM Business Continuity Management BYOD Bring Your Own Device CCTV Closed-Circuit Television CNI Critical National Infrastructure DDoS Distributed Denial of Service Attack DKIM Domain Keys Identified Mail DMARC Domain Message Authentication Reporting and Conformance DNS Domain Name System ECC HTTPS Hyper Text Transfer Protocol Secure ICT Information and Communication Technology IT Information Technology MFA Multi-Factor Authentication OT Operational Technology SIEM Security Information and Event Management SLA Service Level Agreement SPF Sender Policy Framework Appendix (C): List of Updates Version Date ECC � 2 : 2024 2024 Update type Section Previous text Updated text Rationale Modification ECC Scope of These controls are These Controls are Clarification Work applicable to government applicable to government entities in the Kingdom of agencies in the Kingdom of Saudi Arabia (including Saudi Arabia (including ministries, authorities, ministries, authorities, establishments and others) establishments and others) and its companies and and their affiliated entities. companies and entities (inside and outside the kingdom) Deletion ECC Statement Controls in main domain 5 Deletion of main of Applicability (Industrial Control Systems domain 5. Controls in Cybersecurity) are domain 5 moved to applicable and must be the OTCC implemented by entities (Operational currently using or planning Technology to use industrial control Cybersecurity systems. Controls) Modification Control The position of All cybersecurity positions Cybersecurity 1-2-2 cybersecurity function head shall be filled out with full- enhancement (e.g., CISO), and related time and qualified Saudi supervisory and critical cybersecurity professionals. positions within the function, must be filled with full-time and experienced Version Date ECC � 2 : 2024 Update type Section 2024 Previous text Updated text Rationale Saudi cybersecurity professionals. Deletion Control The entity must comply Cybersecurity 1-7-1 with related national regulatory maturity, cybersecurity laws and and supporting regulations. entities' compliance Modification Control The entity must comply If there are nationally Clarification 1-7-2 with any nationally- approved international approved international agreements or agreements and commitments that include commitments related to cybersecurity requirements, cybersecurity. the entity shall identify and comply with these requirements. Modification Sub-control User authentication based Single-factor authentication Clarification 2-2-3-1 on username and password. based on username and Modification Sub-control password. 2-2-3-2 Multi-factor authentication Multi-factor authentication, Clarification for remote access. and defining the suitable authentication factors and their numbers as well as the suitable authentication techniques based on the result of impact assessment of authentication failure and bypass for remote access and for privileged accounts. Version Date ECC � 2 : 2024 2024 Update type Section Previous text Updated text Rationale Modification Sub-control Multi-factor authentication Multi-factor authentication, Clarification 2-4-3-2 for remote and webmail and defining the suitable access to email service. authentication factors and their numbers as well as the suitable authentication techniques based on the result of impact assessment of authentication failure and bypass for remote and webmail access. Modification Sub-control Validation of the entity's Validation of the entity's Clarification 2-4-3-5 email service domains (e.g., email service domains by using Sender Policy using Sender Policy Framework (SPF)). Framework (SPF), Domain Keys Identified Mail (DKIM), and Domain Message Authentication Reporting and Conformance (DMARC). Addition Sub-control N/A Protecting against Cybersecurity 2-5-3-9 Distributed Denial of enhancement Modification Control 2-7-2 Service (DDoS) attacks to limit risks arising from these attacks. The cybersecurity Cybersecurity requirements Clarification requirements for protecting for protecting data and and handling data and information of the entity information must be shall be implemented, based implemented. on its classification level. Deletion Control The cybersecurity For the National Data 2-7-3 Management Office requirements for protecting (NDMO) at the Saudi and handling data and Version Date ECC � 2 : 2024 Update type Section 2024 Modification Control Previous text Updated text Rationale 2-8-3 information must include at Data and Artificial least the following: Intelligence 2-7-3-1 Data and Authority mandates, information ownership. entities must refer to 2-7-3-2 Data and the National Data information classification Management Office and labeling mechanisms. regarding data privacy before taking 2-7-3-3 Data and any action in this information privacy. regard. The cybersecurity Cybersecurity requirements Clarification requirements for for cryptography shall cryptography must include include at least the at least the following: requirements in the 2-8-3-1 Approved National Cryptographic cryptographic solutions Standards, published by standards and its technical NCA. The appropriate and regulatory limitations. cryptographic standard 2-8-3-2 Secure management level shall be implemented of cryptographic keys based on the nature and during their lifecycles. sensitivity of the data, systems, and networks to 2-8-3-3 Encryption of data be protected as well as the in-transit and at-rest as per entity's risk assessment, classification and related and as per the relevant laws and regulations. legislative and regulatory requirements, as follows:"
+    }
+  ]
+}

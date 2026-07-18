@@ -1,0 +1,50 @@
+Athar
+Copyright 2026 Metrix Cyber
+
+This product includes software developed at Metrix Cyber.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+--------------------------------------------------------------------------------
+THIRD-PARTY DEPENDENCIES
+--------------------------------------------------------------------------------
+
+golang.org/x/sys
+    Copyright 2009 The Go Authors.
+    BSD 3-Clause License.
+    https://cs.opensource.google/go/x/sys
+
+github.com/yusufpapurcu/wmi
+    Copyright (c) 2013 Stack Exchange
+    MIT License.
+    https://github.com/yusufpapurcu/wmi
+
+github.com/go-ole/go-ole
+    Copyright (c) 2013-2017 Yasuhiro Matsumoto
+    MIT License.
+    https://github.com/go-ole/go-ole
+
+All dependencies are permissively licensed. This is a deliberate constraint,
+not a coincidence: the scanner is distributed as a binary to third parties, so
+any GPL-family dependency would impose obligations on that distribution. No
+GPL, LGPL or AGPL code may be introduced into this project.
+
+--------------------------------------------------------------------------------
+REGULATORY CONTENT
+--------------------------------------------------------------------------------
+
+The control catalogue in internal/framework/ecc_catalog.json is derived from
+the Essential Cybersecurity Controls (ECC-2:2024) published by the National
+Cybersecurity Authority of the Kingdom of Saudi Arabia. That document is
+published by the NCA and remains its work; it is reproduced here as reference
+data for assessment purposes.
+
+    https://nca.gov.sa/en/regulatory-documents/controls-list/ecc/
+
+The catalogue is parsed from the published PDF by internal/framework/parse_ecc.py.
+Entries marked "needs_review" could not be cleanly extracted and must be
+verified against the official document before being relied upon.
