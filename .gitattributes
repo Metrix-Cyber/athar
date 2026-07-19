@@ -1,0 +1,23 @@
+# Line endings are normalised to LF in the repository and on checkout,
+# on every platform.
+#
+# Without this, git applies core.autocrlf on Windows and converts text files to
+# CRLF at checkout. gofmt normalises to LF, so a CRLF working tree makes
+# `gofmt -l` list every Go file as unformatted — which failed CI on the Windows
+# runner while passing on Linux, for reasons invisible in the source.
+#
+# Forcing LF also keeps the shell scripts embedded in the workflow files
+# executable, and stops diffs showing whole-file changes when contributors work
+# on different platforms.
+* text=auto eol=lf
+
+# Content that must never be line-ending converted.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.pdf  binary
+*.xlsx binary
+*.zip  binary
+*.exe  binary
