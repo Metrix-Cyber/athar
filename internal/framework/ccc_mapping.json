@@ -1,0 +1,547 @@
+{
+  "from_framework": "NCA ECC-2:2024",
+  "to_framework": "NCA CCC-2:2024",
+  "note": "Extracted from explicit cross-references in the CCC document. Each link is stated by the NCA (\"In addition to Subcontrols in the ECC control X, the CSP/CST shall cover...\"), not inferred.",
+  "links": [
+    {
+      "from": "1-7-1",
+      "to": "1-3-P-1-1",
+      "audience": "csp"
+    },
+    {
+      "from": "1-7-1",
+      "to": "1-3-T-1-1",
+      "audience": "cst"
+    },
+    {
+      "from": "1-9-3",
+      "to": "1-4-P-1-1",
+      "audience": "csp"
+    },
+    {
+      "from": "1-9-4",
+      "to": "1-4-P-1-1",
+      "audience": "csp"
+    },
+    {
+      "from": "1-9-3",
+      "to": "1-4-P-1-2",
+      "audience": "csp"
+    },
+    {
+      "from": "1-9-4",
+      "to": "1-4-P-1-2",
+      "audience": "csp"
+    },
+    {
+      "from": "1-9-3",
+      "to": "1-4-P-1-3",
+      "audience": "csp"
+    },
+    {
+      "from": "1-9-4",
+      "to": "1-4-P-1-3",
+      "audience": "csp"
+    },
+    {
+      "from": "1-9-3",
+      "to": "1-4-P-2",
+      "audience": "csp"
+    },
+    {
+      "from": "1-9-4",
+      "to": "1-4-P-2",
+      "audience": "csp"
+    },
+    {
+      "from": "1-9-5",
+      "to": "1-4-P-2-1",
+      "audience": "csp"
+    },
+    {
+      "from": "1-9-3",
+      "to": "1-4-T-1-1",
+      "audience": "cst"
+    },
+    {
+      "from": "2-1",
+      "to": "2-1-P-1-1",
+      "audience": "csp"
+    },
+    {
+      "from": "2-1",
+      "to": "2-1-P-1-2",
+      "audience": "csp"
+    },
+    {
+      "from": "2-1",
+      "to": "2-1-T-1-1",
+      "audience": "cst"
+    },
+    {
+      "from": "2-2-3",
+      "to": "2-2-P-1-1",
+      "audience": "csp"
+    },
+    {
+      "from": "2-2-3",
+      "to": "2-2-P-1-2",
+      "audience": "csp"
+    },
+    {
+      "from": "2-2-3",
+      "to": "2-2-P-1-3",
+      "audience": "csp"
+    },
+    {
+      "from": "2-2-3",
+      "to": "2-2-P-1-4",
+      "audience": "csp"
+    },
+    {
+      "from": "2-2-3",
+      "to": "2-2-P-1-5",
+      "audience": "csp"
+    },
+    {
+      "from": "2-2-3",
+      "to": "2-2-P-1-6",
+      "audience": "csp"
+    },
+    {
+      "from": "2-2-3",
+      "to": "2-2-P-1-7",
+      "audience": "csp"
+    },
+    {
+      "from": "2-2-3",
+      "to": "2-2-P-1-8",
+      "audience": "csp"
+    },
+    {
+      "from": "2-2-3",
+      "to": "2-2-P-1-9",
+      "audience": "csp"
+    },
+    {
+      "from": "2-2-3",
+      "to": "2-2-P-1-10",
+      "audience": "csp"
+    },
+    {
+      "from": "2-2-3",
+      "to": "2-2-P-1-11",
+      "audience": "csp"
+    },
+    {
+      "from": "2-2-3",
+      "to": "2-2-P-1-12",
+      "audience": "csp"
+    },
+    {
+      "from": "2-2-3",
+      "to": "2-2-T-1-1",
+      "audience": "cst"
+    },
+    {
+      "from": "2-2-3",
+      "to": "2-2-T-1-2",
+      "audience": "cst"
+    },
+    {
+      "from": "2-2-3",
+      "to": "2-2-T-1-3",
+      "audience": "cst"
+    },
+    {
+      "from": "2-2-3",
+      "to": "2-2-T-1-4",
+      "audience": "cst"
+    },
+    {
+      "from": "2-2-3",
+      "to": "2-2-T-1-5",
+      "audience": "cst"
+    },
+    {
+      "from": "2-3-3",
+      "to": "2-3-P-1-1",
+      "audience": "csp"
+    },
+    {
+      "from": "2-3-3",
+      "to": "2-3-P-1-2",
+      "audience": "csp"
+    },
+    {
+      "from": "2-3-3",
+      "to": "2-3-P-1-3",
+      "audience": "csp"
+    },
+    {
+      "from": "2-3-3",
+      "to": "2-3-P-1-4",
+      "audience": "csp"
+    },
+    {
+      "from": "2-3-3",
+      "to": "2-3-P-1-5",
+      "audience": "csp"
+    },
+    {
+      "from": "2-3-3",
+      "to": "2-3-P-1-6",
+      "audience": "csp"
+    },
+    {
+      "from": "2-3-3",
+      "to": "2-3-P-1-7",
+      "audience": "csp"
+    },
+    {
+      "from": "2-3-3",
+      "to": "2-3-P-1-8",
+      "audience": "csp"
+    },
+    {
+      "from": "2-3-3",
+      "to": "2-3-P-1-9",
+      "audience": "csp"
+    },
+    {
+      "from": "2-3-3",
+      "to": "2-3-P-1-10",
+      "audience": "csp"
+    },
+    {
+      "from": "2-3-3",
+      "to": "2-3-T-1-1",
+      "audience": "cst"
+    },
+    {
+      "from": "2-5-3",
+      "to": "2-4-P-1-1",
+      "audience": "csp"
+    },
+    {
+      "from": "2-5-3",
+      "to": "2-4-P-1-2",
+      "audience": "csp"
+    },
+    {
+      "from": "2-5-3",
+      "to": "2-4-P-1-3",
+      "audience": "csp"
+    },
+    {
+      "from": "2-5-3",
+      "to": "2-4-P-1-4",
+      "audience": "csp"
+    },
+    {
+      "from": "2-5-3",
+      "to": "2-4-P-1-5",
+      "audience": "csp"
+    },
+    {
+      "from": "2-5-3",
+      "to": "2-4-P-1-6",
+      "audience": "csp"
+    },
+    {
+      "from": "2-5-3",
+      "to": "2-4-T-1-1",
+      "audience": "cst"
+    },
+    {
+      "from": "2-6-3",
+      "to": "2-5-P-1-1",
+      "audience": "csp"
+    },
+    {
+      "from": "2-6-3",
+      "to": "2-5-P-1-2",
+      "audience": "csp"
+    },
+    {
+      "from": "2-6-3",
+      "to": "2-5-P-1-3",
+      "audience": "csp"
+    },
+    {
+      "from": "2-6-3",
+      "to": "2-5-P-1-4",
+      "audience": "csp"
+    },
+    {
+      "from": "2-6-3",
+      "to": "2-5-T-1-1",
+      "audience": "cst"
+    },
+    {
+      "from": "2-7-3",
+      "to": "2-6-P-1-1",
+      "audience": "csp"
+    },
+    {
+      "from": "2-7-3",
+      "to": "2-6-P-1-2",
+      "audience": "csp"
+    },
+    {
+      "from": "2-7-3",
+      "to": "2-6-P-1-3",
+      "audience": "csp"
+    },
+    {
+      "from": "2-7-3",
+      "to": "2-6-P-1-4",
+      "audience": "csp"
+    },
+    {
+      "from": "2-7-3",
+      "to": "2-6-P-1-5",
+      "audience": "csp"
+    },
+    {
+      "from": "2-7-3",
+      "to": "2-6-T-1-1",
+      "audience": "cst"
+    },
+    {
+      "from": "2-7-3",
+      "to": "2-6-T-1-2",
+      "audience": "cst"
+    },
+    {
+      "from": "2-8-3",
+      "to": "2-7-P-1-1",
+      "audience": "csp"
+    },
+    {
+      "from": "2-8-3",
+      "to": "2-7-P-1-2",
+      "audience": "csp"
+    },
+    {
+      "from": "2-8-3",
+      "to": "2-7-T-1-1",
+      "audience": "cst"
+    },
+    {
+      "from": "2-8-3",
+      "to": "2-7-T-1-2",
+      "audience": "cst"
+    },
+    {
+      "from": "2-9-3",
+      "to": "2-8-P-1-1",
+      "audience": "csp"
+    },
+    {
+      "from": "2-9-3",
+      "to": "2-8-P-1-2",
+      "audience": "csp"
+    },
+    {
+      "from": "2-10-3",
+      "to": "2-9-P-1-1",
+      "audience": "csp"
+    },
+    {
+      "from": "2-10-3",
+      "to": "2-9-P-1-2",
+      "audience": "csp"
+    },
+    {
+      "from": "2-10-3",
+      "to": "2-9-T-1-1",
+      "audience": "cst"
+    },
+    {
+      "from": "2-10-3",
+      "to": "2-9-T-1-2",
+      "audience": "cst"
+    },
+    {
+      "from": "2-11-3",
+      "to": "2-10-P-1-1",
+      "audience": "csp"
+    },
+    {
+      "from": "2-12-3",
+      "to": "2-11-P-1-1",
+      "audience": "csp"
+    },
+    {
+      "from": "2-12-3",
+      "to": "2-11-P-1-2",
+      "audience": "csp"
+    },
+    {
+      "from": "2-12-3",
+      "to": "2-11-P-1-3",
+      "audience": "csp"
+    },
+    {
+      "from": "2-12-3",
+      "to": "2-11-P-1-4",
+      "audience": "csp"
+    },
+    {
+      "from": "2-12-3",
+      "to": "2-11-P-1-5",
+      "audience": "csp"
+    },
+    {
+      "from": "2-12-3",
+      "to": "2-11-P-1-6",
+      "audience": "csp"
+    },
+    {
+      "from": "2-12-3",
+      "to": "2-11-P-1-7",
+      "audience": "csp"
+    },
+    {
+      "from": "2-12-3",
+      "to": "2-11-P-1-8",
+      "audience": "csp"
+    },
+    {
+      "from": "2-12-3",
+      "to": "2-11-T-1-1",
+      "audience": "cst"
+    },
+    {
+      "from": "2-12-3",
+      "to": "2-11-T-1-2",
+      "audience": "cst"
+    },
+    {
+      "from": "2-13-3",
+      "to": "2-12-P-1-1",
+      "audience": "csp"
+    },
+    {
+      "from": "2-13-3",
+      "to": "2-12-P-1-2",
+      "audience": "csp"
+    },
+    {
+      "from": "2-13-3",
+      "to": "2-12-P-1-3",
+      "audience": "csp"
+    },
+    {
+      "from": "2-13-3",
+      "to": "2-12-P-1-4",
+      "audience": "csp"
+    },
+    {
+      "from": "2-13-3",
+      "to": "2-12-P-1-5",
+      "audience": "csp"
+    },
+    {
+      "from": "2-13-3",
+      "to": "2-12-P-1-6",
+      "audience": "csp"
+    },
+    {
+      "from": "2-13-3",
+      "to": "2-12-P-1-7",
+      "audience": "csp"
+    },
+    {
+      "from": "2-13-3",
+      "to": "2-12-P-1-8",
+      "audience": "csp"
+    },
+    {
+      "from": "2-14-3",
+      "to": "2-13-P-1-1",
+      "audience": "csp"
+    },
+    {
+      "from": "2-14-3",
+      "to": "2-13-P-1-2",
+      "audience": "csp"
+    },
+    {
+      "from": "2-14-3",
+      "to": "2-13-P-1-3",
+      "audience": "csp"
+    },
+    {
+      "from": "2-15-3",
+      "to": "2-14-P-1-1",
+      "audience": "csp"
+    },
+    {
+      "from": "3-1-3",
+      "to": "3-1-P-1-1",
+      "audience": "csp"
+    },
+    {
+      "from": "3-1-3",
+      "to": "3-1-P-1-2",
+      "audience": "csp"
+    },
+    {
+      "from": "3-1-3",
+      "to": "3-1-T-1-1",
+      "audience": "cst"
+    },
+    {
+      "from": "4-1-2",
+      "to": "4-1-P-1-1",
+      "audience": "csp"
+    },
+    {
+      "from": "4-1-3",
+      "to": "4-1-P-1-1",
+      "audience": "csp"
+    },
+    {
+      "from": "4-1-2",
+      "to": "4-1-P-1-2",
+      "audience": "csp"
+    },
+    {
+      "from": "4-1-3",
+      "to": "4-1-P-1-2",
+      "audience": "csp"
+    },
+    {
+      "from": "4-1-2",
+      "to": "4-1-P-1-3",
+      "audience": "csp"
+    },
+    {
+      "from": "4-1-3",
+      "to": "4-1-P-1-3",
+      "audience": "csp"
+    },
+    {
+      "from": "4-1-2",
+      "to": "4-1-P-1-4",
+      "audience": "csp"
+    },
+    {
+      "from": "4-1-3",
+      "to": "4-1-P-1-4",
+      "audience": "csp"
+    },
+    {
+      "from": "4-1-2",
+      "to": "4-1-P-1",
+      "audience": "csp"
+    },
+    {
+      "from": "4-1-3",
+      "to": "4-1-P-1",
+      "audience": "csp"
+    }
+  ]
+}

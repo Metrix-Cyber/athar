@@ -15,6 +15,7 @@ import (
 	"strings"
 
 	"github.com/Metrix-Cyber/athar/internal/finding"
+	"github.com/Metrix-Cyber/athar/internal/framework"
 	"github.com/Metrix-Cyber/athar/internal/report"
 )
 
@@ -26,12 +27,18 @@ func main() {
 		out     = flag.String("out", "report.html", "HTML output path")
 		org     = flag.String("org", "", "organization name shown on the report")
 		brand   = flag.String("brand", "Metrix Cyber", "issuing organization")
+		fw      = flag.String("framework", "ecc", "framework to report against: "+strings.Join(framework.AvailableIDs(), ", "))
+		list    = flag.Bool("frameworks", false, "list available frameworks and exit")
 		showVer = flag.Bool("version", false, "print version and exit")
 	)
 	flag.Parse()
 
 	if *showVer {
 		fmt.Printf("athar-report %s\n", version)
+		return
+	}
+	if *list {
+		listFrameworks()
 		return
 	}
 
@@ -55,6 +62,13 @@ func main() {
 		fatal("no input files given")
 	}
 
+	// Fail before writing anything if the selected framework cannot be
+	// presented, rather than producing an empty report that reads as a clean
+	// bill of health.
+	if _, err := report.BuildView(framework.ID(*fw), findings); err != nil {
+		fatal("%v", err)
+	}
+
 	f, err := os.Create(*out)
 	if err != nil {
 		fatal("creating %s: %v", *out, err)
@@ -70,4 +84,20 @@ func main() {
 func fatal(format string, args ...any) {
 	fmt.Fprintf(os.Stderr, format+"\n", args...)
 	os.Exit(1)
+}
+
+func listFrameworks() {
+	for _, i := range framework.Available() {
+		c, _ := framework.Get(i.ID)
+		status := "selectable"
+		if i.ID != framework.ECCID {
+			if _, ok := framework.MappingTo(i.ID); !ok {
+				status = "catalogue loaded, no verified mapping yet"
+			}
+		}
+		fmt.Printf("%-6s %-52s %4d clauses  %s\n", i.ID, i.Name, len(c.Controls), status)
+		if i.Note != "" {
+			fmt.Printf("       %s\n", i.Note)
+		}
+	}
 }
