@@ -156,7 +156,8 @@ air-gapped machine and survives being sent as a single attachment.
 | Windows checks (37) | Verified on Windows 11, standalone, elevated and unelevated; decision logic unit-tested (12 tests) |
 | Windows Server / domain-joined | **Not yet tested** |
 | Linux checks (14) | **Parsers unit-tested (15 tests); not yet run on a live host** |
-| Total test suite | 38 tests, run on Linux and Windows in CI |
+| Total test suite | 74 tests, run on Linux and Windows in CI |
+| Coverage | framework 96%, runner 89%, Linux parsers 89%, finding 68%, cloud 46%, report 37%. Windows checks 9% — most of that package is registry and syscall I/O that cannot run in CI |
 | Cross-compilation | Verified for windows/amd64, linux/amd64, linux/arm64 |
 | Tenant connectors (9 checks) | **Logic tested against recorded API responses (11 tests); never run against a live tenant** |
 
