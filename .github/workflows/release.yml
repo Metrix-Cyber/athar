@@ -6,6 +6,12 @@ on:
 
 permissions:
   contents: write
+  # Required to issue build provenance. This is supply-chain evidence a
+  # regulated buyer can verify independently: it binds each artifact to the
+  # exact source commit and workflow that produced it. Code signing proves who
+  # compiled a binary; provenance proves what it was compiled from.
+  id-token: write
+  attestations: write
 
 jobs:
   release:
@@ -79,9 +85,26 @@ jobs:
           build linux   amd64 ""
           build linux   arm64 ""
 
+      - name: Generate SBOM
+        # Procurement at regulated buyers increasingly requires a software bill
+        # of materials before a binary is permitted into an estate. Generating
+        # it from the module graph keeps it accurate rather than aspirational.
+        run: |
+          go install github.com/CycloneDX/cyclonedx-gomod/cmd/cyclonedx-gomod@latest
+          cyclonedx-gomod app -json -licenses -output dist/athar-sbom.cdx.json -main ./cmd/scanner .
+          echo "--- SBOM components ---"
+          grep -o '"name"' dist/athar-sbom.cdx.json | wc -l
+
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: 'dist/athar-*'
+
+      - name: Checksum artifacts
+        run: |
           cd dist
+          rm -f SHA256SUMS
           sha256sum * > SHA256SUMS
-          echo "--- artifacts ---"
           cat SHA256SUMS
 
       - name: Publish release

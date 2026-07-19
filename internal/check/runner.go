@@ -11,9 +11,13 @@ import (
 
 // Report is the complete output of one scan.
 type Report struct {
-	SchemaVersion  string            `json:"schema_version"`
-	ScannerVersion string            `json:"scanner_version"`
-	Framework      string            `json:"framework"`
+	SchemaVersion  string `json:"schema_version"`
+	ScannerVersion string `json:"scanner_version"`
+	Framework      string `json:"framework"`
+	// FindingsDigest is a stable SHA-256 over the findings. Quoting it
+	// separately from the document lets a later copy be checked against what
+	// was actually produced.
+	FindingsDigest string            `json:"findings_digest"`
 	Host           HostInfo          `json:"host"`
 	StartedAt      time.Time         `json:"started_at"`
 	FinishedAt     time.Time         `json:"finished_at"`
@@ -87,6 +91,7 @@ func Run(ctx context.Context, checks []Check, host HostInfo, elevated bool, vers
 
 	rep.FinishedAt = time.Now().UTC()
 	rep.Summary = summarize(rep.Findings)
+	rep.FindingsDigest = finding.Digest(rep.Findings)
 
 	// Clause coverage counts what the compiled-in checks can cite, not what
 	// this particular run happened to reach, so it reflects the scanner's

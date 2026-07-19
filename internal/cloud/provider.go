@@ -92,13 +92,14 @@ func (c *Client) Get(ctx context.Context, path string, out any) error {
 
 // Report is the output of a tenant assessment.
 type Report struct {
-	SchemaVersion string            `json:"schema_version"`
-	Provider      string            `json:"provider"`
-	Tenant        string            `json:"tenant"`
-	Framework     string            `json:"framework"`
-	StartedAt     time.Time         `json:"started_at"`
-	FinishedAt    time.Time         `json:"finished_at"`
-	Findings      []finding.Finding `json:"findings"`
+	SchemaVersion  string            `json:"schema_version"`
+	Provider       string            `json:"provider"`
+	Tenant         string            `json:"tenant"`
+	Framework      string            `json:"framework"`
+	FindingsDigest string            `json:"findings_digest"`
+	StartedAt      time.Time         `json:"started_at"`
+	FinishedAt     time.Time         `json:"finished_at"`
+	Findings       []finding.Finding `json:"findings"`
 }
 
 // Run executes checks and collects findings, containing per-check failures so
@@ -117,6 +118,7 @@ func Run(ctx context.Context, p Provider, c *Client, tenant string) Report {
 	}
 
 	rep.FinishedAt = time.Now().UTC()
+	rep.FindingsDigest = finding.Digest(rep.Findings)
 	return rep
 }
 

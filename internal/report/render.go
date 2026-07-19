@@ -40,6 +40,8 @@ type page struct {
 	ApplyTitle    string
 	ApplyGuidance string
 	Generated     string
+	Digest        string
+	CatalogueVer  string
 	HasFail       bool
 	SevOrdered    []sevCount
 }
@@ -158,6 +160,8 @@ func build(sources []Source, findings []finding.Finding, org, brand string) page
 		ApplyTitle:    applyTitle,
 		ApplyGuidance: applyText,
 		Generated:     generated.Format("2 January 2006, 15:04 MST"),
+		Digest:        finding.Digest(findings),
+		CatalogueVer:  cat.Framework,
 		HasFail:       summary.Fail > 0,
 		SevOrdered:    sevs,
 	}
