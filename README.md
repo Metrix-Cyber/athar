@@ -52,12 +52,21 @@ as success when the call had failed.
 
 ECC-2:2024 defines 4 domains, 28 subdomains, 108 controls and 92 subcontrols.
 
-A host scan produces technical evidence for **12 of the 28 subdomains**. The
-remaining 16 are governance, resilience and third-party controls — policy,
-documentary and organisational requirements that no scanner can verify. The
-report lists all 28 regardless, stating which assessment method each requires,
-so it accounts for the whole framework rather than only the part a tool can
-reach.
+A host scan produces technical evidence for **12 of the 28 subdomains**, citing
+**36 of 199 control clauses**. The clause figure is the stricter of the two and
+the one an assessor will compute: a subdomain counts as covered when a single
+check touches it, even where it contains eight clauses.
+
+The remaining clauses fall into two groups. Some are **not assessable from a
+host at all** — governance, policy, contracts, penetration testing, physical
+security, business continuity. Others need a vantage point an endpoint does not
+have: mail gateway filtering, SPF/DKIM/DMARC (which requires DNS lookups this
+scanner deliberately does not make), network segmentation, and network-level
+intrusion prevention.
+
+The report lists **all 28 subdomains** regardless, stating the assessment method
+each requires, so it accounts for the whole framework rather than only the part
+a tool can reach.
 
 ECC controls are written as *requirements* ("shall be identified, documented and
 approved"), not as technical configurations. Findings are therefore **evidence
@@ -95,9 +104,9 @@ air-gapped machine and survives being sent as a single attachment.
 
 | Area | Status |
 |---|---|
-| Windows checks (30) | Verified on Windows 11, standalone, elevated and unelevated |
+| Windows checks (37) | Verified on Windows 11, standalone, elevated and unelevated |
 | Windows Server / domain-joined | **Not yet tested** |
-| Linux checks (11) | **Parsers unit-tested; not yet run on a live host** |
+| Linux checks (14) | **Parsers unit-tested (15 tests); not yet run on a live host** |
 | Cross-compilation | Verified for windows/amd64, linux/amd64, linux/arm64 |
 
 Untested paths are marked as such deliberately. Reports of behaviour on

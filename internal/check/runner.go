@@ -61,6 +61,11 @@ type Summary struct {
 	// Reporting coverage honestly is a product requirement: the gap between
 	// what was checked and the full framework is the services conversation.
 	SubdomainsCovered []string `json:"subdomains_covered"`
+	// ClausesCited and ClausesTotal give coverage at control-clause level,
+	// which is materially lower than subdomain level and is the figure an
+	// assessor will compute themselves.
+	ClausesCited int `json:"clauses_cited"`
+	ClausesTotal int `json:"clauses_total"`
 }
 
 // Run executes checks and assembles a report. A panicking check is contained
@@ -82,6 +87,18 @@ func Run(ctx context.Context, checks []Check, host HostInfo, elevated bool, vers
 
 	rep.FinishedAt = time.Now().UTC()
 	rep.Summary = summarize(rep.Findings)
+
+	// Clause coverage counts what the compiled-in checks can cite, not what
+	// this particular run happened to reach, so it reflects the scanner's
+	// reach rather than one host's configuration.
+	cited := map[string]bool{}
+	for _, c := range checks {
+		for _, code := range c.ControlCodes {
+			cited[code] = true
+		}
+	}
+	rep.Summary.ClausesCited = len(cited)
+
 	return rep
 }
 

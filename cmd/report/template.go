@@ -119,7 +119,11 @@ const htmlTemplate = `<!doctype html>
 <div class="notice">
   <strong>Scope of this assessment.</strong>
   This automated scan produced technical evidence for {{.Coverage}} ECC-2:2024 subdomains,
-  from {{.Assessed}} conclusive checks on this host.
+  from {{.Assessed}} conclusive checks on this host — citing
+  <strong>{{.Report.Summary.ClausesCited}} of {{.Report.Summary.ClausesTotal}} control
+  clauses</strong>. Subdomain coverage is the more favourable figure of the two, because a
+  subdomain counts as covered when a single check touches it; the clause count is the
+  stricter measure and is stated here for that reason.
   <strong>All 28 subdomains are listed below.</strong> The {{.Remaining}} not evidenced by
   this scan are shown with the assessment method each requires — these are policy,
   documentary and organisational controls that no host scan can verify, and they are

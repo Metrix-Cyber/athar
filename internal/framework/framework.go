@@ -140,6 +140,25 @@ func (c *Catalog) Validate(refs map[string][]string) error {
 	return fmt.Errorf("catalogue validation failed:\n  %s", strings.Join(problems, "\n  "))
 }
 
+// ClauseCoverage reports how many control clauses the given check references
+// cite, out of the framework's total.
+//
+// Subdomain-level coverage flatters the position: a subdomain counts as
+// covered when a single check touches it, even where it contains eight clauses
+// and one is evidenced. An assessor will work the clause figure out
+// regardless, so the report states it rather than waiting to be asked.
+func (c *Catalog) ClauseCoverage(refs map[string][]string) (cited, total int) {
+	valid := map[string]bool{}
+	for _, codes := range refs {
+		for _, code := range codes {
+			if _, ok := c.byCode[code]; ok {
+				valid[code] = true
+			}
+		}
+	}
+	return len(valid), len(c.Controls)
+}
+
 // ReviewNeeded lists controls whose text requires human verification against
 // the source document.
 func (c *Catalog) ReviewNeeded() []Control {

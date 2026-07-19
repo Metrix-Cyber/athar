@@ -540,3 +540,168 @@ func diskEncryption(ctx context.Context) []finding.Finding {
 		"%d encrypted volume(s) detected: %s. Confirm all volumes holding entity data are covered.",
 		len(encrypted), strings.Join(encrypted, ", ")))}
 }
+
+// --- Additional technically-assessable clauses ---
+
+var (
+	timeCodes = []string{"2-3-2", "2-3-3-4"}
+	dnsCodes  = []string{"2-5-2", "2-5-3-7"}
+	ipsCodes  = []string{"2-5-2", "2-5-3-6"}
+)
+
+func init() {
+	for _, c := range []check.Check{
+		{ID: "linux.time.synchronization", Subdomain: "2-3", ControlCodes: timeCodes,
+			Platforms: []string{"linux"}, Run: timeSync},
+		{ID: "linux.net.dns", Subdomain: "2-5", ControlCodes: dnsCodes,
+			Platforms: []string{"linux"}, Run: dnsConfiguration},
+		{ID: "linux.net.intrusion_prevention", Subdomain: "2-5", ControlCodes: ipsCodes,
+			Platforms: []string{"linux"}, Run: intrusionPrevention},
+	} {
+		check.Register(c)
+	}
+}
+
+// timeSync reports clock synchronisation. ECC 2-3-3-4 requires a centralised,
+// trusted source: without synchronised clocks, event logs across hosts cannot
+// be correlated, which undermines the investigation other controls depend on.
+func timeSync(ctx context.Context) []finding.Finding {
+	f := finding.New("linux.time.synchronization", "Time synchronisation", "2-3", timeCodes)
+
+	var (
+		sources []string
+		daemon  string
+	)
+	for _, src := range []struct{ path, name string }{
+		{"/etc/chrony/chrony.conf", "chrony"},
+		{"/etc/chrony.conf", "chrony"},
+		{"/etc/ntp.conf", "ntpd"},
+	} {
+		if c, ok, _ := readFile(src.path); ok {
+			if t := ParseChrony(c); t.Configured {
+				sources, daemon = append(sources, t.Sources...), src.name
+			}
+		}
+	}
+	if len(sources) == 0 {
+		for _, p := range []string{"/etc/systemd/timesyncd.conf"} {
+			if c, ok, _ := readFile(p); ok {
+				if t := ParseTimesyncd(c); t.Configured {
+					sources, daemon = append(sources, t.Sources...), "systemd-timesyncd"
+				}
+			}
+		}
+	}
+
+	f = f.With("daemon", daemon).With("time_sources", sources)
+
+	if len(sources) == 0 {
+		return []finding.Finding{f.Failed(finding.Medium,
+			"No time synchronisation source is configured. The clock will drift and event timestamps will not correlate with other hosts during an investigation.",
+			"Configure chrony, ntpd or systemd-timesyncd against the entity's centralised time source.")}
+	}
+
+	// A public pool is not a centralised source under the entity's control.
+	var public []string
+	for _, s := range sources {
+		if strings.Contains(s, "pool.ntp.org") || strings.Contains(s, "ubuntu.com") ||
+			strings.Contains(s, "debian.org") {
+			public = append(public, s)
+		}
+	}
+	if len(public) == len(sources) {
+		return []finding.Finding{f.With("public_sources", public).Failed(finding.Low,
+			fmt.Sprintf("Time synchronisation uses only public pools (%s) rather than a centralised source under the entity's control.",
+				strings.Join(public, ", ")),
+			"Point time synchronisation at the entity's internal time servers, traceable to an approved reference such as SASO.")}
+	}
+
+	return []finding.Finding{f.Passed(fmt.Sprintf(
+		"Time synchronisation is configured via %s against %s. Confirm the source is approved and traceable to a trusted reference.",
+		daemon, strings.Join(sources, ", ")))}
+}
+
+// dnsConfiguration reports the resolvers in use.
+func dnsConfiguration(ctx context.Context) []finding.Finding {
+	f := finding.New("linux.net.dns", "DNS resolver configuration", "2-5", dnsCodes)
+
+	content, ok, err := readFile("/etc/resolv.conf")
+	if err != nil {
+		return []finding.Finding{f.Undetermined(err)}
+	}
+	if !ok {
+		return []finding.Finding{f.Undetermined(fmt.Errorf("/etc/resolv.conf not present"))}
+	}
+
+	servers := ParseResolvConf(content)
+	f = f.With("nameservers", servers)
+
+	var public, loopback []string
+	for _, s := range servers {
+		if IsLoopbackResolver(s) {
+			loopback = append(loopback, s)
+			continue
+		}
+		if op, isPublic := PublicResolvers[s]; isPublic {
+			public = append(public, s+" ("+op+")")
+		}
+	}
+	f = f.With("public_resolvers_in_use", public).With("stub_resolvers", loopback)
+
+	switch {
+	case len(servers) == 0:
+		return []finding.Finding{f.Failed(finding.Medium,
+			"No nameserver is configured in /etc/resolv.conf.",
+			"Configure the entity's DNS resolvers.")}
+
+	case len(public) > 0:
+		return []finding.Finding{f.Failed(finding.Low,
+			"The host resolves DNS through public resolvers ("+strings.Join(public, ", ")+
+				") rather than entity-controlled servers. Queries cannot be filtered, logged or inspected internally.",
+			"Point DNS at the entity's own resolvers and apply filtering and logging there.")}
+
+	case len(loopback) == len(servers):
+		return []finding.Finding{f.Passed(
+			"DNS resolution goes through a local stub resolver. The upstream servers it forwards to are not visible in /etc/resolv.conf and should be confirmed separately.")}
+	}
+
+	return []finding.Finding{f.Passed(
+		"DNS resolution uses non-public resolvers. Confirm those servers apply the filtering, logging and integrity protections ECC 2-5-3-7 requires.")}
+}
+
+// intrusionPrevention reports host-based detection and response capability.
+func intrusionPrevention(ctx context.Context) []finding.Finding {
+	f := finding.New("linux.net.intrusion_prevention",
+		"Intrusion prevention capability", "2-5", ipsCodes)
+
+	products := map[string]string{
+		"Wazuh Agent":        "/var/ossec/bin/wazuh-agentd",
+		"CrowdStrike Falcon": "/opt/CrowdStrike/falconctl",
+		"SentinelOne":        "/opt/sentinelone/bin/sentinelctl",
+		"Elastic Endpoint":   "/opt/Elastic/Endpoint/elastic-endpoint",
+		"osquery":            "/usr/bin/osqueryd",
+		"Falco":              "/usr/bin/falco",
+		"Fail2ban":           "/usr/bin/fail2ban-server",
+		"Suricata":           "/usr/bin/suricata",
+		"Snort":              "/usr/sbin/snort",
+	}
+
+	var found []string
+	for label, path := range products {
+		if fileExists(path) {
+			found = append(found, label)
+		}
+	}
+	sort.Strings(found)
+	f = f.With("detection_products", found)
+
+	if len(found) > 0 {
+		return []finding.Finding{f.Passed(
+			"Host-based detection is deployed (" + strings.Join(found, ", ") +
+				"). Network-level intrusion prevention is a separate requirement that cannot be observed from a host and must be evidenced independently.")}
+	}
+
+	return []finding.Finding{f.Failed(finding.Medium,
+		"No host-based intrusion detection or prevention capability was identified. ECC 2-5-3-6 requires intrusion prevention; the network-level portion cannot be assessed from a host, but no host-side capability was found either.",
+		"Deploy host-based detection (such as Wazuh, Falco or an EDR agent) and evidence network intrusion prevention separately.")}
+}

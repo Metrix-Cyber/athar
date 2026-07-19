@@ -15,7 +15,9 @@ import (
 // ECC 2-6 covers mobile device security. On a managed Windows endpoint the
 // assessable parts are whether the device is centrally managed and whether
 // removable media is required to be encrypted.
-var deviceCodes = []string{"2-6-2"}
+// 2-6-3-1 requires separation and encryption of entity data on mobile
+// devices; the removable-media encryption policy is direct evidence of it.
+var deviceCodes = []string{"2-6-2", "2-6-3-1", "2-6-3-2"}
 
 func init() {
 	for _, c := range []check.Check{

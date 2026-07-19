@@ -71,6 +71,7 @@ func main() {
 	fmt.Fprintf(os.Stderr, "Running %d checks on %s/%s...\n", len(checks), runtime.GOOS, runtime.GOARCH)
 
 	rep := check.Run(ctx, checks, hostInfo(), isElevated(), version)
+	_, rep.Summary.ClausesTotal = framework.ECC().ClauseCoverage(check.ControlRefs())
 
 	data, err := json.MarshalIndent(rep, "", "  ")
 	if err != nil {
