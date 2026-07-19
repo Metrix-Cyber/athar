@@ -29,6 +29,7 @@ jobs:
       - name: Test
         run: |
           go vet ./...
+          # Linux runner, so cgo is available for the race detector.
           go test -race ./...
 
       - name: Verify control catalogue

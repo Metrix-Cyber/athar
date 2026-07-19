@@ -27,7 +27,19 @@ jobs:
           check-latest: true
 
       - run: go vet ./...
-      - run: go test -race ./...
+
+      # The race detector requires cgo, which the Windows runner has no
+      # compiler configured for. Enabling cgo there just to satisfy it would
+      # test a configuration the project does not ship — releases are built
+      # with CGO_ENABLED=0 — so race detection runs where it is available and
+      # the same tests run everywhere.
+      - name: Test (with race detector)
+        if: runner.os == 'Linux'
+        run: go test -race ./...
+
+      - name: Test
+        if: runner.os != 'Linux'
+        run: go test ./...
 
       - name: Verify formatting
         shell: bash
