@@ -123,6 +123,17 @@ GOOS=windows GOARCH=amd64 go build -o athar.exe         ./cmd/scanner
 
 ## Usage
 
+**Just double-click it.** With no arguments Athar scans the machine, writes an
+HTML report beside the executable, prints where it went, and keeps the console
+open so the result can be read. No command line required.
+
+It does not open the report for you. Doing so would mean launching another
+process, and the guarantee that Athar executes no subprocess is worth more than
+saving a click — that guarantee is what lets it run where script execution is
+restricted.
+
+For automation:
+
 ```sh
 ./athar -list                     # list compiled-in checks and their control mappings
 ./athar -version                  # print version

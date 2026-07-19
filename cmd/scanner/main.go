@@ -38,6 +38,10 @@ func main() {
 	)
 	flag.Parse()
 
+	// A launch with no arguments almost always means the binary was
+	// double-clicked rather than run from a shell.
+	guided := len(os.Args) == 1
+
 	if *showVer {
 		fmt.Printf("athar %s\n", version)
 		return
@@ -73,15 +77,21 @@ func main() {
 	rep := check.Run(ctx, checks, hostInfo(), isElevated(), version)
 	_, rep.Summary.ClausesTotal = framework.ECC().ClauseCoverage(check.ControlRefs())
 
-	data, err := json.MarshalIndent(rep, "", "  ")
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "encoding report: %v\n", err)
-		os.Exit(1)
+	// A double-clicked launch gets the whole flow — scan, report, and a
+	// console that stays open — rather than JSON in a window that closes.
+	if guided {
+		guidedMode(rep, rep.Findings)
+		return
 	}
 
 	if *outPath == "" {
+		data, err := json.MarshalIndent(rep, "", "  ")
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "encoding report: %v\n", err)
+			os.Exit(1)
+		}
 		fmt.Println(string(data))
-	} else if err := os.WriteFile(*outPath, data, 0o600); err != nil {
+	} else if err := writeJSON(*outPath, rep); err != nil {
 		fmt.Fprintf(os.Stderr, "writing %s: %v\n", *outPath, err)
 		os.Exit(1)
 	}
@@ -165,4 +175,14 @@ func hostInfo() check.HostInfo {
 		Edition:    ed,
 		Management: management(ed),
 	}
+}
+
+// writeJSON writes a report with restrictive permissions: it describes the
+// weaknesses of the host it came from and should not be world-readable.
+func writeJSON(path string, rep check.Report) error {
+	data, err := json.MarshalIndent(rep, "", "  ")
+	if err != nil {
+		return err
+	}
+	return os.WriteFile(path, data, 0o600)
 }

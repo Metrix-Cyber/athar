@@ -1,4 +1,4 @@
-package main
+package report
 
 // htmlTemplate is the report layout. Everything is inline — no external
 // stylesheets, fonts or scripts — so the file renders identically on an

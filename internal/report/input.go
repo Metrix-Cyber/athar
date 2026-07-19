@@ -1,4 +1,4 @@
-package main
+package report
 
 import (
 	"bytes"
@@ -51,8 +51,8 @@ type Source struct {
 	Management *check.Management
 }
 
-// load reads and classifies one report file.
-func load(path string) (Source, []finding.Finding, error) {
+// Load reads and classifies one report file.
+func Load(path string) (Source, []finding.Finding, error) {
 	raw, err := os.ReadFile(path)
 	if err != nil {
 		return Source{}, nil, err
