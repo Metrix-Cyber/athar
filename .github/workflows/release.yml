@@ -96,7 +96,7 @@ jobs:
           grep -o '"name"' dist/athar-sbom.cdx.json | wc -l
 
       - name: Attest build provenance
-        uses: actions/attest-build-provenance@v2
+        uses: actions/attest-build-provenance@v4
         with:
           subject-path: 'dist/athar-*'
 
