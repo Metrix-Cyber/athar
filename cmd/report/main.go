@@ -75,7 +75,7 @@ func main() {
 	}
 	defer f.Close()
 
-	if err := report.Render(f, sources, findings, *org, *brand); err != nil {
+	if err := report.Render(f, framework.ID(*fw), sources, findings, *org, *brand); err != nil {
 		fatal("rendering: %v", err)
 	}
 	fmt.Printf("Wrote %s\n", *out)

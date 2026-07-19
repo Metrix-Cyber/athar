@@ -10,6 +10,7 @@ import (
 
 	"github.com/Metrix-Cyber/athar/internal/check"
 	"github.com/Metrix-Cyber/athar/internal/finding"
+	"github.com/Metrix-Cyber/athar/internal/framework"
 	"github.com/Metrix-Cyber/athar/internal/report"
 )
 
@@ -45,24 +46,58 @@ func guidedMode(rep check.Report, findings []finding.Finding) {
 		os.Exit(1)
 	}
 
-	f, err := os.Create(htmlPath)
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "\nCould not create %s: %v\n", htmlPath, err)
-		pause()
-		os.Exit(1)
+	// One report per framework. A single scan is evidence against every
+	// framework it can be mapped to, and which one a reader needs depends on
+	// what they are accountable for — so produce them all rather than making
+	// that choice for them or hiding the others behind a flag.
+	type produced struct {
+		name string
+		path string
 	}
-	err = report.Render(f, []report.Source{src}, fs, "", "Metrix Cyber")
-	f.Close()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "\nCould not render the report: %v\n", err)
+	var written []produced
+
+	for _, info := range framework.Available() {
+		path := htmlPath
+		if info.ID != framework.ECCID {
+			path = strings.TrimSuffix(htmlPath, ".html") + "-" + string(info.ID) + ".html"
+		}
+
+		out, cerr := os.Create(path)
+		if cerr != nil {
+			fmt.Fprintf(os.Stderr, "  Could not create %s: %v\n", path, cerr)
+			continue
+		}
+		rerr := report.Render(out, info.ID, []report.Source{src}, fs, "", "Metrix Cyber")
+		out.Close()
+		if rerr != nil {
+			// A framework with no usable mapping is skipped rather than fatal;
+			// the remaining reports are still worth having. The reason is
+			// printed so a missing report is never silent.
+			fmt.Fprintf(os.Stderr, "  Skipped %s: %v\n", info.Name, rerr)
+			os.Remove(path)
+			continue
+		}
+		written = append(written, produced{name: info.Name, path: path})
+	}
+
+	if len(written) == 0 {
+		fmt.Fprintf(os.Stderr, "\nNo report could be produced.\n")
 		pause()
 		os.Exit(1)
 	}
 
 	s := rep.Summary
-	fmt.Printf("\n%s\n", strings.Repeat("=", 62))
-	fmt.Printf("  Scan complete — %d checks, %d findings\n", len(check.ForCurrentPlatform()), s.Total)
-	fmt.Printf("    %d passed   %d failed   %d could not be determined\n", s.Pass, s.Fail, s.Unknown)
+
+	fmt.Printf("\n  Athar — NCA ECC-2:2024 assessment\n")
+	fmt.Printf("  %s\n\n", rep.Host.Hostname)
+
+	fmt.Printf("  %d checks run.  %d passed, %d need attention",
+		len(check.ForCurrentPlatform()), s.Pass, s.Fail)
+	if s.Unknown > 0 {
+		fmt.Printf(", %d could not be read", s.Unknown)
+	}
+	fmt.Printf(".\n")
+
 	if s.Fail > 0 {
 		var parts []string
 		for _, sev := range []string{"critical", "high", "medium", "low"} {
@@ -70,22 +105,30 @@ func guidedMode(rep check.Report, findings []finding.Finding) {
 				parts = append(parts, fmt.Sprintf("%d %s", n, sev))
 			}
 		}
-		fmt.Printf("    Failures by severity: %s\n", strings.Join(parts, ", "))
+		fmt.Printf("  Severity: %s.\n", strings.Join(parts, ", "))
 	}
-	fmt.Printf("%s\n\n", strings.Repeat("=", 62))
-
-	fmt.Printf("  Report:  %s\n", htmlPath)
-	fmt.Printf("  Data:    %s\n\n", jsonPath)
-	fmt.Println("  Open the report file above in any browser to read the results.")
 
 	if !rep.Elevated {
-		fmt.Println("\n  Note: this scan ran without administrator rights, so some checks")
-		fmt.Println("  could not be determined. Right-click and choose 'Run as administrator'")
-		fmt.Println("  for a complete assessment.")
+		fmt.Printf("\n  For a complete assessment, right-click this program and choose\n")
+		fmt.Printf("  'Run as administrator' — two checks need it.\n")
 	}
 
-	fmt.Println("\n  This report describes weaknesses on this machine. Treat it as")
-	fmt.Println("  sensitive and review it before sharing.")
+	// Hand the finished report to the browser rather than asking the reader to
+	// go and find a file. If that fails — no default handler, a locked-down
+	// desktop — the path is printed instead.
+	fmt.Printf("\n  Reports produced:\n")
+	for _, w := range written {
+		fmt.Printf("    %-48s %s\n", w.name, filepath.Base(w.path))
+	}
+
+	fmt.Printf("\n  Opening the first...\n")
+	if err := openReport(written[0].path); err != nil {
+		fmt.Printf("  Could not open it automatically. Open these files in any browser.\n")
+	}
+
+	fmt.Printf("\n  Saved to %s\n", filepath.Dir(htmlPath))
+	fmt.Printf("  The report describes weaknesses on this machine. Treat it as\n")
+	fmt.Printf("  confidential and review it before sharing.\n")
 
 	pause()
 }

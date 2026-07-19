@@ -198,9 +198,10 @@ const htmlTemplate = `<!doctype html>
   {{with evidence .Evidence}}
   <details><summary>Evidence</summary><pre>{{.}}</pre></details>
   {{end}}
-  <div class="codes">Evidence toward ECC control{{if gt (len .ControlCodes) 1}}s{{end}}:
-    {{range $i, $c := .ControlCodes}}{{if $i}}, {{end}}{{$c}}{{end}}
-    &nbsp;·&nbsp; check <code>{{.CheckID}}</code></div>
+  <div class="codes">Evidence toward {{.Framework}} clause{{if gt (len .Codes) 1}}s{{end}}:
+    {{range $i, $c := .Codes}}{{if $i}}, {{end}}{{$c}}{{end}}
+    &nbsp;·&nbsp; check <code>{{.CheckID}}</code>
+    {{with .MappingNote}}<br><em>{{.}}</em>{{end}}</div>
 </div>
 {{end}}
 {{end}}

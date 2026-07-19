@@ -93,3 +93,8 @@ func management(ed string) check.Management {
 // launch convention for a terminal binary, and a guided mode that waited for
 // Enter would hang any script that ran the scanner without arguments.
 func launchedByDoubleClick() bool { return false }
+
+// openReport opens the finished report with the desktop's default handler.
+// Linux hosts are typically headless servers, so a failure here is expected
+// and ignored — the path is printed either way.
+func openReport(path string) error { return nil }
