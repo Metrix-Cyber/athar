@@ -21,9 +21,14 @@ import (
 	"github.com/Metrix-Cyber/athar/internal/framework"
 )
 
-// Render writes an HTML report for the given sources and findings.
-func Render(w io.Writer, sources []Source, findings []finding.Finding, org, brand string) error {
-	return tmpl.Execute(w, build(sources, findings, org, brand))
+// Render writes an HTML report for the given sources and findings, structured
+// against the selected framework.
+func Render(w io.Writer, target framework.ID, sources []Source, findings []finding.Finding, org, brand string) error {
+	pg, err := build(target, sources, findings, org, brand)
+	if err != nil {
+		return err
+	}
+	return tmpl.Execute(w, pg)
 }
 
 type page struct {
@@ -42,15 +47,30 @@ type page struct {
 	Generated     string
 	Digest        string
 	CatalogueVer  string
+	Unmapped      []finding.Finding
 	HasFail       bool
 	SevOrdered    []sevCount
+}
+
+// shown pairs a finding with the clause codes to display for it. In a report
+// against a non-canonical framework those are the target framework's clauses,
+// not the ECC codes the check cites — a reader assessing against the CCC needs
+// CCC clause numbers, and showing ECC codes under CCC headings reads as a
+// mistake.
+type shown struct {
+	finding.Finding
+	Codes     []string
+	Framework string
+	// MappingNote explains the correspondence for mapped clauses, so a reader
+	// can judge the link rather than take it on trust.
+	MappingNote string
 }
 
 type group struct {
 	Code     string
 	Name     string
 	Domain   string
-	Findings []finding.Finding
+	Findings []shown
 	Fails    int
 	// Level and Reason describe how this subdomain can be evidenced, so the
 	// report accounts for the whole framework rather than only the parts a
@@ -65,18 +85,59 @@ type sevCount struct {
 	Class string
 }
 
-func build(sources []Source, findings []finding.Finding, org, brand string) page {
+func build(target framework.ID, sources []Source, findings []finding.Finding, org, brand string) (page, error) {
 	summary := summarize(findings)
 
-	byCode := map[string][]finding.Finding{}
-	for _, f := range findings {
-		byCode[f.Subdomain] = append(byCode[f.Subdomain], f)
+	view, err := BuildView(target, findings)
+	if err != nil {
+		return page{}, err
+	}
+	cat := view.Catalog
+
+	// Group findings by the *selected* framework's subdomains. For the
+	// canonical framework a finding's own subdomain is the right key; for any
+	// other, findings arrive via the mapping and their ECC subdomain means
+	// nothing in the target's numbering.
+	byCode := map[string][]shown{}
+	if target == framework.ECCID {
+		for _, f := range findings {
+			byCode[f.Subdomain] = append(byCode[f.Subdomain], shown{
+				Finding: f, Codes: f.ControlCodes, Framework: cat.Framework,
+			})
+		}
+	} else {
+		// Collect the target clauses each check reaches, per subdomain, so a
+		// check appears once with all the clauses it evidences rather than
+		// repeated per clause.
+		codes := map[string]map[string][]string{}
+		byID := map[string]finding.Finding{}
+		for clause, fs := range view.Mapped {
+			sub := clauseSubdomain(clause)
+			if codes[sub] == nil {
+				codes[sub] = map[string][]string{}
+			}
+			for _, f := range fs {
+				codes[sub][f.CheckID] = append(codes[sub][f.CheckID], clause)
+				byID[f.CheckID] = f
+			}
+		}
+		for sub, perCheck := range codes {
+			for id, clauses := range perCheck {
+				sort.Strings(clauses)
+				byCode[sub] = append(byCode[sub], shown{
+					Finding:   byID[id],
+					Codes:     clauses,
+					Framework: cat.Framework,
+					MappingNote: "The " + cat.Framework + " states these clauses apply in addition to " +
+						"the ECC clauses this check evidences, so this finding supports them without discharging them.",
+				})
+			}
+		}
 	}
 
 	// Every subdomain in the framework appears, not only those the scan
 	// reached. A report that lists only what was examined implies the
 	// framework ends there.
-	cat := framework.ECC()
 	var groups []group
 	for _, sd := range cat.Subdomains {
 		fs := byCode[sd.Code]
@@ -92,6 +153,15 @@ func build(sources []Source, findings []finding.Finding, org, brand string) page
 		})
 
 		lvl, reason := cat.Coverage(sd.Code)
+		if target != framework.ECCID {
+			// Coverage classifications describe the ECC's subdomains. Applying
+			// them to another framework's numbering would attach the wrong
+			// rationale to the wrong control.
+			lvl, reason = "", ""
+			if len(fs) == 0 {
+				reason = "No host or tenant check reaches this subdomain. It must be assessed by other means."
+			}
+		}
 		g := group{
 			Code:     sd.Code,
 			Name:     sd.Title,
@@ -151,7 +221,7 @@ func build(sources []Source, findings []finding.Finding, org, brand string) page
 		Brand:         brand,
 		Sources:       sources,
 		Summary:       summary,
-		Framework:     "NCA ECC-2:2024",
+		Framework:     cat.Framework,
 		Groups:        groups,
 		Score:         score,
 		Assessed:      assessed,
@@ -162,9 +232,20 @@ func build(sources []Source, findings []finding.Finding, org, brand string) page
 		Generated:     generated.Format("2 January 2006, 15:04 MST"),
 		Digest:        finding.Digest(findings),
 		CatalogueVer:  cat.Framework,
+		Unmapped:      view.Unmapped,
 		HasFail:       summary.Fail > 0,
 		SevOrdered:    sevs,
+	}, nil
+}
+
+// clauseSubdomain extracts the subdomain from a clause code, handling both
+// ECC-style "2-2-3-1" and CCC-style "2-2-P-1-1".
+func clauseSubdomain(code string) string {
+	parts := strings.SplitN(code, "-", 3)
+	if len(parts) < 2 {
+		return code
 	}
+	return parts[0] + "-" + parts[1]
 }
 
 // applyGuidance explains how the hardening settings in this report can be

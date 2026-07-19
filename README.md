@@ -106,6 +106,38 @@ The connector holds to what it can:
   `not_applicable` — reporting either as a control failure would tell a
   customer something untrue about their tenant.
 
+## Frameworks
+
+Checks cite the ECC natively. Reporting against another framework is a
+translation, so the same scan can be presented to whichever framework a reader
+is accountable to without rerunning anything on the host.
+
+```sh
+athar-report -frameworks                              # list what is available
+athar-report -in scan.json -framework ccc -out report.html
+```
+
+| Framework | Clauses | Status |
+|---|---|---|
+| `ecc` — NCA Essential Cybersecurity Controls (ECC-2:2024) | 199 | Canonical. Checks cite it directly. |
+| `ccc` — NCA Cloud Cybersecurity Controls (CCC-2:2024) | 175 | Mapped from the ECC via the CCC's own cross-references |
+
+The ECC→CCC mapping is read from the CCC document's stated correspondences
+("In addition to Subcontrols in the ECC control 2-2-3..."), so every link is
+the NCA's own statement rather than an inference. Links are marked
+*supporting*, never *exact*: "in addition to" means the CCC clause asks for
+more than the ECC one evidences, and presenting that as equivalence would tell
+an assessor a control is discharged when it is not.
+
+Selecting a framework with no mapping fails with an explanation rather than
+producing an empty report — zero findings would read as "nothing wrong" instead
+of "no translation exists".
+
+The CCC separates cloud **provider** (CSP) from **tenant** (CST) obligations and
+the catalogue keeps them apart. Most organisations running this are tenants;
+assessing them against provider controls would report them non-compliant with
+requirements that are contractually their provider's.
+
 ## Building
 
 Requires Go 1.26 or later. No cgo, no external build tooling.

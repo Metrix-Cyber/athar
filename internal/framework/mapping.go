@@ -1,6 +1,9 @@
 package framework
 
-import "sort"
+import (
+	"sort"
+	"strings"
+)
 
 // Cross-framework mapping translates the ECC clauses a check cites into the
 // clauses of whichever framework a report is being produced against.
@@ -80,7 +83,7 @@ func MappingTo(target ID) (*Mapping, bool) {
 func (m *Mapping) Translate(codes []string) (mapped []Link, unmapped []string) {
 	seen := map[string]bool{}
 	for _, code := range codes {
-		links, ok := m.byFrom[code]
+		links, ok := m.lookup(code)
 		if !ok {
 			unmapped = append(unmapped, code)
 			continue
@@ -99,6 +102,40 @@ func (m *Mapping) Translate(codes []string) (mapped []Link, unmapped []string) {
 	return mapped, unmapped
 }
 
+// lookup finds links for a clause, walking up the code hierarchy when the
+// clause itself is not mapped.
+//
+// The two documents reference each other at different depths. The CCC extends
+// ECC *controls* — "in addition to the ECC control 2-2-3" — while checks cite
+// the *subcontrols* beneath them, such as 2-2-3-1. Matching only on exact
+// codes meant every check missed every link and the CCC view reached zero of
+// 171 clauses, which would have read as a framework with no coverage rather
+// than a mapping that never connected.
+//
+// A subcontrol is part of its parent control, so evidence for the child is
+// evidence toward the parent, and whatever extends the parent inherits it.
+// Walking upward is therefore sound. Walking downward would not be: evidence
+// for a parent does not establish any particular child.
+func (m *Mapping) lookup(code string) ([]Link, bool) {
+	if links, ok := m.byFrom[code]; ok {
+		return links, true
+	}
+	parts := strings.Split(code, "-")
+	// Walk up to two segments — a subdomain — but only ever match keys the
+	// mapping already holds. The CCC document occasionally references a
+	// subdomain while calling it a control ("in addition to controls in the
+	// ECC control 2-1", where 2-1 is a subdomain). Honouring that is reading
+	// the document, not inferring: the key exists only because the NCA wrote
+	// it. Nothing here invents a subdomain-level link.
+	for len(parts) > 2 {
+		parts = parts[:len(parts)-1]
+		if links, ok := m.byFrom[strings.Join(parts, "-")]; ok {
+			return links, true
+		}
+	}
+	return nil, false
+}
+
 // TargetsCovered lists the distinct target clauses reachable from a set of
 // canonical codes. Used to report coverage against the selected framework
 // rather than against ECC.
@@ -106,7 +143,8 @@ func (m *Mapping) TargetsCovered(codes []string) []string {
 	seen := map[string]bool{}
 	var out []string
 	for _, code := range codes {
-		for _, l := range m.byFrom[code] {
+		links, _ := m.lookup(code)
+		for _, l := range links {
 			if !seen[l.To] {
 				seen[l.To] = true
 				out = append(out, l.To)
