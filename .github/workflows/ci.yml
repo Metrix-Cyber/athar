@@ -63,8 +63,10 @@ jobs:
       - name: Build all targets
         run: |
           for target in windows/amd64 linux/amd64 linux/arm64; do
-            GOOS=${target%/*} GOARCH=${target#*/} \
-              go build -ldflags "-s -w" -o "/tmp/athar-${target////-}" ./cmd/scanner
+            for cmd in scanner report athar-cloud; do
+              GOOS=${target%/*} GOARCH=${target#*/} \
+                go build -ldflags "-s -w" -o "/tmp/${cmd}-${target////-}" "./cmd/${cmd}"
+            done
             echo "built $target"
           done
 

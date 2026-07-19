@@ -72,13 +72,48 @@ ECC controls are written as *requirements* ("shall be identified, documented and
 approved"), not as technical configurations. Findings are therefore **evidence
 toward** a control, never a verdict on it.
 
+## Tenant connectors
+
+Some ECC clauses cannot be assessed from a host at all, because the evidence
+lives in a SaaS tenant: whether MFA is actually *enforced*, whether audit logs
+are retained for the twelve months ECC 2-12-3-5 requires, whether information
+is classified. `athar-cloud` reads those from Microsoft 365 or Google
+Workspace.
+
+```sh
+athar-cloud -list                          # checks and the read scopes each needs
+athar-cloud -provider m365   -out tenant.json
+athar-cloud -provider google -out tenant.json
+```
+
+It is a **separate binary on purpose.** The host scanner is offline,
+credential-free and read-only; a connector is necessarily none of those.
+Keeping them apart means using tenant coverage does not cost you the property
+that makes the scanner deployable inside a regulated environment.
+
+The connector holds to what it can:
+
+- **Read-only scopes only**, declared per check so an administrator granting
+  consent can see exactly what is read and which control it serves. A test
+  fails the build if any check requests a write-capable scope.
+- **GET requests only.** There is no code path that writes to a tenant.
+- **No credential handling.** The access token is supplied through the
+  environment, obtained by the operator with their own tooling (`az`,
+  `gcloud`). Credentials are never accepted as flags, because flag values land
+  in shell history and the process list.
+- **Permission failures are not findings.** A denied scope reports
+  `undetermined` and a 404 from an unlicensed feature reports
+  `not_applicable` — reporting either as a control failure would tell a
+  customer something untrue about their tenant.
+
 ## Building
 
 Requires Go 1.26 or later. No cgo, no external build tooling.
 
 ```sh
-go build -o athar     ./cmd/scanner
-go build -o report    ./cmd/report
+go build -o athar        ./cmd/scanner
+go build -o athar-report ./cmd/report
+go build -o athar-cloud  ./cmd/athar-cloud
 
 # cross-compile
 GOOS=linux   GOARCH=amd64 go build -o athar-linux       ./cmd/scanner
@@ -108,6 +143,7 @@ air-gapped machine and survives being sent as a single attachment.
 | Windows Server / domain-joined | **Not yet tested** |
 | Linux checks (14) | **Parsers unit-tested (15 tests); not yet run on a live host** |
 | Cross-compilation | Verified for windows/amd64, linux/amd64, linux/arm64 |
+| Tenant connectors (9 checks) | **Logic tested against recorded API responses (11 tests); never run against a live tenant** |
 
 Untested paths are marked as such deliberately. Reports of behaviour on
 platforms not listed above are welcome and useful.
