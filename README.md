@@ -127,7 +127,10 @@ GOOS=windows GOARCH=amd64 go build -o athar.exe         ./cmd/scanner
 ./athar -list                     # list compiled-in checks and their control mappings
 ./athar -version                  # print version
 ./athar -out scan.json -fail-on high   # exit 1 if any high or critical finding
-./report -in scan.json -out report.html -org "Client Name"
+./athar-report -in scan.json -out report.html -org "Client Name"
+
+# one report covering a host and a tenant together
+./athar-report -in "scan.json,tenant.json" -out report.html -org "Client Name"
 ```
 
 The scanner emits structured JSON. Rendering is a separate binary so the output

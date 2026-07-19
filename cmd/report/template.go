@@ -8,7 +8,7 @@ const htmlTemplate = `<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cybersecurity Compliance Assessment — {{.Report.Host.Hostname}}</title>
+<title>Cybersecurity Compliance Assessment{{if .Org}} — {{.Org}}{{end}}</title>
 <style>
   :root {
     --bg: #ffffff; --fg: #14181f; --muted: #5c6672; --line: #e3e7ec;
@@ -77,6 +77,12 @@ const htmlTemplate = `<!doctype html>
   pre { background: var(--panel); border: 1px solid var(--line); border-radius: 6px;
         padding: 10px 12px; overflow-x: auto; font-size: 12.5px; margin: 8px 0 0;
         font-family: ui-monospace, "Cascadia Code", Consolas, monospace; }
+  table.sources { width: 100%; border-collapse: collapse; margin-top: 18px; font-size: 13.5px; }
+  table.sources th { text-align: left; font-weight: 600; color: var(--muted); font-size: 11.5px;
+                     text-transform: uppercase; letter-spacing: .05em; padding: 6px 10px 6px 0;
+                     border-bottom: 1px solid var(--line); }
+  table.sources td { padding: 8px 10px 8px 0; border-bottom: 1px solid var(--line);
+                     vertical-align: top; }
   .gap { background: var(--panel); border: 1px dashed var(--line); border-radius: 8px;
          padding: 12px 14px; margin: 12px 0; font-size: 14px; color: var(--muted); }
   .gap.partial-note { border-style: solid; border-left: 3px solid var(--accent);
@@ -97,20 +103,33 @@ const htmlTemplate = `<!doctype html>
 <header>
   <div class="brand">{{.Brand}} — NCA ECC-2:2024 Assessment</div>
   <h1>Cybersecurity Compliance Assessment</h1>
-  <div class="sub">{{if .Org}}{{.Org}} — {{end}}Host {{.Report.Host.Hostname}}</div>
+  <div class="sub">{{if .Org}}{{.Org}}{{else}}Assessment scope{{end}}</div>
   <dl class="meta">
     <div><dt>Generated</dt><dd>{{.Generated}}</dd></div>
-    <div><dt>Operating system</dt><dd>{{.Report.Host.OS}} {{.Report.Host.Version}} ({{.Report.Host.Arch}})</dd></div>
-    <div><dt>Framework</dt><dd>{{.Report.Framework}}</dd></div>
-    <div><dt>Scanner version</dt><dd>{{.Report.ScannerVersion}}</dd></div>
+    <div><dt>Framework</dt><dd>{{.Framework}}</dd></div>
+    <div><dt>Sources assessed</dt><dd>{{len .Sources}}</dd></div>
   </dl>
+
+  <table class="sources">
+    <thead><tr><th>Assessed</th><th>Type</th><th>Detail</th><th>Completeness</th></tr></thead>
+    <tbody>
+    {{range .Sources}}
+      <tr>
+        <td><strong>{{.Name}}</strong></td>
+        <td>{{if eq .Kind "host"}}Host{{else if eq .Kind "tenant"}}Tenant{{else}}Unknown{{end}}</td>
+        <td>{{.Detail}}</td>
+        <td>{{if .Partial}}<span class="lvl assessor">partial</span>{{if and (eq .Kind "host") (not .Elevated)}} not elevated{{end}}{{else}}complete{{end}}</td>
+      </tr>
+    {{end}}
+    </tbody>
+  </table>
 </header>
 
 <div class="cards">
   <div class="card"><div class="n {{if .HasFail}}crit{{else}}ok{{end}}">{{.Score}}%</div>
        <div class="l">Checks passed</div></div>
-  <div class="card"><div class="n ok">{{.Report.Summary.Pass}}</div><div class="l">Passing</div></div>
-  <div class="card"><div class="n crit">{{.Report.Summary.Fail}}</div><div class="l">Failing</div></div>
+  <div class="card"><div class="n ok">{{.Summary.Pass}}</div><div class="l">Passing</div></div>
+  <div class="card"><div class="n crit">{{.Summary.Fail}}</div><div class="l">Failing</div></div>
   {{range .SevOrdered}}
   <div class="card"><div class="n {{.Class}}">{{.Count}}</div><div class="l">{{.Name}}</div></div>
   {{end}}
@@ -119,8 +138,8 @@ const htmlTemplate = `<!doctype html>
 <div class="notice">
   <strong>Scope of this assessment.</strong>
   This automated scan produced technical evidence for {{.Coverage}} ECC-2:2024 subdomains,
-  from {{.Assessed}} conclusive checks on this host — citing
-  <strong>{{.Report.Summary.ClausesCited}} of {{.Report.Summary.ClausesTotal}} control
+  from {{.Assessed}} conclusive checks across the sources listed above — citing
+  <strong>{{.Summary.ClausesCited}} of {{.Summary.ClausesTotal}} control
   clauses</strong>. Subdomain coverage is the more favourable figure of the two, because a
   subdomain counts as covered when a single check touches it; the clause count is the
   stricter measure and is stated here for that reason.
@@ -129,10 +148,8 @@ const htmlTemplate = `<!doctype html>
   documentary and organisational controls that no host scan can verify, and they are
   included so this report accounts for the whole framework rather than only its
   technically assessable part.
-  {{if not .Report.Elevated}}
-  This scan ran <strong>without administrative privileges</strong>; some checks could not
-  be fully determined and are marked accordingly.
-  {{end}}
+  Any source marked <em>partial</em> above could not be fully assessed — a host scan
+  without administrative privileges, or a check whose data could not be read.
   <br><br>
   ECC-2:2024 controls are written as requirements to be identified, documented, approved
   and implemented — not as technical configurations. Each result below is therefore
@@ -140,10 +157,12 @@ const htmlTemplate = `<!doctype html>
   technical check supports an assessor's conclusion; it does not replace one.
 </div>
 
+{{if .ApplyTitle}}
 <div class="notice apply">
   <strong>Applying these settings — {{.ApplyTitle}}.</strong>
   {{.ApplyGuidance}}
 </div>
+{{end}}
 
 {{range .Groups}}
 <h2>
@@ -185,9 +204,9 @@ const htmlTemplate = `<!doctype html>
 {{end}}
 
 <footer>
-  Generated by {{.Brand}} compliance scanner {{.Report.ScannerVersion}} on {{.Generated}}.
-  Findings reflect the state of {{.Report.Host.Hostname}} at scan time and are evidence for
-  assessment, not a certification of compliance.
+  Generated by {{.Brand}} on {{.Generated}} from {{len .Sources}} assessed source(s).
+  Findings reflect state at the time of assessment and are evidence for review, not a
+  certification of compliance.
 </footer>
 
 </div>

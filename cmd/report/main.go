@@ -16,6 +16,7 @@ import (
 	"os"
 	"sort"
 	"strings"
+	"time"
 
 	"github.com/Metrix-Cyber/athar/internal/check"
 	"github.com/Metrix-Cyber/athar/internal/finding"
@@ -24,24 +25,34 @@ import (
 
 func main() {
 	var (
-		in    = flag.String("in", "scan.json", "scanner JSON report")
+		in    = flag.String("in", "scan.json", "report file(s) to render, comma-separated. Host scans and tenant assessments can be combined into one report.")
 		out   = flag.String("out", "report.html", "HTML output path")
 		org   = flag.String("org", "", "organization name shown on the report")
 		brand = flag.String("brand", "Metrix Cyber", "issuing organization")
 	)
 	flag.Parse()
 
-	raw, err := os.ReadFile(*in)
-	if err != nil {
-		fatal("reading %s: %v", *in, err)
+	var (
+		sources  []Source
+		findings []finding.Finding
+	)
+	for _, path := range strings.Split(*in, ",") {
+		path = strings.TrimSpace(path)
+		if path == "" {
+			continue
+		}
+		src, fs, err := load(path)
+		if err != nil {
+			fatal("%v", err)
+		}
+		sources = append(sources, src)
+		findings = append(findings, fs...)
+	}
+	if len(sources) == 0 {
+		fatal("no input files given")
 	}
 
-	var rep check.Report
-	if err := json.Unmarshal(raw, &rep); err != nil {
-		fatal("parsing %s: %v", *in, err)
-	}
-
-	page := build(rep, *org, *brand)
+	page := build(sources, findings, *org, *brand)
 
 	f, err := os.Create(*out)
 	if err != nil {
@@ -63,7 +74,9 @@ func fatal(format string, args ...any) {
 type page struct {
 	Org           string
 	Brand         string
-	Report        check.Report
+	Sources       []Source
+	Summary       check.Summary
+	Framework     string
 	Groups        []group
 	Score         int
 	Assessed      int
@@ -95,9 +108,11 @@ type sevCount struct {
 	Class string
 }
 
-func build(rep check.Report, org, brand string) page {
+func build(sources []Source, findings []finding.Finding, org, brand string) page {
+	summary := summarize(findings)
+
 	byCode := map[string][]finding.Finding{}
-	for _, f := range rep.Findings {
+	for _, f := range findings {
 		byCode[f.Subdomain] = append(byCode[f.Subdomain], f)
 	}
 
@@ -142,36 +157,53 @@ func build(rep check.Report, org, brand string) page {
 	// Score counts only conclusive results. Undetermined checks are excluded
 	// rather than counted as passes — inflating a score with things we could
 	// not see is the fastest way to lose a security-literate reader.
-	assessed := rep.Summary.Pass + rep.Summary.Fail
+	assessed := summary.Pass + summary.Fail
 	score := 0
 	if assessed > 0 {
-		score = rep.Summary.Pass * 100 / assessed
+		score = summary.Pass * 100 / assessed
 	}
 
 	var sevs []sevCount
 	for _, s := range []struct{ key, class string }{
 		{"critical", "crit"}, {"high", "high"}, {"medium", "med"}, {"low", "low"},
 	} {
-		if n := rep.Summary.BySeverity[s.key]; n > 0 {
+		if n := summary.BySeverity[s.key]; n > 0 {
 			sevs = append(sevs, sevCount{Name: strings.Title(s.key), Count: n, Class: s.class})
 		}
 	}
 
-	applyTitle, applyText := applyGuidance(rep.Host.Management)
+	// Remediation guidance is host-specific, so it only appears when a host
+	// was assessed. A tenant-only report has no management mode to advise on.
+	var applyTitle, applyText string
+	for _, src := range sources {
+		if src.Kind == "host" && src.Management != nil {
+			applyTitle, applyText = applyGuidance(*src.Management)
+			break
+		}
+	}
+
+	generated := time.Now().UTC()
+	for _, src := range sources {
+		if src.When.After(generated) || generated.IsZero() {
+			generated = src.When
+		}
+	}
 
 	return page{
 		Org:           org,
 		Brand:         brand,
-		Report:        rep,
+		Sources:       sources,
+		Summary:       summary,
+		Framework:     "NCA ECC-2:2024",
 		Groups:        groups,
 		Score:         score,
 		Assessed:      assessed,
-		Coverage:      fmt.Sprintf("%d of %d", len(rep.Summary.SubdomainsCovered), cat.TotalSubdomains()),
-		Remaining:     cat.TotalSubdomains() - len(rep.Summary.SubdomainsCovered),
+		Coverage:      fmt.Sprintf("%d of %d", len(summary.SubdomainsCovered), cat.TotalSubdomains()),
+		Remaining:     cat.TotalSubdomains() - len(summary.SubdomainsCovered),
 		ApplyTitle:    applyTitle,
 		ApplyGuidance: applyText,
-		Generated:     rep.FinishedAt.Format("2 January 2006, 15:04 MST"),
-		HasFail:       rep.Summary.Fail > 0,
+		Generated:     generated.Format("2 January 2006, 15:04 MST"),
+		HasFail:       summary.Fail > 0,
 		SevOrdered:    sevs,
 	}
 }
