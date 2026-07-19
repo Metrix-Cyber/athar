@@ -88,3 +88,8 @@ func management(ed string) check.Management {
 	}
 	return m
 }
+
+// launchedByDoubleClick is always false on Linux: there is no file-manager
+// launch convention for a terminal binary, and a guided mode that waited for
+// Enter would hang any script that ran the scanner without arguments.
+func launchedByDoubleClick() bool { return false }

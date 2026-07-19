@@ -38,9 +38,11 @@ func main() {
 	)
 	flag.Parse()
 
-	// A launch with no arguments almost always means the binary was
-	// double-clicked rather than run from a shell.
-	guided := len(os.Args) == 1
+	// Guided mode is for someone who launched the binary from a file manager.
+	// Both conditions are required: no arguments alone is not enough, because
+	// `athar.exe > scan.json` has none either, and treating that as a
+	// double-click silently produced an empty file instead of a report.
+	guided := len(os.Args) == 1 && launchedByDoubleClick()
 
 	if *showVer {
 		fmt.Printf("athar %s\n", version)

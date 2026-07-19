@@ -4,12 +4,40 @@ package main
 
 import (
 	"fmt"
+	"unsafe"
 
 	"golang.org/x/sys/windows"
 	"golang.org/x/sys/windows/registry"
 
 	"github.com/Metrix-Cyber/athar/internal/check"
 )
+
+var (
+	kernel32                  = windows.NewLazySystemDLL("kernel32.dll")
+	procGetConsoleProcessList = kernel32.NewProc("GetConsoleProcessList")
+)
+
+// launchedByDoubleClick reports whether this process owns its console window.
+//
+// Absence of arguments is not a reliable signal: `athar.exe > scan.json` also
+// has no arguments, and treating that as a double-click produced an empty file
+// instead of a report — a shell user's redirection silently hijacked.
+//
+// Windows attaches every process sharing a console to that console's process
+// list. A binary launched from cmd or PowerShell shares the shell's console,
+// so the list holds at least two entries. A binary launched from Explorer gets
+// a console created for it alone, so the list holds exactly one.
+func launchedByDoubleClick() bool {
+	var pids [4]uint32
+	r, _, _ := procGetConsoleProcessList.Call(
+		uintptr(unsafe.Pointer(&pids[0])),
+		uintptr(len(pids)),
+	)
+	// A zero return means the call failed — no console at all, for instance
+	// under a service or a redirected pipe. Treat that as "not interactive"
+	// rather than guessing.
+	return r == 1
+}
 
 // isElevated reports whether the process holds an elevated token. Checks that
 // need elevation degrade to "undetermined" rather than failing silently, and
