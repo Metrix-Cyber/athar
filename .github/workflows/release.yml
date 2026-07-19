@@ -22,7 +22,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@v7
         with:
           # Pinned to an exact patch. A floating '1.26' silently picks up new
           # patch releases, and a different toolchain produces a different
