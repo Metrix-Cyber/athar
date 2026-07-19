@@ -101,18 +101,6 @@ func detectOfficeVersions() []string {
 	return out
 }
 
-// lower is a minimal ASCII lowercase; the Office policy tree uses lowercase
-// application names.
-func lower(s string) string {
-	b := []byte(s)
-	for i, c := range b {
-		if c >= 'A' && c <= 'Z' {
-			b[i] = c + 32
-		}
-	}
-	return string(b)
-}
-
 // unusedRegistry keeps the registry import meaningful if the file is trimmed;
 // referenced deliberately so the dependency is explicit.
 var _ = registry.LOCAL_MACHINE

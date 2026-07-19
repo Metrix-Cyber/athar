@@ -100,9 +100,6 @@ const (
 	ufNormalAccount    = 0x0200
 )
 
-// timeqForever marks "never expires" in NetUserModalsGet output.
-const timeqForever = 0xFFFFFFFF
-
 func netUserModalsGet(level uint32) (unsafe.Pointer, error) {
 	var buf unsafe.Pointer
 	r, _, _ := procNetUserModals.Call(0, uintptr(level), uintptr(unsafe.Pointer(&buf)))
@@ -148,24 +145,7 @@ func passwordPolicy(ctx context.Context) []finding.Finding {
 		With("max_password_age_days", maxAgeDays).
 		With("min_password_age_days", p.MinPasswdAge/86400)
 
-	// Thresholds reflect common ECC-aligned baselines. These are configurable
-	// policy, not framework text — the platform will let an assessor override
-	// them per client rather than hard-coding one interpretation.
-	const (
-		wantMinLen  = 8
-		wantHistory = 5
-	)
-
-	var problems []string
-	if p.MinPasswdLen < wantMinLen {
-		problems = append(problems, fmt.Sprintf("minimum length is %d (expected at least %d)", p.MinPasswdLen, wantMinLen))
-	}
-	if p.PasswordHistLen < wantHistory {
-		problems = append(problems, fmt.Sprintf("password history is %d (expected at least %d)", p.PasswordHistLen, wantHistory))
-	}
-	if p.MaxPasswdAge == timeqForever {
-		problems = append(problems, "passwords never expire")
-	}
+	problems := passwordPolicyProblems(p.MinPasswdLen, p.PasswordHistLen, p.MaxPasswdAge)
 
 	if len(problems) > 0 {
 		return []finding.Finding{f.Failed(
@@ -366,25 +346,4 @@ func enumLocalUsers() ([]userInfo2, error) {
 		out = append(out, cp)
 	}
 	return out, nil
-}
-
-func joinList(items []string) string {
-	switch len(items) {
-	case 0:
-		return ""
-	case 1:
-		return items[0]
-	}
-	s := ""
-	for i, it := range items {
-		switch {
-		case i == 0:
-			s = it
-		case i == len(items)-1:
-			s += " and " + it
-		default:
-			s += ", " + it
-		}
-	}
-	return s
 }

@@ -9,7 +9,6 @@ import (
 	"path/filepath"
 	"regexp"
 	"sort"
-	"strings"
 
 	"github.com/Metrix-Cyber/athar/internal/check"
 	"github.com/Metrix-Cyber/athar/internal/finding"
@@ -33,32 +32,6 @@ var (
 	reAuth = regexp.MustCompile(`(?i)<authentication>([^<]*)</authentication>`)
 	reEnc  = regexp.MustCompile(`(?i)<encryption>([^<]*)</encryption>`)
 )
-
-// wirelessProfile is one saved network.
-type wirelessProfile struct {
-	SSID, Auth, Encryption string
-}
-
-// weakWireless classifies saved profiles.
-//
-// "open" and "WEP" are unambiguous failures. WPA-Personal (TKIP-era) is
-// deprecated but still common, so it is reported separately rather than lumped
-// in — an assessor needs the distinction, and overstating a legacy-but-
-// encrypted network as equivalent to an open one would not survive review.
-func classify(p wirelessProfile) (severity string) {
-	auth := strings.ToLower(p.Auth)
-	enc := strings.ToLower(p.Encryption)
-
-	switch {
-	case auth == "open" && (enc == "none" || enc == ""):
-		return "open"
-	case strings.Contains(enc, "wep") || auth == "shared":
-		return "wep"
-	case auth == "wpapsk" || strings.Contains(enc, "tkip"):
-		return "legacy"
-	}
-	return ""
-}
 
 func wirelessProfiles(ctx context.Context) []finding.Finding {
 	f := finding.New("win.net.wireless", "Saved wireless networks", "2-5", wifiCodes)

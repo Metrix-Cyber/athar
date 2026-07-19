@@ -108,27 +108,6 @@ func cipherSuites(ctx context.Context) []finding.Finding {
 		"Weak cryptographic primitives are explicitly disabled.")}
 }
 
-func joinCount(n int) string {
-	switch n {
-	case 1:
-		return "One primitive"
-	default:
-		return itoa(n) + " primitives"
-	}
-}
-
-func itoa(n int) string {
-	if n == 0 {
-		return "0"
-	}
-	var b []byte
-	for n > 0 {
-		b = append([]byte{byte('0' + n%10)}, b...)
-		n /= 10
-	}
-	return string(b)
-}
-
 // unusedRegistryRef keeps the registry import explicit for future use in this
 // file; the helpers in registry.go wrap all current access.
 var _ = registry.LOCAL_MACHINE

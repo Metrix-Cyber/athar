@@ -34,18 +34,6 @@ func init() {
 
 const cvBase = `SOFTWARE\Microsoft\Windows NT\CurrentVersion`
 
-// buildNumber parses CurrentBuild, returning 0 when it is unreadable.
-func buildNumber(s string) int {
-	n := 0
-	for _, r := range s {
-		if r < '0' || r > '9' {
-			return 0
-		}
-		n = n*10 + int(r-'0')
-	}
-	return n
-}
-
 // operatingSystem inventories the OS and flags editions that are out of
 // support.
 func operatingSystem(ctx context.Context) []finding.Finding {
@@ -61,9 +49,7 @@ func operatingSystem(ctx context.Context) []finding.Finding {
 	// boundary. An asset inventory that names the wrong operating system is
 	// worse than useless — it is the first thing an assessor cross-checks.
 	rawProduct := product
-	if n := buildNumber(build); n >= 22000 && strings.HasPrefix(product, "Windows 10") {
-		product = "Windows 11" + strings.TrimPrefix(product, "Windows 10")
-	}
+	product = normalizeProductName(product, build)
 
 	f = f.With("product_name", product).
 		With("display_version", display).

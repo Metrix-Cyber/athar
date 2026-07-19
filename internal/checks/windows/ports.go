@@ -154,11 +154,6 @@ func listeningPorts(ctx context.Context) []finding.Finding {
 		len(external)))}
 }
 
-// ntohs converts a network byte order port as returned by the IP helper API.
-func ntohs(p uint32) uint16 {
-	return uint16(p<<8) | uint16(p>>8&0xff)
-}
-
 func tcpListeners() ([]mibTCPRowOwnerPID, error) {
 	buf, err := extendedTable(procGetExtendedTCPTable, tcpTableOwnerPIDListener)
 	if err != nil {

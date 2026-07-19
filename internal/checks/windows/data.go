@@ -112,10 +112,3 @@ func diskEncryption(ctx context.Context) []finding.Finding {
 			len(volumes), joinList(protected)))}
 	}
 }
-
-func policySuffix(configured bool) string {
-	if configured {
-		return ". BitLocker policy is configured on this host"
-	}
-	return ". No BitLocker Group Policy configuration was found, indicating encryption is not centrally enforced"
-}

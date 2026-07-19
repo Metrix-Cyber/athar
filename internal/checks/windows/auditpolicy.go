@@ -44,16 +44,6 @@ const (
 	auditFailure = 0x2
 )
 
-// booleanTrue interprets the return value of a Win32 function declared as
-// BOOLEAN.
-//
-// BOOLEAN is a single byte, not a 4-byte BOOL. The syscall return register
-// carries unrelated data in its upper bytes, so comparing the full uintptr
-// against zero treats failures as successes — which here meant dereferencing
-// a nil output pointer and panicking inside a customer's report. Mask to the
-// low byte for any BOOLEAN-returning function.
-func booleanTrue(r uintptr) bool { return r&0xFF != 0 }
-
 // auditSubcategory identifies a subcategory to require, with the GUID Windows
 // uses for it. ECC 2-12-3-1 and 2-12-3-2 require event logging for critical
 // assets and for privileged account access.

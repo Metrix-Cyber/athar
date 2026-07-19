@@ -142,9 +142,10 @@ air-gapped machine and survives being sent as a single attachment.
 
 | Area | Status |
 |---|---|
-| Windows checks (37) | Verified on Windows 11, standalone, elevated and unelevated |
+| Windows checks (37) | Verified on Windows 11, standalone, elevated and unelevated; decision logic unit-tested (12 tests) |
 | Windows Server / domain-joined | **Not yet tested** |
 | Linux checks (14) | **Parsers unit-tested (15 tests); not yet run on a live host** |
+| Total test suite | 38 tests, run on Linux and Windows in CI |
 | Cross-compilation | Verified for windows/amd64, linux/amd64, linux/arm64 |
 | Tenant connectors (9 checks) | **Logic tested against recorded API responses (11 tests); never run against a live tenant** |
 
