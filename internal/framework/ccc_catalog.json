@@ -1,0 +1,1549 @@
+{
+  "framework": "NCA CCC-2:2024",
+  "source": "https://nca.gov.sa/en/regulatory-documents/controls-list/ccc/",
+  "domains": [
+    {
+      "code": "1",
+      "name": "Cybersecurity Governance"
+    },
+    {
+      "code": "2",
+      "name": "Cybersecurity Defence"
+    },
+    {
+      "code": "3",
+      "name": "Cybersecurity Resilience"
+    },
+    {
+      "code": "4",
+      "name": "Third-Party and Cloud Computing Cybersecurity"
+    }
+  ],
+  "subdomains": [
+    {
+      "code": "1-1",
+      "domain": "1",
+      "domain_name": "Cybersecurity Governance",
+      "title": ""
+    },
+    {
+      "code": "1-2",
+      "domain": "1",
+      "domain_name": "Cybersecurity Governance",
+      "title": ""
+    },
+    {
+      "code": "1-3",
+      "domain": "1",
+      "domain_name": "Cybersecurity Governance",
+      "title": ""
+    },
+    {
+      "code": "1-4",
+      "domain": "1",
+      "domain_name": "Cybersecurity Governance",
+      "title": ""
+    },
+    {
+      "code": "1-5",
+      "domain": "1",
+      "domain_name": "Cybersecurity Governance",
+      "title": ""
+    },
+    {
+      "code": "2-1",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defence",
+      "title": ""
+    },
+    {
+      "code": "2-2",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defence",
+      "title": ""
+    },
+    {
+      "code": "2-3",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defence",
+      "title": ""
+    },
+    {
+      "code": "2-4",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defence",
+      "title": ""
+    },
+    {
+      "code": "2-5",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defence",
+      "title": ""
+    },
+    {
+      "code": "2-6",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defence",
+      "title": ""
+    },
+    {
+      "code": "2-7",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defence",
+      "title": ""
+    },
+    {
+      "code": "2-8",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defence",
+      "title": ""
+    },
+    {
+      "code": "2-9",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defence",
+      "title": ""
+    },
+    {
+      "code": "2-10",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defence",
+      "title": ""
+    },
+    {
+      "code": "2-11",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defence",
+      "title": ""
+    },
+    {
+      "code": "2-12",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defence",
+      "title": ""
+    },
+    {
+      "code": "2-13",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defence",
+      "title": ""
+    },
+    {
+      "code": "2-14",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defence",
+      "title": ""
+    },
+    {
+      "code": "2-15",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defence",
+      "title": ""
+    },
+    {
+      "code": "2-16",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defence",
+      "title": ""
+    },
+    {
+      "code": "2-17",
+      "domain": "2",
+      "domain_name": "Cybersecurity Defence",
+      "title": ""
+    },
+    {
+      "code": "3-1",
+      "domain": "3",
+      "domain_name": "Cybersecurity Resilience",
+      "title": ""
+    },
+    {
+      "code": "4-1",
+      "domain": "4",
+      "domain_name": "Third-Party and Cloud Computing Cybersecurity",
+      "title": ""
+    }
+  ],
+  "controls": [
+    {
+      "code": "1-3-T-1-1",
+      "subdomain": "1-3",
+      "parent": "1-3-T-1",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "'. CCC uses the following: A control is either applicable to the Provider (P) or the Cloud Tenant (T), indicated in the notation's third tier (\"P/T\"). The green-colored numbers (such as: 1-3-2) are reference numbers to subdomains or controls of ECC. Table (1) below shows the methodological structure of the controls. Name of Main Domain Reference number of the Main Domain Reference number of the Subdomain Name of Subdomain Control Reference Number Table 1. CCC Structure 13 TLP: White Details of Cloud Cybersecurity Controls Cybersecurity Governance 1-1 Cybersecurity Roles and Responsibilities in implementing the cloud cybersecurity controls, including the roles and Controls responsibilities of the head of the CSP and CST or his/her delegate, referred to in Continuous or real-time compliance monitoring of the CSP with relevant cybersecurity legislation and contract clauses. 1-4 Cybersecurity in Human Resources and contractors) are managed efficiently prior to employment, during employment and after termination/separation as per entity-related policies and procedures, and related laws and regulations."
+    },
+    {
+      "code": "1-1-P-1",
+      "subdomain": "1-1",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "these controls as the \"Authorizing Official.\""
+    },
+    {
+      "code": "1-1-T-1",
+      "subdomain": "1-1",
+      "parent": null,
+      "kind": "control",
+      "audience": "cst",
+      "text": "In addition to the ECC control 1-4-1, the Authorizing Official shall also identify, document, and approve:"
+    },
+    {
+      "code": "1-1-P-1-1",
+      "subdomain": "1-1",
+      "parent": "1-1-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Cybersecurity roles and RACI assignment for all stakeholders of the cloud Controls services including the Authorizing Official's roles and responsibilities."
+    },
+    {
+      "code": "1-2-P-1",
+      "subdomain": "1-2",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "In addition to the ECC control 1-4-1, the Authorizing Official shall also identify, document, and approve:"
+    },
+    {
+      "code": "1-1-T-1-1",
+      "subdomain": "1-1",
+      "parent": "1-1-T-1",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "Cybersecurity roles and RACI assignment for all stakeholders of the cloud services including the Authorizing Official's roles and responsibilities. Cybersecurity Risk Management To ensure managing cybersecurity risks in a methodological approach in order to protect the CSP's and CST's information and technology assets as per entity-related policies and procedures, and related laws and regulations. Cybersecurity risk management methodology mentioned in the ECC Subdomain 1-5, shall also include for the CSP, as a minimum:"
+    },
+    {
+      "code": "1-2-P-1-1",
+      "subdomain": "1-2",
+      "parent": "1-2-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Defining acceptable risk levels for the cloud services and clarifying them to the CST if they are related to the CST."
+    },
+    {
+      "code": "1-2-P-1-2",
+      "subdomain": "1-2",
+      "parent": "1-2-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Considering data and information classification in cybersecurity risk management methodology."
+    },
+    {
+      "code": "1-2-P-1-3",
+      "subdomain": "1-2",
+      "parent": "1-2-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Developing cybersecurity risk register for cloud services and monitoring it periodically according to the risks. Cybersecurity risk management methodology mentioned in the ECC Subdomain 1-5 shall also include for the CST, as a minimum:"
+    },
+    {
+      "code": "1-2-T-1-1",
+      "subdomain": "1-2",
+      "parent": "1-2-T-1",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "Defining acceptable risk levels for the cloud services."
+    },
+    {
+      "code": "1-2-T-1-2",
+      "subdomain": "1-2",
+      "parent": "1-2-T-1",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "Considering data and information classification accredited by CST in cybersecurity risk management methodology."
+    },
+    {
+      "code": "1-2-T-1-3",
+      "subdomain": "1-2",
+      "parent": "1-2-T-1",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "Developing cybersecurity risk register for cloud services and monitoring it periodically according to the risks. 14 TLP: White 1-3 Compliance with Cybersecurity Standards, Laws, and Regulations related laws and regulations."
+    },
+    {
+      "code": "1-3-P-1",
+      "subdomain": "1-3",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "In addition to the ECC control 1-7-1, the CSP legislative and regulatory compliance should include as a minimum with the following requirements: 29 TLP: White Subdomains and Level 1 Level 2 Level 3 Level 4"
+    },
+    {
+      "code": "1-3-P-1-1",
+      "subdomain": "1-3",
+      "parent": "1-3-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Continuous compliance with all laws, regulations, instructions, decisions, regulatory frameworks and controls, and mandates regarding cybersecurity in the Kingdom In addition to the ECC control 1-7-1, the CST legislative and regulatory compliance should include as a minimum with the following requirements:"
+    },
+    {
+      "code": "1-4-P-1",
+      "subdomain": "1-4",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "In addition to Subcontrols in the ECC controls 1-9-3 and 1-9-4, the following requirements should be covered prior and during the professional relationship of personnel with the CSP as a minimum:"
+    },
+    {
+      "code": "1-4-P-1-1",
+      "subdomain": "1-4",
+      "parent": "1-4-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Positions of cybersecurity functions in CSP's data centers within the Kingdom must be filled with qualified and suitable Saudi nationals."
+    },
+    {
+      "code": "1-4-P-1-2",
+      "subdomain": "1-4",
+      "parent": "1-4-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Screening or vetting candidates of personnel working inside the Kingdom who have access to Cloud Technology Stack, periodically."
+    },
+    {
+      "code": "1-4-P-1-3",
+      "subdomain": "1-4",
+      "parent": "1-4-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Cybersecurity policies as a prerequisite to access to Cloud Technology Stack, signed and appropriately approved."
+    },
+    {
+      "code": "1-4-P-2",
+      "subdomain": "1-4",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "In addition to Subcontrols in the ECC control 1-9-5, the following requirements should be in place, as a minimum, for the termination/completion of a human resource's professional relationship with the CSP: 1-5-P"
+    },
+    {
+      "code": "1-4-P-2-1",
+      "subdomain": "1-4",
+      "parent": "1-4-P-2",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Assurance that assets owned by the entity (especially those with security exposure) are accounted for and returned upon termination."
+    },
+    {
+      "code": "1-4-T-1",
+      "subdomain": "1-4",
+      "parent": null,
+      "kind": "control",
+      "audience": "cst",
+      "text": "In addition to Subcontrols in the ECC control 1-9-3, the following requirements should be covered prior the professional relationship of staff with the CST shall cover, at a minimum:"
+    },
+    {
+      "code": "1-4-T-1-1",
+      "subdomain": "1-4",
+      "parent": "1-4-T-1",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "Screening or vetting candidates of personnel with access to Cloud Service sensitive functions (Key Management, Service Administration, Access Control). 15 TLP: White 1-5 Cybersecurity in Change Management methodology and procedures in order to protect the confidentiality, integrity and Controls availability of information and technology assets as per CSPs policies and procedures,"
+    },
+    {
+      "code": "1-5-P-1",
+      "subdomain": "1-5",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "and related laws and regulations."
+    },
+    {
+      "code": "1-5-P-2",
+      "subdomain": "1-5",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "",
+      "needs_review": true
+    },
+    {
+      "code": "1-5-P-3",
+      "subdomain": "1-5",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "Cybersecurity requirements for change management within the CSP shall be identified, documented, and approved. Cybersecurity requirements for change management within the CSP shall be applied Cybersecurity for change management in the CSP shall cover, as a minimum:"
+    },
+    {
+      "code": "1-5-P-3-1",
+      "subdomain": "1-5",
+      "parent": "1-5-P-3",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Processes and procedures to securely implement changes (planned works) in production systems, with priority given to cybersecurity observations."
+    },
+    {
+      "code": "1-5-P-3-2",
+      "subdomain": "1-5",
+      "parent": "1-5-P-3",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Process for the implementation of cybersecurity exceptional changes (e.g.: changes during incident restoration). Cybersecurity requirements for change management within the CSP shall be applied and reviewed periodically. 16 TLP: White Cybersecurity Defense 2-1 Asset Management information and technology assets in order to support the entity cybersecurity and Controls operational requirements to maintain the confidentiality, integrity and availability of"
+    },
+    {
+      "code": "2-1-P-1",
+      "subdomain": "2-1",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "information and technology assets."
+    },
+    {
+      "code": "2-1-T-1",
+      "subdomain": "2-1",
+      "parent": null,
+      "kind": "control",
+      "audience": "cst",
+      "text": "In addition to controls in the ECC control 2-1, the CSP shall cover the following additional controls for cybersecurity requirements for cybersecurity event logs and 2-2 monitoring management, as a minimum:"
+    },
+    {
+      "code": "2-2-P-1",
+      "subdomain": "2-2",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "techniques such as Configuration Management Database (CMDB) or similar capability containing an inventory of all technical assets. 1"
+    },
+    {
+      "code": "2-1-P-1-2",
+      "subdomain": "2-1",
+      "parent": "2-1-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Identifying assets owners and involving them in the asset management lifecycle. In addition to controls in the ECC control 2-1, the CST shall cover the following additional controls for cybersecurity requirements for cybersecurity event logs and monitoring management, as a minimum:"
+    },
+    {
+      "code": "2-1-T-1-1",
+      "subdomain": "2-1",
+      "parent": "2-1-T-1",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "Inventory of all cloud services and information and technology assets related to the cloud services. Identity and Access Management To ensure the secure and restricted logical access to information and technology assets in order to prevent unauthorized access and allow only authorized access for users which are necessary to accomplish assigned tasks. In addition to Subcontrols in the ECC control 2-2-3, the CSP shall cover the following additional Subcontrols for cybersecurity requirements for identity and access management requirements, as a minimum:"
+    },
+    {
+      "code": "2-2-P-1-1",
+      "subdomain": "2-2",
+      "parent": "2-2-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Identity and access management of generic accounts credentials for accountability cannot be assigned for a specific individual."
+    },
+    {
+      "code": "2-2-P-1-2",
+      "subdomain": "2-2",
+      "parent": "2-2-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Secure session management, including session authenticity, session lockout, and session timeout termination."
+    },
+    {
+      "code": "2-2-P-1-3",
+      "subdomain": "2-2",
+      "parent": "2-2-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Multi-factor authentication for privileged users, and candidates of personnel with access to Cloud Technology Stack."
+    },
+    {
+      "code": "2-2-P-1-4",
+      "subdomain": "2-2",
+      "parent": "2-2-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Formal process to detect and prevent unauthorized access (e.g., unsuccessful login attempt threshold)."
+    },
+    {
+      "code": "2-2-P-1-5",
+      "subdomain": "2-2",
+      "parent": "2-2-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Utilizing secure methods and algorithms for saving and processing passwords, such as: Secure Hashing functions. 17 TLP: White"
+    },
+    {
+      "code": "2-2-P-1-6",
+      "subdomain": "2-2",
+      "parent": "2-2-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Secure management of third- party personnel's accounts."
+    },
+    {
+      "code": "2-2-P-1-7",
+      "subdomain": "2-2",
+      "parent": "2-2-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Access control enforced to management systems, administrative 2-3"
+    },
+    {
+      "code": "2-2-P-1-8",
+      "subdomain": "2-2",
+      "parent": "2-2-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Masking of displayed authentication inputs, especially passwords, to"
+    },
+    {
+      "code": "2-3-P-1",
+      "subdomain": "2-3",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "prevent shoulder surfing. 3 2"
+    },
+    {
+      "code": "2-2-P-1-9",
+      "subdomain": "2-2",
+      "parent": "2-2-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Getting CST's approval before accessing any CST-related asset by the CSP or CSP's third parties. and 2-2-P-1-10 as they are considered as optional"
+    },
+    {
+      "code": "2-2-P-1-10",
+      "subdomain": "2-2",
+      "parent": "2-2-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Capability to immediately interrupt a remote access session and prevent any future access for a user."
+    },
+    {
+      "code": "2-2-P-1-11",
+      "subdomain": "2-2",
+      "parent": "2-2-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Provision to CSTs of multi-factor authentication services for privileged cloud users."
+    },
+    {
+      "code": "2-2-P-1-12",
+      "subdomain": "2-2",
+      "parent": "2-2-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Assurance of restricted and controlled access to storage systems and means (such as Storage Area Network (SAN)). In addition to Subcontrols in the ECC control 2-2-3, the CST shall cover the following additional Subcontrols for cybersecurity requirements for identity and access management requirements, as a minimum:"
+    },
+    {
+      "code": "2-2-T-1-1",
+      "subdomain": "2-2",
+      "parent": "2-2-T-1",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "Identity and access management for all cloud credentials along their full lifecycle."
+    },
+    {
+      "code": "2-2-T-1-2",
+      "subdomain": "2-2",
+      "parent": "2-2-T-1",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "Confidentiality of cloud user identification, cloud credential and cloud access rights information, including the requirement on users to keep them private (for employed, third party and CST personnel)."
+    },
+    {
+      "code": "2-2-T-1-3",
+      "subdomain": "2-2",
+      "parent": "2-2-T-1",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "Secure session management, including session authenticity, session lockout, and session timeout termination on the cloud."
+    },
+    {
+      "code": "2-2-T-1-4",
+      "subdomain": "2-2",
+      "parent": "2-2-T-1",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "Multi-factor authentication for privileged cloud users."
+    },
+    {
+      "code": "2-2-T-1-5",
+      "subdomain": "2-2",
+      "parent": "2-2-T-1",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "Formal process to detect and prevent unauthorized access to cloud (such as a threshold of unsuccessful login attempts). Information System and Information Processing Facilities Protection To ensure the protection of information systems and information processing facilities (including workstations and infrastructures) against cyber risks. In addition to Subcontrols in the ECC control 2-3-3, the CSP shall cover the following additional Subcontrols for cybersecurity requirements for information system and processing facilities protection requirements, as a minimum:"
+    },
+    {
+      "code": "2-3-P-1-1",
+      "subdomain": "2-3",
+      "parent": "2-3-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Ensuring that all configurations are applied in accordance with CSP's cybersecurity standards."
+    },
+    {
+      "code": "2-3-P-1-2",
+      "subdomain": "2-3",
+      "parent": "2-3-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Assurance of separation and isolation of data, environments, and information systems across CSTs, to prevent data commingling."
+    },
+    {
+      "code": "2-3-P-1-3",
+      "subdomain": "2-3",
+      "parent": "2-3-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Adopting cybersecurity principles for technical system configurations adhering to the minimum functionality principle."
+    },
+    {
+      "code": "2-3-P-1-4",
+      "subdomain": "2-3",
+      "parent": "2-3-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Ability of the Cloud Technology Stacks to securely handle input validation, exceptions and failure. 18 TLP: White as it is considered as optional. Also, subcontrol 2-3-P-1-9 as it is not applicable"
+    },
+    {
+      "code": "2-3-P-1-5",
+      "subdomain": "2-3",
+      "parent": "2-3-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Full isolation of security functions and applications from other functions and applications in the Cloud Technology Stack."
+    },
+    {
+      "code": "2-3-P-1-6",
+      "subdomain": "2-3",
+      "parent": "2-3-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Notification to CSTs with cybersecurity requirements provided by the CSP that are useable by the CST."
+    },
+    {
+      "code": "2-3-P-1-7",
+      "subdomain": "2-3",
+      "parent": "2-3-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Detection and prevention of unauthorized changes to software programs, and systems."
+    },
+    {
+      "code": "2-3-P-1-8",
+      "subdomain": "2-3",
+      "parent": "2-3-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Complete isolation and protection of multiple guest environments."
+    },
+    {
+      "code": "2-3-P-1-9",
+      "subdomain": "2-3",
+      "parent": "2-3-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "The community cloud services provided to CSTs (government entities and CNI entities) shall be isolated from any other cloud computing provided to entities outside the scope of work."
+    },
+    {
+      "code": "2-3-P-1-10",
+      "subdomain": "2-3",
+      "parent": "2-3-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Modern technologies, such as Endpoint Detection and Response (EDR) technologies, to ensure that the information servers and devices of CSP's information processing systems and devices of are ready for rapid response to incidents."
+    },
+    {
+      "code": "2-3-T-1",
+      "subdomain": "2-3",
+      "parent": null,
+      "kind": "control",
+      "audience": "cst",
+      "text": "In addition to Subcontrols in the ECC control 2-3-3, the CST shall cover the following additional Subcontrols for cybersecurity requirements for information system and processing facilities protection requirements, as a minimum: 9"
+    },
+    {
+      "code": "2-3-T-1-1",
+      "subdomain": "2-3",
+      "parent": "2-3-T-1",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "Verifying that the CSP isolates the community cloud services provided to CSTs (government entities and CNI entities) from any other cloud computing provided to entities outside the scope of work. 2-4 Networks Security Management as it is not applicable TLP: White"
+    },
+    {
+      "code": "2-4-P-1",
+      "subdomain": "2-4",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "In addition to Subcontrols in the ECC control 2-5-3, the CSP shall cover the following additional Subcontrols for cybersecurity requirements for networks security management requirements, as a minimum:"
+    },
+    {
+      "code": "2-4-P-1-1",
+      "subdomain": "2-4",
+      "parent": "2-4-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Monitoring of traffic across the external and internal networks to detect anomalies."
+    },
+    {
+      "code": "2-4-P-1-2",
+      "subdomain": "2-4",
+      "parent": "2-4-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Network isolation and protection of Cloud Technology Stack network from other internal and external networks."
+    },
+    {
+      "code": "2-4-P-1-3",
+      "subdomain": "2-4",
+      "parent": "2-4-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Protection from denial-of-service attacks (including Distributed Denial of Service (DDoS))."
+    },
+    {
+      "code": "2-4-P-1-4",
+      "subdomain": "2-4",
+      "parent": "2-4-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Protection of data transmitted through the network; from and to the Cloud Technology Stack network using cryptography primitives; for management and administrative access."
+    },
+    {
+      "code": "2-4-P-1-5",
+      "subdomain": "2-4",
+      "parent": "2-4-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Access control between different network segments."
+    },
+    {
+      "code": "2-4-P-1-6",
+      "subdomain": "2-4",
+      "parent": "2-4-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Isolation between cloud service delivery network, cloud management network and CSP enterprise network. 19 TLP: White"
+    },
+    {
+      "code": "2-4-T-1",
+      "subdomain": "2-4",
+      "parent": null,
+      "kind": "control",
+      "audience": "cst",
+      "text": "In addition to Subcontrols in the ECC control 2-5-3, the CST shall cover the following additional Subcontrols for cybersecurity requirements for networks security 2-5 management requirements, as a minimum: Controls Mobile Devices Security"
+    },
+    {
+      "code": "2-5-P-1",
+      "subdomain": "2-5",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "To ensure the protection of mobile devices (including laptops, smartphones, and tablets) from cyber risks and to ensure the secure handling of the CSPs' and CSTs' 4"
+    },
+    {
+      "code": "2-5-T-1",
+      "subdomain": "2-5",
+      "parent": null,
+      "kind": "control",
+      "audience": "cst",
+      "text": "information (including sensitive information) while utilizing mobile devices. 2-6 In addition to Subcontrols in the ECC control 2-6-3, the CSP shall cover the following Controls minimum:"
+    },
+    {
+      "code": "2-5-P-1-1",
+      "subdomain": "2-5",
+      "parent": "2-5-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Inventory of all end user and mobile devices."
+    },
+    {
+      "code": "2-5-P-1-2",
+      "subdomain": "2-5",
+      "parent": "2-5-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Centralized mobile device security management. as it is considered as optional"
+    },
+    {
+      "code": "2-5-P-1-3",
+      "subdomain": "2-5",
+      "parent": "2-5-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Screen looking for end user devices."
+    },
+    {
+      "code": "2-5-P-1-4",
+      "subdomain": "2-5",
+      "parent": "2-5-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Data sanitation and secure disposal for end-user devices, especially for those with exposure to the Cloud Technology Stack. In addition to Subcontrols in the ECC control 2-6-3, the CST shall cover the following additional Subcontrols for cybersecurity requirements for mobile device security, as a minimum:"
+    },
+    {
+      "code": "2-5-T-1-1",
+      "subdomain": "2-5",
+      "parent": "2-5-T-1",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "Data sanitation and secure disposal for end-user devices with access to the cloud services. Data and Information Protection To ensure the confidentiality, integrity and availability of CSPs' and CSTs' data and information as per entity-related policies and procedures, and related laws and regulations. In addition to Subcontrols in the ECC control 2-7-3, the CSP shall cover the following additional Subcontrols for cybersecurity requirements for data and information protection requirements, as a minimum:"
+    },
+    {
+      "code": "2-6-P-1-1",
+      "subdomain": "2-6",
+      "parent": "2-6-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Prohibiting the use of Cloud Technology Stack's data in any environment other than production environment, except after applying"
+    },
+    {
+      "code": "2-6-P-1-2",
+      "subdomain": "2-6",
+      "parent": "2-6-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "strict controls for protecting that data, such as data masking or data"
+    },
+    {
+      "code": "2-6-P-1-3",
+      "subdomain": "2-6",
+      "parent": "2-6-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "scrambling techniques."
+    },
+    {
+      "code": "2-6-P-1-4",
+      "subdomain": "2-6",
+      "parent": "2-6-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Provision to CSTs of securely data storage processes, procedures, and technologies to comply with related legal and regulatory requirements. Disposal of CST's data should be performed in a secure manner on termination or expiry of the contract with the CSP. Commitment to maintain the confidentiality of the CST's data and information, according to related legal and regulatory requirements. 20 TLP: White"
+    },
+    {
+      "code": "2-6-P-1-5",
+      "subdomain": "2-6",
+      "parent": "2-6-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Providing CSTs with secure means to export and transfer data and virtual infrastructure. 2-7 Controls additional Subcontrols for cybersecurity requirements for protecting CST's data and"
+    },
+    {
+      "code": "2-7-P-1",
+      "subdomain": "2-7",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "information in cloud computing, as a minimum: 5"
+    },
+    {
+      "code": "2-6-T-1-1",
+      "subdomain": "2-6",
+      "parent": "2-6-T-1",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "Exit Strategy to ensure means for secure disposal of data on termination"
+    },
+    {
+      "code": "2-7-T-1",
+      "subdomain": "2-7",
+      "parent": null,
+      "kind": "control",
+      "audience": "cst",
+      "text": "or expiry of the contract with the CSP. 10"
+    },
+    {
+      "code": "2-6-T-1-2",
+      "subdomain": "2-6",
+      "parent": "2-6-T-1",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "Using secure means to export and transfer data and virtual infrastructure. Cryptography To ensure the proper and efficient use of cryptography to protect information assets as per policies, procedures, and related laws and regulations. In addition to Subcontrols in the ECC control 2-8-3, the CSP shall cover the following additional Subcontrols for cryptography, as a minimum:"
+    },
+    {
+      "code": "2-7-P-1-1",
+      "subdomain": "2-7",
+      "parent": "2-7-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Technical mechanisms and cryptographic primitives for strong encryption, in according to the advanced level in the National Cryptographic Standards (NCS-1:2020). as it is considered as optional"
+    },
+    {
+      "code": "2-7-P-1-2",
+      "subdomain": "2-7",
+      "parent": "2-7-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Certification authority and issuance capability in a secure manner, or usage of certificates from a trusted certification authority. In addition to subcontrols in the ECC control 2-8-3, the CST shall cover the following additional subcontrols for cryptography, as a minimum:"
+    },
+    {
+      "code": "2-7-T-1-1",
+      "subdomain": "2-7",
+      "parent": "2-7-T-1",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "Technical mechanisms and cryptographic primitives for strong encryption, in according to the advanced level in the National Cryptographic Standards (NCS-1:2020). as it is considered as optional Level 2 Subdomains and Level 1 Level 3 Level 4 2-15-T"
+    },
+    {
+      "code": "2-7-T-1-2",
+      "subdomain": "2-7",
+      "parent": "2-7-T-1",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "Encryption of data and information transferred to or transferred out of the cloud according to the relevant law and regulatory requirements. 2-8 Backup and Recovery Management 21 TLP: White Controls systems and software configurations from cyber risks as per entity-related policies"
+    },
+    {
+      "code": "2-8-P-1",
+      "subdomain": "2-8",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "and procedures, and related laws and regulations. 2-9 In addition to subcontrols in the ECC control 2-9-3, the CSP shall cover the following Controls management, as a minimum:"
+    },
+    {
+      "code": "2-8-P-1-1",
+      "subdomain": "2-8",
+      "parent": "2-8-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Securing access, storage and transfer of CST's data backups and its"
+    },
+    {
+      "code": "2-9-T-1",
+      "subdomain": "2-9",
+      "parent": null,
+      "kind": "control",
+      "audience": "cst",
+      "text": "mediums, and protecting it against damage, amendment, or unauthorized access."
+    },
+    {
+      "code": "2-8-P-1-2",
+      "subdomain": "2-8",
+      "parent": "2-8-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Securing access, storage and transfer of Cloud Technology Stack backups and its mediums, and protecting it against damage, amendment, or unauthorized access. Vulnerabilities Management To ensure timely detection and effective remediation of technical vulnerabilities to prevent or minimize the probability of exploiting these vulnerabilities to launch cyber attacks against the CSP and CST. In addition to subcontrols in the ECC control 2-10-3, the CSP shall cover the following additional subcontrols for cybersecurity requirements for vulnerability management requirements, as a minimum:"
+    },
+    {
+      "code": "2-9-P-1-1",
+      "subdomain": "2-9",
+      "parent": "2-9-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Assessing and remediating vulnerabilities on external components of Cloud Technology Stack at least once every month, and at least once every three months for internal components of Cloud Technology Stack."
+    },
+    {
+      "code": "2-9-P-1-2",
+      "subdomain": "2-9",
+      "parent": "2-9-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Notification to CSTs of identified vulnerabilities that may affecting them, and safeguards in place. In addition to subcontrols in the ECC control 2-10-3, the CST shall cover the following additional subcontrols for cybersecurity requirements for vulnerability management requirements, as a minimum:"
+    },
+    {
+      "code": "2-9-T-1-1",
+      "subdomain": "2-9",
+      "parent": "2-9-T-1",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "Assessing and remediating vulnerabilities cloud services and at least once every three months."
+    },
+    {
+      "code": "2-9-T-1-2",
+      "subdomain": "2-9",
+      "parent": "2-9-T-1",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "Management of CSP-notified vulnerabilities safeguards in place. 2-10 Penetration Testing TLP: White through simulated cyber-attacks to discover unknown weaknesses within the technical Controls infrastructure that may lead to a cyber breach."
+    },
+    {
+      "code": "2-10-P-1",
+      "subdomain": "2-10",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "In addition to subcontrols in the ECC control 2-11-3, the CSP shall cover the following 2-11 additional subcontrols for cybersecurity requirements for penetration testing, as a"
+    },
+    {
+      "code": "2-10-P-1-1",
+      "subdomain": "2-10",
+      "parent": "2-10-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Scope of penetration tests must cover Cloud Technology Stack and must"
+    },
+    {
+      "code": "2-11-P-1",
+      "subdomain": "2-11",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "be conducted at least once every six months. Cybersecurity Event Logs and Monitoring Management Ensure timely collection, analysis, and monitoring of cybersecurity event logs for the proactive detection and effective management of cyber-attacks to prevent or minimize the impact on the CSPs' and CSTs' business. In addition to subcontrols in the ECC control 2-12-3, the CSP shall cover the following additional subcontrols for cybersecurity requirements for cybersecurity event logs and monitoring management, as a minimum:"
+    },
+    {
+      "code": "2-11-P-1-1",
+      "subdomain": "2-11",
+      "parent": "2-11-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Activating and protecting event logs and audit trails of Cloud Technology Stack."
+    },
+    {
+      "code": "2-11-P-1-2",
+      "subdomain": "2-11",
+      "parent": "2-11-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Activating and collecting login attempts history."
+    },
+    {
+      "code": "2-11-P-1-3",
+      "subdomain": "2-11",
+      "parent": "2-11-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Activating and protecting all event logs of activities and operations performed by the CSP at the tenant level in order to support forensic analysis."
+    },
+    {
+      "code": "2-11-P-1-4",
+      "subdomain": "2-11",
+      "parent": "2-11-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Protecting cybersecurity event logs from alteration, disclosure, destruction and unauthorized access and unauthorized release, in accordance with regulatory, or law requirements."
+    },
+    {
+      "code": "2-11-P-1-5",
+      "subdomain": "2-11",
+      "parent": "2-11-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Continuous cybersecurity events monitoring using SIEM technique covering the full Cloud Technology Stack."
+    },
+    {
+      "code": "2-11-P-1-6",
+      "subdomain": "2-11",
+      "parent": "2-11-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Reviewing cybersecurity event logs and audit trails periodically, covering CSP events in the Cloud Technology Stack."
+    },
+    {
+      "code": "2-11-P-1-7",
+      "subdomain": "2-11",
+      "parent": "2-11-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Automated monitoring and logging of remote access sessions event logs."
+    },
+    {
+      "code": "2-11-P-1-8",
+      "subdomain": "2-11",
+      "parent": "2-11-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Secure handling of user-related data found in the audit trails and the cybersecurity event logs."
+    },
+    {
+      "code": "2-11-T-1",
+      "subdomain": "2-11",
+      "parent": null,
+      "kind": "control",
+      "audience": "cst",
+      "text": "In addition to subcontrols in the ECC control 2-12-3, the CST shall cover the following additional subcontrols for cybersecurity requirements for cybersecurity event logs and monitoring management, as a minimum:"
+    },
+    {
+      "code": "2-11-T-1-1",
+      "subdomain": "2-11",
+      "parent": "2-11-T-1",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "Activating and collecting of login event logs, and cybersecurity event logs on assets related to cloud services."
+    },
+    {
+      "code": "2-11-T-1-2",
+      "subdomain": "2-11",
+      "parent": "2-11-T-1",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "Monitoring shall include all activated cybersecurity logs on the cloud services of the CST. 23 TLP: White 2-12 Cybersecurity Incident and Threat Management Controls management and proactive response to cybersecurity threats to prevent or minimize"
+    },
+    {
+      "code": "2-12-P-1",
+      "subdomain": "2-12",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "the impact of the impacts resulting on the business of the CSPs. 2-13 In addition to subcontrols in the ECC control 2-13-3, the CSP shall cover the following Controls threat management, as a minimum: 6"
+    },
+    {
+      "code": "2-12-P-1-1",
+      "subdomain": "2-12",
+      "parent": "2-12-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Subscribing in authorized and specialized entities and groups to stay up- 2-14 to-date on Cybersecurity threats, common practices, and key know-"
+    },
+    {
+      "code": "2-12-P-1-2",
+      "subdomain": "2-12",
+      "parent": "2-12-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Training for employees and third-party personnel to respond to cybersecurity incidents, in line with their roles and responsibilities. , 2-12-P-1-3, and 2-12-P-1-8 as they are considered as optional 30 TLP: White Level 2 Subdomains and Level 1 Level 3 Level 4 2-15-P 7 2-16-P 2-17-P"
+    },
+    {
+      "code": "2-12-P-1-3",
+      "subdomain": "2-12",
+      "parent": "2-12-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Periodically testing the incident response capability."
+    },
+    {
+      "code": "2-12-P-1-4",
+      "subdomain": "2-12",
+      "parent": "2-12-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Root Cause Analysis of cybersecurity incidents and developing plans to address them."
+    },
+    {
+      "code": "2-12-P-1-5",
+      "subdomain": "2-12",
+      "parent": "2-12-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Support the CST in cases legal proceedings and forensics, protecting the chain of custody that falls under the management and responsibility of the CSP, in accordance with the related law and regulatory requirements."
+    },
+    {
+      "code": "2-12-P-1-6",
+      "subdomain": "2-12",
+      "parent": "2-12-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Real-time reporting to the CST of incidents that may affect CST; if the incident is discovered."
+    },
+    {
+      "code": "2-12-P-1-7",
+      "subdomain": "2-12",
+      "parent": "2-12-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Support for CSTs to handle security incidents according to the agreement between the CSP and CST."
+    },
+    {
+      "code": "2-12-P-1-8",
+      "subdomain": "2-12",
+      "parent": "2-12-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Measuring and monitoring cybersecurity incident metrics and monitor compliance with contracts and legislative requirements. Physical Security To ensure the protection of CSPs' information and technology assets from unauthorized physical access, loss, theft, and damage. In addition to subcontrols in the ECC control 2-14-3, the CSP shall cover the following additional subcontrols for cybersecurity requirements for physical security, as a minimum:"
+    },
+    {
+      "code": "2-13-P-1-1",
+      "subdomain": "2-13",
+      "parent": "2-13-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Continual monitoring of access to CSP's sites and buildings."
+    },
+    {
+      "code": "2-13-P-1-2",
+      "subdomain": "2-13",
+      "parent": "2-13-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Preventing unauthorized access to devices in the Cloud Technology Stack."
+    },
+    {
+      "code": "2-13-P-1-3",
+      "subdomain": "2-13",
+      "parent": "2-13-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Disposal of cloud infrastructure hardware, in particular, storage equipment (external or internal), by adopting relevant legislation and best practices. Web Application Security Ensure the protection of external web applications of the CSP from cyber risks. 24 TLP: White Controls In addition to subcontrols in the ECC control 2-15-3, the CSP shall cover the following"
+    },
+    {
+      "code": "2-14-P-1",
+      "subdomain": "2-14",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "additional subcontrols for cybersecurity requirements for web application security, as a minimum:"
+    },
+    {
+      "code": "2-14-P-1-1",
+      "subdomain": "2-14",
+      "parent": "2-14-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Protecting information involved in application service transactions Controls against possible risks (e.g.: incomplete transmission, mis-routing,"
+    },
+    {
+      "code": "2-15-P-1",
+      "subdomain": "2-15",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "unauthorized message alteration, unauthorized disclosure....)."
+    },
+    {
+      "code": "2-15-P-2",
+      "subdomain": "2-15",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "Key Management",
+      "needs_review": true
+    },
+    {
+      "code": "2-15-P-3",
+      "subdomain": "2-15",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "Ensure secure management of CSPs' and CSTs' cryptographic keys to protect confidentiality, integrity and availability of information and technical assets."
+    },
+    {
+      "code": "2-15-P-4",
+      "subdomain": "2-15",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "",
+      "needs_review": true
+    },
+    {
+      "code": "2-15-T-1",
+      "subdomain": "2-15",
+      "parent": null,
+      "kind": "control",
+      "audience": "cst",
+      "text": "Cybersecurity requirements for key management process within the CSP shall be"
+    },
+    {
+      "code": "2-15-T-2",
+      "subdomain": "2-15",
+      "parent": null,
+      "kind": "control",
+      "audience": "cst",
+      "text": "identified, documented, and approved."
+    },
+    {
+      "code": "2-15-T-3",
+      "subdomain": "2-15",
+      "parent": null,
+      "kind": "control",
+      "audience": "cst",
+      "text": "Cybersecurity requirements for key management process within the CSP shall be applied."
+    },
+    {
+      "code": "2-15-T-4",
+      "subdomain": "2-15",
+      "parent": null,
+      "kind": "control",
+      "audience": "cst",
+      "text": "In addition to the ECC Subcontrol 2-8-3-2, cybersecurity requirements for key management within the CSP shall cover, at minimum, the following:"
+    },
+    {
+      "code": "2-15-P-3-1",
+      "subdomain": "2-15",
+      "parent": "2-15-P-3",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Ensure well-defined ownership for cryptographic keys. as it is considered as optional TLP: White"
+    },
+    {
+      "code": "2-15-P-3-2",
+      "subdomain": "2-15",
+      "parent": "2-15-P-3",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "A secure cryptographic key retrieval mechanism in case of cryptographic key lost (such as backup of keys and enforcement of trusted key storage, strictly external to cloud)."
+    },
+    {
+      "code": "2-15-P-3-3",
+      "subdomain": "2-15",
+      "parent": "2-15-P-3",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Activating and monitoring of all audit trails of keys. Cybersecurity requirements for key management within the CSP shall be applied and reviewed periodically. Cybersecurity requirements for key management within the CST shall be identified, documented, and approved. Cybersecurity requirements for key management within the CST shall applied. In addition to the ECC Subcontrol 2-8-3-2, cybersecurity requirements for key management within the CST shall cover, at minimum, the following:"
+    },
+    {
+      "code": "2-15-T-3-1",
+      "subdomain": "2-15",
+      "parent": "2-15-T-3",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "Ensure well-defined ownership for cryptographic keys."
+    },
+    {
+      "code": "2-15-T-3-2",
+      "subdomain": "2-15",
+      "parent": "2-15-T-3",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "A secure data retrieval mechanism in case of cryptographic encryption key lost (such as backup of keys and enforcement of trusted key storage, strictly external to cloud). Cybersecurity requirements for key management within the CST shall be applied and reviewed periodically. 2-16 System Development Security TLP: White"
+    },
+    {
+      "code": "2-16-P-1",
+      "subdomain": "2-16",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "Cybersecurity requirements for system development within the CSP shall be identified,"
+    },
+    {
+      "code": "2-16-P-2",
+      "subdomain": "2-16",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "documented, and approved."
+    },
+    {
+      "code": "2-16-P-3",
+      "subdomain": "2-16",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "Cybersecurity requirements for system development within the CSP shall be applied. Cybersecurity requirements for system development within the CSP shall include as a"
+    },
+    {
+      "code": "2-16-P-4",
+      "subdomain": "2-16",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "minimum the following controls along the development lifecycle:"
+    },
+    {
+      "code": "2-16-P-3-1",
+      "subdomain": "2-16",
+      "parent": "2-16-P-3",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Considering cybersecurity requirements of the Cloud Technology Stack Controls and relevant systems in the design and implementation of the cloud"
+    },
+    {
+      "code": "2-17-P-1",
+      "subdomain": "2-17",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "computing services.",
+      "needs_review": true
+    },
+    {
+      "code": "2-16-P-3-2",
+      "subdomain": "2-16",
+      "parent": "2-16-P-3",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Protecting system development environments, testing environments"
+    },
+    {
+      "code": "2-17-P-3",
+      "subdomain": "2-17",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "(including data used in testing environment), and integration platforms. Cybersecurity requirements for system development within the CSP shall be applied"
+    },
+    {
+      "code": "2-17-P-4",
+      "subdomain": "2-17",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "and reviewed periodically. Storage Media Security Ensure CSPs' secure handling of information and data on physical media. Cybersecurity requirements for usage of information and data media within the CSP shall be identified, documented, and approved. Cybersecurity requirements for usage of information and data media within the CSP shall be applied. Cybersecurity requirements for usage of information and data media within the CSP shall cover, at minimum, the following:"
+    },
+    {
+      "code": "2-17-P-3-1",
+      "subdomain": "2-17",
+      "parent": "2-17-P-3",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Enforcement of sanitization of media, prior to disposal or reuse."
+    },
+    {
+      "code": "2-17-P-3-2",
+      "subdomain": "2-17",
+      "parent": "2-17-P-3",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Using secure means when disposing of media."
+    },
+    {
+      "code": "2-17-P-3-3",
+      "subdomain": "2-17",
+      "parent": "2-17-P-3",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Provision to maintain confidentiality and integrity of data on removable media."
+    },
+    {
+      "code": "2-17-P-3-4",
+      "subdomain": "2-17",
+      "parent": "2-17-P-3",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Human readable labelling of media, to explain its classification and the sensitivity of the information it contains."
+    },
+    {
+      "code": "2-17-P-3-5",
+      "subdomain": "2-17",
+      "parent": "2-17-P-3",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Controlled and physically secure storage of removable media."
+    },
+    {
+      "code": "2-17-P-3-6",
+      "subdomain": "2-17",
+      "parent": "2-17-P-3",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Restriction and control of usage of portable media inside the Cloud Technology Stack. Cybersecurity requirements for usage of information and data media within the CSP shall be applied and reviewed periodically. 26 TLP: White Cybersecurity Resilience 3-1 Cybersecurity Resilience Aspects of Business Continuity Management (BCM) Controls and CSTs' business continuity management and to remediate and minimize the"
+    },
+    {
+      "code": "3-1-P-1",
+      "subdomain": "3-1",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "impacts on systems, information processing facilities and critical e-services from disasters caused by cybersecurity incidents."
+    },
+    {
+      "code": "3-1-T-1",
+      "subdomain": "3-1",
+      "parent": null,
+      "kind": "control",
+      "audience": "cst",
+      "text": "In addition to subcontrols in the ECC control 3-1-3, the CSP shall cover the following additional subcontrols for cybersecurity requirements for cybersecurity resilience aspects of business continuity management, as a minimum: 33 TLP: White Annex No. (B): Terminologies and Definitions Annex B below shows some of the terminologies contained herein, and the meanings ascribed thereto. Table 4. Terms and Definitions Terminology Definition Anything tangible or intangible that has value to the CSPs and CSTs. There are many types of assets, and some of which include obvious things, such Asset as: persons, machineries, utilities, patents, software, and services. The term could also include less obvious things, such as: information and characteristics (for example, CSPs' and CSTs' reputation and public image, as well as skill and knowledge). Any kind of malicious activity that attempts to achieve unauthorized Attack access, collection, disabling, prevention, destroy or sabotage of the information system resources or the information itself. Independent review and examination of records and activities in order to Audit assess the effectiveness of cybersecurity controls and to ensure adherence to policies, operational procedures, standards, and relevant legislative and regulatory requirements. Authentication Ensure user's identity, process, or device, which is often a prerequisite for allowing access to resources in the system. Identification and verification of the rights/licenses of the user to access Authorization and allow him/her to view the information and technical resources of the CSPs and CSTs as defined in the rights/user licenses. Availability Ensure timely access to information, data, systems, and applications. Backup Files, devices, data, and procedures available for use in case of failure or loss, or in case of deletion or suspension of their original copies. CCTV, also known as video surveillance, uses video cameras to send a Closed-Circuit signal to a specific location on a limited set of screens. This term is often Television (CCTV) referred to as the surveillance technique in areas that may need to be monitored where physical security is an important requirement thereto. It is a service management system that ensures a systematic and proactive approach using effective standard methods and procedures (for example, Change Management change in infrastructure, networks, etc.). Change Management helps all stakeholders, including individuals and teams alike, move from their current state to the next desired state, and also helps reduce the impact of relevant incidents on service. Categorizing the data prepared, collected, processed, or exchanged by the Classification entities for the provision of services or conduct of businesses, including data received from or exchanged with persons outside entities, and the data that is prepared for the interest of entities or related to the sensitive 34 TLP: White Terminology Definition Classified Data infrastructure. Data related to entities is classified, using a top-down approach, level 1, level 2, level 3, or level 4. Cloud Computing Any data classified at any of the following levels: level 1, level 2, level 3, or level 4. Cloud Computing Is a model which enables convenient, on-demand network access to a Compliance Control shared pool of configurable computing resources (e.g., networks, servers, Catalogue (C5) storage, applications, and services) that can be rapidly provisioned and Cloud Computing released with minimal management effort or service provider interaction. Services Cloud models are composed of five Essential Characteristics: On-demand Cloud Controls self-service, Broad network access, Resource pooling, Rapid elasticity, and Matrix (CCM) Measured service. Cloud Customer There are three types of cloud computing services delivery Cloud Service models: Provider (CSP) � Cloud Software as a Service (SaaS). Configuration � Cloud Platform as a Service (PaaS). Management � Cloud Infrastructure as a Service (IaaS). DataBase (CMDB) There are four deployment models: Private Cloud, Community Cloud, Public Cloud, and Hybrid Cloud. C5 is developed by the German Federal Office for Information Security (BSI) to set minimum requirements to secure cloud services in order to establish a framework of trust between cloud providers and their customers. Is the delivery of various services via the Internet and can be accessible through different platforms (desktops, laptops, smart phones, etc.). These services include applications and infrastructures such as servers, databases, and networking to support, among other things, communication, data analysis, processing, sharing and storage. CCM is developed by the Cloud Security Alliance (CSA) to provide fundamental security principles to help the CSTs assessing the security risks of cloud services provided by the CSP. In this document referred to as \"Cloud Service Tenant (CST),\" is any natural or legal person (such as companies) who subscribes to the cloud computing services provided by the service provider. Any natural or legal person (such as companies) who provides cloud computing services to the public, either directly or indirectly through data centers (both inside and outside the Kingdom) and manages them in whole or in part. Configuration Management DataBase, concept defined originally by the ITIL operations standard and consisting in database used to store configuration records of systems throughout their Lifecycle. 35 TLP: White Terminology Definition Cloud Technology Stack (CTS) Layered architecture of technologies that are essential to implement cloud computing services: (Data Center infrastructure, LAN, storage/ compute/ Compromise hyper convergence hardware, hypervisor, cloud management platform, Confidentiality virtual appliances, OSs, application software, O&M platforms, cloud security technologies etc....) Confidential Disclosure of or obtaining information by unauthorized persons, which are Data/Information unauthorized to be leaked or obtained, or violation of the cybersecurity policy of the Entity through disclosure, change, sabotage, or loss of Critical National anything, either intentionally or unintentionally. Infrastructure (CNI) The expression \"security violation\" means disclosure of, obtaining, leaking, altering or use of sensitive data without authorization (including Cryptography cryptographic keys and other critical cybersecurity standards). Maintaining authorized restrictions on access to and disclosure of information, including means of protecting privacy/personal information. The information (or data) that is highly sensitive and important, according to the classification of the CSPs and CSTs, intended for use by them. One of the methods that can be used to classify this type of information is to measure the extent of the damage when it is disclosed, accessed in an unauthorized manner, damaged or sabotaged, as this may result in material or moral damage to the CSPs and CSTs or its clients, affecting the lives of persons related to that information or affecting and damaging the security of the state or its national economy or national capabilities. Sensitive information includes all information whose disclosure in unauthorized manner, loss or sabotage results in accountability or statutory penalties. These are the assets (i.e., facilities, systems, networks, processes, and key operators who operate and process them), whose loss or vulnerability to security breaches may result in: Significant negative impact on the availability, integration, or delivery of basic services, including services that could result in serious loss of property and/or lives and/or injuries, alongside observance of significant economic and/or social impacts. Significant impact on national security and/or national defense and/or state economy or national capacities. These are the rules that include the principles, methods and means of storing and transmitting data or information in a particular form in order to conceal its semantic content, prevent unauthorized use or prevent undetected modification so that only the persons concerned can read and process the same. 36 TLP: White Terminology Definition Cyber-Attack Intentional exploitation of computer systems and networks, and those Cyber Risks CSPs and CSTs whose work depends on digital ICT, in order to cause Cybersecurity damage. Resilience Risks that harm the CSPs' and CSTs' processes (including the CSPs' and CSTs' vision, mission, management, image, or reputation), assets, Cybersecurity individuals, other entities, or the State due to unauthorized access, use, disclosure, disruption, modification or destruction of information and/or Cyberspace information systems. Data Data and Overall ability of the CSPs and CSTs to withstand cyber incidents and the Information causes of damage, and recovery therefrom. Classification Defense-in-Depth Pursuant to the provisions of NCA's Regulation issued by virtue of the Disaster Recovery Royal Decree No. (6801) of (11/02/1439), cybersecurity is protection of networks, IT systems, operational technologies systems and their Effectiveness components of hardware and software, their services and the data they contain, from any penetration, disruption, modification, access, use or unauthorized exploitation. The concept of cybersecurity also includes information security, digital security, etc. The interconnected network of IT infrastructure, including the Internet, communications networks, computer systems and Internet-connected devices, as well as the associated hardware and control devices. The term can also refer to a virtual world or domain such as a simple concept. Any information, records, statistics, or documents that are photocopied, recorded, and stored electronically. Setting the sensitivity level of data and information that results in security controls for each level of classification. Data and information sensitivity levels are set according to predefined categories where data and information is created, modified, improved, stored, or transmitted. The classification level is an indication of the value or importance of the data and information of the Entity. This is a concept of information assurance where multiple levels of security controls are used (as a defense) within the IT/OT system. Programs and plans designed to restore the Entity's critical business functions and services to an acceptable situation, following exposure to cyber-attacks or disruption of such services. Effectiveness refers to the degree to which a planned impact is achieved. Planned activities are considered effective if these activities are already implemented, and the planned results are considered effective if the results are already achieved. KPIs can be used to measure and evaluate the level of effectiveness. 37 TLP: White Terminology Definition Event Something that happens in a specific place (such as network, systems, FedRAMP applications, etc.) at a specific time. US Government assessment and authorization process for U.S. federal Identification agencies designed to ensure security is in place when accessing cloud Incident computing products and services. FedRAMP certifies cloud service Integrity providers to handle data in one of three impact levels: (Inter)National FedRAMP Low - loss of confidentiality, integrity, and availability Requirements would result in limited adverse effects on an agency's operations, assets, or individuals. ISO/IEC 27000 FedRAMP Moderate - loss of confidentiality, integrity, and Key Performance availability would result in serious adverse effects on an agency's Indicator (KPI) operations, assets, or individuals. FedRAMP High - Law Enforcement and Emergency Services systems, Financial systems, Health systems, and any other system where loss of confidentiality, integrity, or availability could be expected to have a severe or catastrophic adverse effect on entity-related operations, entity- related assets, or individuals. A means for identification of the identity of the user, process, or device, which is usually a prerequisite for granting access to resources in the system. A security breach through violation of cybersecurity policies, acceptable use policies, practices or cybersecurity controls or requirements. Protection against unauthorized modification or destruction of information, including ensuring information non-repudiation and reliability. The international requirements are requirements developed by an international entity or entity, which are highly-used in a statutory manner all over the world (such as: PCI, SWIFT, etc.). The national requirements are requirements developed by a regulatory entity within the Kingdom for statutory use (such as: the \"ECC � 1: 2018\"). This series developed by the International Organization for Standardization (ISO) and the International Electrotechnical Commission (IEC) to provide best practice recommendations to establish, implement, maintain, and continually improve information security management system (ISMS). A type of performance measurement tool that assesses the success of an activity or entity towards achievement of specific objectives. 38 TLP: White Terminology Definition Labelling Display of information (by specific and standard naming and coding) that is placed on the CSPs' and CSTs' assets (such as devices, applications, documents, etc.) to be used to refer to some information related to the classification, ownership, type, and other asset management information. Level 1 A classification level applies to data classified as a (top secret) based on Level 2 what is issued by the competent entity. A classification level applies to data classified as a (secret) based on what is issued by the competent entity. Level 3 A classification level applies to data classified as a (confidential) based on what is issued by the competent entity. Level 4 A classification level applies to data classified as a (public) based on what is issued by the competent entity. Multi-Factor A security system that verifies user identity, which requires the use of Authentication several separate elements of identity verification mechanisms. Verification (MFA) mechanisms include several elements: Knowledge: (something ONLY the user knows \"like password\"); Possession: (something ONLY used by the user \"such as a program or device generating random numbers or SMSs for login records, which are called: One-Time-Password); and Inherent Characteristics: (a characteristic of the user ONLY, such as fingerprint). This standard aims to encourage the adoption of sound risk management and security practices for cloud computing. MTCS SS has three levels of security, Level 1 being the base and Level 3 being the most stringent: Level 1 � Designed for non-business critical data and systems, with Multi-Tier Cloud baseline security controls to address security risks and threats in potentially Security Standard for low impact information systems using cloud services. Singapore Level 2 � Designed to address the need of most entities running (MTCS SS) critical data and systems through a set of more stringent security controls. These address security risks and threats in potentially moderate impact information systems using cloud service. Level 3 � Designed for regulated entities with specific requirements, which supplement or address security risks and threats in high impact information systems using cloud services. Staff Persons working with CSPs or CSTs (including official and temporary staff and contractors). 39 TLP: White Terminology Definition Outsourcing Obtaining (goods or services) by contracting with a supplier or service Penetration Testing provider. Physical Security Testing a computer system, network, website application or smart phone application to look for the vulnerabilities that the attacker can exploit. Policy Physical security describes security measures designed to prevent unauthorized access to the entity's facilities, equipment, and resources, and to protect individuals and property from damage or harm (such as espionage, theft, or terrorist attacks). Physical security involves the use of multiple-tier of interconnected systems, including CCTV, security guards, security limits, locks, access control systems and many other technologies. A document whose clauses specify a general obligation, direction or intent as formally expressed by the Authorizing Official of the entity. Cybersecurity Policy is a document whose clauses reflect official commitment of the Senior Management to implement and improve the cybersecurity program in the entity, which includes the objectives of the CSPs and CSTs regarding the cybersecurity program, its controls and requirements, and the mechanism for improving and developing the same. Privileged Access The process of managing high-risk powers on entity's systems, which often Management require special treatment to minimize risks that may arise from misuse thereof. Procedure A document with a detailed description of the steps necessary to perform Process specific operations or activities in compliance with relevant standards and policies. Procedures are defined as part of operations. A set of interrelated or interactive activities that translated input into output. Such activities are influenced by the policies of the CSPs and CSTs. RACI Matrix Responsible, Accountable, Consulted, Informed Matrix. Matrix that maps each player in a process, capability, or function with the degree of involvement and responsibility undertaken in the process. Recovery A procedure or process to restore or control something that is suspended, damaged, stolen or lost. Security Information A system that manages and analyses security events logs in real time in and Event order to provide monitoring of threats, analysis of the results of Management (SIEM) interrelated rules for event logs and reports on logs data, and incident response. System Development Any application, platform, middleware, operating system, hypervisor, Security network stack and any other software that is part of the Cloud Technology Stack. Third-Party Any entity acting as a party in a contractual relationship to provide goods or services (this includes suppliers and service providers). 40 TLP: White Terminology Definition Threat Vulnerability Any circumstance or events likely to adversely affect the business of the CSPs and CSTs (including its mission, functions, credibility or reputation), assets or employees, through exploiting an information system through unauthorized access to, destruction, disclosure, alteration or denial of services, in addition to the ability of the threat source to succeed in exploiting one of the vulnerabilities of a particular information system, which includes cyber threats. Any kind of vulnerability in the computer system, its programs, or applications, in a set of procedures or anything that makes cybersecurity vulnerable. 41 TLP: White Annex No. (C): List of the Abbreviations Annex C below shows some of the abbreviations, and their meanings, used in the controls herein. Table 5. List of Abbreviations Abb. Full Version BCM Business Continuity Management CCC Cloud Cybersecurity Controls CCTV Closed-Circuit Television CMDB Configuration Management DataBase CNI Critical National Infrastructure CSP Cloud Service Provider CST Cloud Service Tenant CTS Cloud Technology Stack DDoS ECC Distributed Denial of Service IaaS MFA Essential Cybersecurity Controls PaaS Infrastructure as a Service SAN Multi-Factor Authentication SaaS Platform as a Service SIEM Storage Area Network Software as a Service Security Information and Event Management 42 TLP: White Annex No. (D): List of the Updates Version Annex D below shows the updates on the previous version (i.e., CCC-1:2020). Table 6. List of Updates Date CCC � 2 : 2024 2024 Update type Section Previous text Updated text Rationale Deletion Subcontrol Provide cloud computing Controls related to 2-3-p-1-10 services from within the data localization have Kingdom, including systems been transferred from used for storage, processing, the document to the and disaster recovery centers. National Data Management Office Deletion Subcontrol Provide cloud computing (NDMO) at the Saudi 2-3-p-1-11 services from within the Data and Artificial Kingdom, including systems Intelligence Authority used for monitoring, and for as per the support. mandates, and entities must refer to the Modification Terminologies Confidential Sensitive Data/Information National Data and Definitions Data/Information Management Office regarding data localization before taking any action in this regard. Translation update 43 TLP: White 44 TLP: White"
+    },
+    {
+      "code": "3-1-P-1-1",
+      "subdomain": "3-1",
+      "parent": "3-1-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Developing and implementing disaster recovery and business continuity procedures in a secure manner."
+    },
+    {
+      "code": "3-1-P-1-2",
+      "subdomain": "3-1",
+      "parent": "3-1-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Developing and implementing procedures to ensure resilience and continuity of cybersecurity systems dedicated to the protection of Cloud Technology Stack. In addition to subcontrols in the ECC control 3-1-3, the CST shall cover the following additional subcontrols for cybersecurity requirements for cybersecurity resilience aspects of business continuity management, as a minimum:"
+    },
+    {
+      "code": "3-1-T-1-1",
+      "subdomain": "3-1",
+      "parent": "3-1-T-1",
+      "kind": "subcontrol",
+      "audience": "cst",
+      "text": "Developing and implementing disaster recovery and business continuity procedures related to cloud computing, in a secure manner. 27 TLP: White Third-Party Cybersecurity 4-1 Supply Chain and Third-Party Cybersecurity To ensure the protection of assets against the cybersecurity risks related to third- Controls parties including outsourcing and managed services as per policies and procedures,"
+    },
+    {
+      "code": "4-1-P-1",
+      "subdomain": "4-1",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "and related laws and regulations. In addition to implementing the ECC controls 4-1-2 and 4-1-3, the CSP shall cover the following additional subcontrols for third-party cybersecurity requirements, as a minimum: 8"
+    },
+    {
+      "code": "4-1-P-1-1",
+      "subdomain": "4-1",
+      "parent": "4-1-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Ensure that the CSP fulfills NCA's requests to remove software or services, provided by third-party providers that may be considered a cybersecurity threat to national entities, from the marketplace provided to CSTs. as it is considered as optional - CST Controls: Table (3) below shows CST's commitments to cloud cybersecurity controls (section no. 10 \"Cloud Cybersecurity Controls\") by levels. Table 3. CST's commitments to cybersecurity controls for cloud computing Optional (Recommended) Mandatory Subdomains and Level 1 Level 2 Level 3 Level 4"
+    },
+    {
+      "code": "4-1-P-1-2",
+      "subdomain": "4-1",
+      "parent": "4-1-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Requirement to provide security documentation for any equipment or services from suppliers and third-party providers."
+    },
+    {
+      "code": "4-1-P-1-3",
+      "subdomain": "4-1",
+      "parent": "4-1-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Third-party providers compliant with law and regulatory requirements relevant to their scope."
+    },
+    {
+      "code": "4-1-P-1-4",
+      "subdomain": "4-1",
+      "parent": "4-1-P-1",
+      "kind": "subcontrol",
+      "audience": "csp",
+      "text": "Risk management and security governance on third-party providers as part of general cybersecurity risk management and governance. 28 TLP: White Annexes Annex No. (A): Cloud Cybersecurity Controls Levels Cybersecurity controls for cloud services are divided into four levels using a top-down approach, level 1, level 2, level 3, and level 4: Level 1: A classification level applies to data classified as a (top secret) based on what is issued by the competent authority. Level 2: A classification level applies to data classified as a (secret) based on what is issued by the competent authority. Level 3: A classification level applies to data classified as a (confidential) based on what is issued by the competent authority. Level 4: classification level applies to data classified as a (public) based on what is issued by the competent authority. Please note that the highest level of classification should be adopted when the content of an integrated set of data includes different levels. CSP Controls: Table (2) below shows CSP's commitments to cloud cybersecurity controls (section no. 10 \"Cloud Cybersecurity Controls\") by levels. Table 2. CSP's commitments to cybersecurity controls for cloud computing Optional (Recommended) Mandatory Subdomains and Level 1 Level 2 Level 3 Level 4 ECC Controls"
+    },
+    {
+      "code": "2-6-P-1",
+      "subdomain": "2-6",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "",
+      "needs_review": true
+    },
+    {
+      "code": "2-9-P-1",
+      "subdomain": "2-9",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "",
+      "needs_review": true
+    },
+    {
+      "code": "2-13-P-1",
+      "subdomain": "2-13",
+      "parent": null,
+      "kind": "control",
+      "audience": "csp",
+      "text": "",
+      "needs_review": true
+    },
+    {
+      "code": "1-2-T-1",
+      "subdomain": "1-2",
+      "parent": null,
+      "kind": "control",
+      "audience": "cst",
+      "text": "",
+      "needs_review": true
+    },
+    {
+      "code": "1-3-T-1",
+      "subdomain": "1-3",
+      "parent": null,
+      "kind": "control",
+      "audience": "cst",
+      "text": "",
+      "needs_review": true
+    },
+    {
+      "code": "2-2-T-1",
+      "subdomain": "2-2",
+      "parent": null,
+      "kind": "control",
+      "audience": "cst",
+      "text": "",
+      "needs_review": true
+    },
+    {
+      "code": "2-6-T-1",
+      "subdomain": "2-6",
+      "parent": null,
+      "kind": "control",
+      "audience": "cst",
+      "text": "",
+      "needs_review": true
+    }
+  ]
+}

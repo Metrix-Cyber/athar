@@ -34,6 +34,10 @@ type Control struct {
 	Parent    string `json:"parent,omitempty"`
 	Kind      Kind   `json:"kind"`
 	Text      string `json:"text"`
+	// Audience is set by frameworks that split obligations between parties,
+	// such as the CCC's provider and tenant control sets. Empty where the
+	// framework makes no such distinction.
+	Audience string `json:"audience,omitempty"`
 	// NeedsReview marks entries whose text could not be cleanly recovered from
 	// the source PDF and must be verified by a human against the official
 	// document before this catalogue is treated as authoritative.
@@ -50,6 +54,8 @@ type Subdomain struct {
 
 // Catalog is a complete framework definition.
 type Catalog struct {
+	// ID is the registry identifier, set on registration.
+	ID         ID          `json:"-"`
 	Framework  string      `json:"framework"`
 	Source     string      `json:"source"`
 	Domains    []Domain    `json:"domains"`
@@ -66,21 +72,23 @@ type Domain struct {
 	Name string `json:"name"`
 }
 
-var ecc *Catalog
-
-// ECC returns the embedded NCA ECC-2:2024 catalogue. It panics on a malformed
-// catalogue, which can only be a build-time packaging error.
-func ECC() *Catalog {
-	if ecc == nil {
-		var c Catalog
-		if err := json.Unmarshal(eccJSON, &c); err != nil {
-			panic("framework: malformed embedded ECC catalogue: " + err.Error())
-		}
-		c.index()
-		ecc = &c
+func init() {
+	var c Catalog
+	if err := json.Unmarshal(eccJSON, &c); err != nil {
+		panic("framework: malformed embedded ECC catalogue: " + err.Error())
 	}
-	return ecc
+	register(Info{
+		ID:        ECCID,
+		Name:      "NCA Essential Cybersecurity Controls (ECC-2:2024)",
+		Authority: "National Cybersecurity Authority, Saudi Arabia",
+		Canonical: true,
+		Sourced:   true,
+		Note:      "Parsed from the NCA's published document. Six entries are flagged for verification where the source text could not be cleanly extracted.",
+	}, &c)
 }
+
+// ECC returns the canonical framework. Checks cite its clauses directly.
+func ECC() *Catalog { return MustGet(ECCID) }
 
 func (c *Catalog) index() {
 	c.byCode = make(map[string]Control, len(c.Controls))
