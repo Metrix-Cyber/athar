@@ -32,6 +32,7 @@ func main() {
 		list     = flag.Bool("list", false, "list checks and the read scopes they require, then exit")
 		showVer  = flag.Bool("version", false, "print version and exit")
 		timeout  = flag.Duration("timeout", 5*time.Minute, "overall assessment timeout")
+		ui       = flag.Bool("ui", false, "sign in and assess through a local browser interface")
 	)
 	flag.Usage = usage
 	flag.Parse()
@@ -42,6 +43,19 @@ func main() {
 	}
 	if *list {
 		listChecks()
+		return
+	}
+
+	// The interface, not the flags, is the default path. Someone who
+	// double-clicks the program, or runs it with no arguments because they do
+	// not know what arguments to give, is exactly the person this tool is for —
+	// and printing a usage message at them helps nobody. The flag interface
+	// remains for pipelines, which pass arguments and redirect output.
+	if *ui || len(os.Args) == 1 || launchedByDoubleClick() {
+		if err := runUI(); err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			os.Exit(1)
+		}
 		return
 	}
 
@@ -141,9 +155,18 @@ func credentials(provider string) (token, tenant string, err error) {
 		token = os.Getenv("ATHAR_GOOGLE_TOKEN")
 		tenant = os.Getenv("ATHAR_GOOGLE_DOMAIN")
 		if token == "" {
+			// This previously suggested `gcloud auth print-access-token`. That
+			// returns a Cloud Platform token carrying no Admin SDK scopes, so
+			// every check would have reported "undetermined" no matter how the
+			// domain was configured — advice that looked plausible and could
+			// not work.
 			return "", "", fmt.Errorf(
-				"ATHAR_GOOGLE_TOKEN is not set.\n\nObtain a read-only Admin SDK token, for example:\n" +
-					"  gcloud auth print-access-token")
+				"ATHAR_GOOGLE_TOKEN is not set.\n\n" +
+					"The token must carry Admin SDK scopes:\n" +
+					"  https://www.googleapis.com/auth/admin.directory.user.readonly\n" +
+					"  https://www.googleapis.com/auth/admin.directory.domain.readonly\n\n" +
+					"A default gcloud token does not carry these. Run without arguments to\n" +
+					"sign in through the browser instead, which requests them correctly.")
 		}
 	}
 	if tenant == "" {
@@ -166,13 +189,20 @@ func listChecks() {
 func usage() {
 	fmt.Fprintf(os.Stderr, `athar-cloud — tenant assessment against NCA ECC-2:2024
 
-Usage:
+Run it with no arguments, or double-click it, to sign in through your browser
+and get a report. That is the intended way to use this program and needs no
+tokens, no environment variables and no cloud CLI.
+
+  athar-cloud
+
+The flags below exist for pipelines, which supply their own token:
+
   athar-cloud -provider m365   -out tenant.json
   athar-cloud -provider google -out tenant.json
   athar-cloud -list
 
-Credentials are read from the environment, never from flags, so they do not
-appear in shell history or the process list:
+Credentials for that mode are read from the environment, never from flags, so
+they do not appear in shell history or the process list:
 
   Microsoft 365     ATHAR_M365_TOKEN, ATHAR_M365_TENANT
   Google Workspace  ATHAR_GOOGLE_TOKEN, ATHAR_GOOGLE_DOMAIN
