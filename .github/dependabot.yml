@@ -1,0 +1,27 @@
+version: 2
+
+updates:
+  # A security tool shipping known-vulnerable dependencies is a poor argument
+  # for its own advice. The dependency set is deliberately tiny, so the review
+  # burden here is small and the signal is high.
+  - package-ecosystem: gomod
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "deps"
+    labels:
+      - dependencies
+
+  # Workflow actions are executable code with access to release signing and
+  # attestation permissions. They need updating for the same reasons the Go
+  # dependencies do, and are easier to forget.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: "ci"
+    labels:
+      - dependencies
