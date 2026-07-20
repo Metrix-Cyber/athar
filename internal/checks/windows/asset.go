@@ -49,7 +49,7 @@ func operatingSystem(ctx context.Context) []finding.Finding {
 	// boundary. An asset inventory that names the wrong operating system is
 	// worse than useless — it is the first thing an assessor cross-checks.
 	rawProduct := product
-	product = normalizeProductName(product, build)
+	product = NormalizeProductName(product, build)
 
 	f = f.With("product_name", product).
 		With("display_version", display).

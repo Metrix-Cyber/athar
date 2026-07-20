@@ -51,7 +51,10 @@ const win11MinBuild = 22000
 // "Windows 10" on every Windows 11 host. An asset inventory naming the wrong
 // operating system is the first thing an assessor cross-checks, and it
 // undermines confidence in everything else in the report.
-func normalizeProductName(product, build string) string {
+// NormalizeProductName is exported so the scanner can label a host with the
+// same corrected product name the checks reason about, rather than the raw
+// registry value.
+func NormalizeProductName(product, build string) string {
 	if buildNumber(build) >= win11MinBuild && strings.HasPrefix(product, "Windows 10") {
 		return "Windows 11" + strings.TrimPrefix(product, "Windows 10")
 	}

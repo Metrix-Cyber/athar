@@ -62,8 +62,8 @@ func TestNormalizeProductName(t *testing.T) {
 		{"Windows 10 Pro", "not-a-number", "Windows 10 Pro"},
 	}
 	for _, c := range cases {
-		if got := normalizeProductName(c.product, c.build); got != c.want {
-			t.Errorf("normalizeProductName(%q, %q) = %q, want %q",
+		if got := NormalizeProductName(c.product, c.build); got != c.want {
+			t.Errorf("NormalizeProductName(%q, %q) = %q, want %q",
 				c.product, c.build, got, c.want)
 		}
 	}

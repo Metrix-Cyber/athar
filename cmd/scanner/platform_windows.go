@@ -10,6 +10,7 @@ import (
 	"golang.org/x/sys/windows/registry"
 
 	"github.com/Metrix-Cyber/athar/internal/check"
+	wincheck "github.com/Metrix-Cyber/athar/internal/checks/windows"
 )
 
 var (
@@ -54,16 +55,32 @@ func osVersion() string {
 
 const cvKey = `SOFTWARE\Microsoft\Windows NT\CurrentVersion`
 
-// edition returns the Windows edition identifier (Core, Professional,
-// Enterprise, ServerStandard, ...). It determines whether the Local Group
-// Policy Editor is available, which matters for remediation advice: Home
-// editions have no gpedit.msc, so settings must be applied another way.
+// edition returns a product name a reader recognises.
+//
+// EditionID alone is the internal identifier, not a product: on Windows 11 Home
+// it reads "Core", which put "Core 10.0.26200" at the top of every report. The
+// first line an assessor reads should name the machine's operating system in
+// the words the vendor uses for it.
+//
+// ProductName is the friendly name but lies about the major version — it still
+// says "Windows 10" on Windows 11, because changing it would have broken
+// software that parses it. The build number is the reliable discriminator, so
+// the same correction the checks already apply is applied here.
 func edition() string {
 	k, err := registry.OpenKey(registry.LOCAL_MACHINE, cvKey, registry.QUERY_VALUE)
 	if err != nil {
 		return ""
 	}
 	defer k.Close()
+
+	product, _, _ := k.GetStringValue("ProductName")
+	build, _, _ := k.GetStringValue("CurrentBuildNumber")
+	if name := wincheck.NormalizeProductName(product, build); name != "" {
+		return name
+	}
+
+	// Fall back to the edition identifier rather than returning nothing: an
+	// unfamiliar string still identifies the host better than a blank line.
 	v, _, _ := k.GetStringValue("EditionID")
 	return v
 }
