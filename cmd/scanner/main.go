@@ -35,14 +35,15 @@ func main() {
 		timeout = flag.Duration("timeout", 5*time.Minute, "overall scan timeout")
 		showVer = flag.Bool("version", false, "print version and exit")
 		failOn  = flag.String("fail-on", "", "exit non-zero if a finding of this severity or higher is present: critical, high, medium, low")
+		ui      = flag.Bool("ui", false, "open the assessment in a browser")
 	)
 	flag.Parse()
 
-	// Guided mode is for someone who launched the binary from a file manager.
+	// The interface is for someone who launched the binary from a file manager.
 	// Both conditions are required: no arguments alone is not enough, because
 	// `athar.exe > scan.json` has none either, and treating that as a
 	// double-click silently produced an empty file instead of a report.
-	guided := len(os.Args) == 1 && launchedByDoubleClick()
+	guided := (len(os.Args) == 1 && launchedByDoubleClick()) || *ui
 
 	if *showVer {
 		fmt.Printf("athar %s\n", version)
@@ -63,28 +64,33 @@ func main() {
 		return
 	}
 
-	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt)
-	defer cancel()
-	ctx, cancelTimeout := context.WithTimeout(ctx, *timeout)
-	defer cancelTimeout()
-
 	checks := check.ForCurrentPlatform()
 	if len(checks) == 0 {
 		fmt.Fprintf(os.Stderr, "no checks are compiled in for %s\n", runtime.GOOS)
 		os.Exit(1)
 	}
 
+	// The interface owns the scan: it shows what is about to run, scans when
+	// the reader asks, and presents the findings. Scanning first and then
+	// opening a page would take the choice away and make the first screen a
+	// progress bar for work already done.
+	if guided {
+		if err := runUI(version); err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			os.Exit(1)
+		}
+		return
+	}
+
+	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt)
+	defer cancel()
+	ctx, cancelTimeout := context.WithTimeout(ctx, *timeout)
+	defer cancelTimeout()
+
 	fmt.Fprintf(os.Stderr, "Running %d checks on %s/%s...\n", len(checks), runtime.GOOS, runtime.GOARCH)
 
 	rep := check.Run(ctx, checks, hostInfo(), isElevated(), version)
 	_, rep.Summary.ClausesTotal = framework.ECC().ClauseCoverage(check.ControlRefs())
-
-	// A double-clicked launch gets the whole flow — scan, report, and a
-	// console that stays open — rather than JSON in a window that closes.
-	if guided {
-		guidedMode(rep, rep.Findings)
-		return
-	}
 
 	if *outPath == "" {
 		data, err := json.MarshalIndent(rep, "", "  ")
