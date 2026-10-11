@@ -1,10 +1,10 @@
 module github.com/Metrix-Cyber/athar
 
-go 1.26
+go 1.26.0
 
 require (
 	github.com/yusufpapurcu/wmi v1.2.4
-	golang.org/x/sys v0.47.0
+	golang.org/x/sys v0.49.0
 )
 
 require github.com/go-ole/go-ole v1.2.6 // indirect
